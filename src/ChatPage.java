@@ -12,21 +12,22 @@ public class ChatPage extends JFrame {
     private JButton sendButton;
 
     public ChatPage() {
-        setTitle("Simple Chat");
+        setTitle("Chat Page");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(1080, 1920);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(new BorderLayout());
 
         // menu bar
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("File");
-        JMenuItem menuItem = new JMenuItem("Landing Page");
-        menu.add(menuItem);
+        JMenuItem landingPage = new JMenuItem("Landing Page");
+        menu.add(landingPage);
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
         // landing page action
-        menuItem.addActionListener(e -> LandingPage.launch());
+        //landingPage.addActionListener(e -> LandingPage.launch());
 
 
         // Chat Area
