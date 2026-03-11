@@ -20,13 +20,13 @@ public class ChatPage extends JFrame {
         // menu bar
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("File");
-        JMenuItem menuItem = new JMenuItem("Landing Page");
-        menu.add(menuItem);
+        JMenuItem landingPage = new JMenuItem("Landing Page");
+        menu.add(landingPage);
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
         // landing page action
-        menuItem.addActionListener(e -> LandingPage.launch();)
+        landingPage.addActionListener(e -> LandingPage.launch());
 
 
         // Chat Area
