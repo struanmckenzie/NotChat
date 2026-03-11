@@ -9,6 +9,9 @@ public class LandingPage {
         JFrame frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setIconImage(
+                new ImageIcon(LandingPage.class.getResource("/img/alaba.png")).getImage()
+        );
 
         JLabel title = new JLabel("Username", SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 32));
