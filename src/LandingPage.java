@@ -67,16 +67,14 @@ public class LandingPage {
         });
 
         print = new JButton("View chats");
-        print.addActionListener(new ActionListener() {
+        search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String s = "";
-                for (int i = 0; i < list.size(); i++) {
-                    s += list.get(i) + " ";
-                }
-                JOptionPane.showMessageDialog(null, "List: " + s);
+                frame.dispose();              // close LandingPage window
+                //ChatPage.launch();            // opens ChatPage window
             }
         });
+
 
         exit = new JButton("Exit");
         exit.addActionListener(new ActionListener() {
