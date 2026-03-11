@@ -7,24 +7,43 @@ public class ChatPane {
 
         JFrame frame = new JFrame("CONTACT_NAME");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        // menu bar
+        JMenuBar menuBar = new JMenuBar();
+        JMenuItem landingPage = new JMenuItem("Landing Page");
+        menuBar.add(landingPage);
+        frame.setJMenuBar(menuBar);
+
+        landingPage.addActionListener(e -> LandingPage.launch());
+
         // Chat panel (scrollable chat list)
-        JPanel chatListPanel = new JPanel();
-        chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
+        JPanel chat = new JPanel();
+        chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
 
-        // TEMPORARY: add 15 fake chats
-        for (int i = 1; i <= 15; i++) {
-            chatListPanel.add(chatBubble(
-                    "Name " + i,
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
-                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
-                            "when an unknown printer took a galley of type and scrambled it to make a type specimen book." + i,
-                    "25:60"
-            ));
-        }
+        // Input Panel
+        JPanel inputPanel = new JPanel(new BorderLayout());
+        JTextField messageField = new JTextField();
+        JButton sendButton = new JButton("Send");
 
-        JScrollPane scrollPane = new JScrollPane(chatListPanel);
+        inputPanel.add(messageField, BorderLayout.CENTER);
+        inputPanel.add(sendButton, BorderLayout.EAST);
+        frame.add(inputPanel, BorderLayout.SOUTH);
+
+
+        // Send Button Action
+        sendButton.addActionListener(e ->
+                chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME")));
+
+        // Enter Key Action
+        messageField.addActionListener(e ->
+                chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME")));
+
+
+
+
+        JScrollPane scrollPane = new JScrollPane(chat);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.getVerticalScrollBar().setUnitIncrement(30);
 
