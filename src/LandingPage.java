@@ -39,9 +39,8 @@ public class LandingPage {
 
         JButton viewCha = new JButton("View Chats");
         viewCha.addActionListener(e -> {
-            JOptionPane.showMessageDialog(null, "temporary message, view chats function");
-            // frame.dispose();
-            // ChatPage.launch();
+            frame.dispose();
+            //new ChatPage();
         });
 
         JButton exit = new JButton("Exit");
@@ -93,7 +92,7 @@ public class LandingPage {
 
         viewCha.addActionListener(e -> {
             frame.dispose();
-            // ChatPage.launch();
+            //new ChatPage();
         });
     }
 
