@@ -14,7 +14,8 @@ public class ChatPage extends JFrame {
     public ChatPage() {
         setTitle("Simple Chat");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(1080, 1920);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(new BorderLayout());
 
         // menu bar
