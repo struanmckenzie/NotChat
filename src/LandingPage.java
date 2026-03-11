@@ -23,51 +23,33 @@ public class LandingPage {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 1));
 
-        JButton rand, add, search, print, exit;
-        rand = new JButton("Edit Profile");
-        rand.addActionListener(new ActionListener() {
+        JButton edit, viewCon, create, viewCha, exit;
+        edit = new JButton("Edit Profile");
+        edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < 20; i++) {
-                    list.add((int) (1 + Math.random() * 100));
-                }
+                JOptionPane.showMessageDialog(null, "temporary message, edit profile function");
             }
         });
 
-        add = new JButton("View Contacts");
-        add.addActionListener(new ActionListener() {
+        viewCon = new JButton("View Contacts");
+        viewCon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int input;
-                try {
-                    input = Integer.parseInt(JOptionPane.showInputDialog("Give me a number"));
-                    list.add(input);
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "An Error Occured!");
-                }
+                JOptionPane.showMessageDialog(null, "temporary message, View contacts function");
             }
         });
 
-        search = new JButton("Create a new chat");
-        search.addActionListener(new ActionListener() {
+        create = new JButton("Create a new chat");
+        create.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int input;
-                try {
-                    input = Integer.parseInt(JOptionPane.showInputDialog("Give me a number"));
-                    if (list.contains(input)) {
-                        JOptionPane.showMessageDialog(null, input + " was found!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, input + " wasn't found!");
-                    }
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "An Error Occured!");
-                }
+                JOptionPane.showMessageDialog(null, "temporary message, create chat function");
             }
         });
 
-        print = new JButton("View chats");
-        search.addActionListener(new ActionListener() {
+        viewCha = new JButton("View chats");
+        viewCha.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();              // close LandingPage window
@@ -85,10 +67,10 @@ public class LandingPage {
             }
         });
 
-        panel.add(rand);
-        panel.add(add);
-        panel.add(search);
-        panel.add(print);
+        panel.add(edit);
+        panel.add(viewCon);
+        panel.add(create);
+        panel.add(viewCha);
         panel.add(exit);
         panel.setBounds(400, 100, 300, 400);
         frame.add(panel);
