@@ -1,8 +1,13 @@
-public class Contacts {
+public class Contact {
 
     //Contact details depending on time could implement profile pictures
     private String name;
     private String phoneNumber;
+
+    public Contact(String name, String phoneNumber){
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
 
     //Getters and setters 
     public String getName() {
