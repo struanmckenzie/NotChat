@@ -16,7 +16,7 @@ public class ChatPane {
         menuBar.add(landingPage);
         frame.setJMenuBar(menuBar);
 
-        //landingPage.addActionListener(e -> LandingPage.launch());
+        landingPage.addActionListener(e -> LandingPage.launch());
 
         // Chat panel (scrollable chat list)
         JPanel chat = new JPanel();
