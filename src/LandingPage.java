@@ -24,7 +24,7 @@ public class LandingPage {
         panel.setLayout(new GridLayout(5, 1));
 
         JButton rand, add, search, print, exit;
-        rand = new JButton("Fill List with Random Numbers");
+        rand = new JButton("Edit Profile");
         rand.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,7 +34,7 @@ public class LandingPage {
             }
         });
 
-        add = new JButton("Add specific number to List");
+        add = new JButton("View Contacts");
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +48,7 @@ public class LandingPage {
             }
         });
 
-        search = new JButton("Search for a number in List");
+        search = new JButton("Create a new chat");
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class LandingPage {
             }
         });
 
-        print = new JButton("Print List");
+        print = new JButton("View chats");
         print.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
