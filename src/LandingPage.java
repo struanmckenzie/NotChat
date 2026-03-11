@@ -93,7 +93,7 @@ public class LandingPage {
 
         viewCha.addActionListener(e -> {
             frame.dispose();
-            // ChatPage.launch();
+            new ChatPage();
         });
     }
 
