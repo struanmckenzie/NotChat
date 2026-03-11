@@ -26,7 +26,7 @@ public class ChatPage extends JFrame {
         setJMenuBar(menuBar);
 
         // landing page action
-        menuItem.addActionListener(e -> LandingPage.launch();)
+        menuItem.addActionListener(e -> LandingPage.launch());
 
 
         // Chat Area
