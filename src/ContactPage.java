@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -22,6 +23,10 @@ public class ContactPage {
 
         for (Contact contact : contacts) {
             JButton button = new JButton(contact.getName());
+            //Update action listener to display contact details with options to edit and delete contact
+            button.addActionListener(e ->
+                JOptionPane.showMessageDialog(null, "Open contact details for " + contact.getName())
+            );
             sidebar.add(button);
         }
 
