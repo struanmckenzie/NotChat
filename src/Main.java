@@ -1,3 +1,5 @@
-static void main(){
+public class Main {
 
+    static void main() {
+    }
 }
