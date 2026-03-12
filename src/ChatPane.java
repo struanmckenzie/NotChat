@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.time.Instant;
@@ -9,6 +8,8 @@ public class ChatPane {
     private JPanel chat;
     private JTextField messageField;
     private JButton sendButton;
+    private final Queue messages = new Queue();
+    private String chatName = "TEMP_NAME";
 
     public ChatPane() {
         initializeUI();
@@ -20,7 +21,7 @@ public class ChatPane {
 
     private void initializeUI() {
 
-        frame = new JFrame("CONTACT_NAME");
+        frame = new JFrame(chatName);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
         frame.setLayout(new BorderLayout());
@@ -29,7 +30,10 @@ public class ChatPane {
         JMenuBar menuBar = new JMenuBar();
         JMenuItem landingPage = new JMenuItem("Landing Page");
         menuBar.add(landingPage);
-        landingPage.addActionListener(e -> LandingPage.launch());
+        landingPage.addActionListener(e -> {
+            messages.saveToCSV(chatName);
+            LandingPage.launch();
+        } );
 
         frame.setJMenuBar(menuBar);
 
@@ -63,6 +67,10 @@ public class ChatPane {
     private void sendMessage() {
         String text = messageField.getText().trim();
         if (text.isEmpty()) return;
+
+        // save to message queue
+        Message msg = new Message("You", text);
+        messages.push(msg);
 
         chat.add(createChatBubble("TEMP_NAME", text, Instant.now()));
 
