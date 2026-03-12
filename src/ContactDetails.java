@@ -17,7 +17,7 @@ public class ContactDetails {
         messageBox.setLayout(new BorderLayout());
         messageBox.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         messageBox.setBackground(Color.GRAY);
-        messageBox.setPreferredSize(new Dimension(1000, 100));
+        messageBox.setPreferredSize(new Dimension(1500, 100));
         messageBox.setMaximumSize(messageBox.getPreferredSize());
 
         JLabel userName = new JLabel(contact.getName());
