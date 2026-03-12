@@ -3,8 +3,8 @@ import java.awt.*;
 
 
 public class ProfilePage extends JFrame {
-    private String name = "TEMP_NAME";
-    private String phone = "TEMP_NUMBER";
+    private String name;
+    private String phone;
 
 
     public ProfilePage() {
@@ -28,11 +28,22 @@ public class ProfilePage extends JFrame {
         textArea.setEditable(false);
         add(textArea, BorderLayout.CENTER);
 
-        // info boxes
-        JTextArea nameField = new JTextArea(name);
-        JTextArea phoneField = new JTextArea(phone);
+        // info box panels
+        JPanel namePanel = new JPanel();
+        JPanel phonePanel = new JPanel();
 
-        JSplitPane splitPane = new JSplitPane();
+        JTextArea nameField = new JTextArea(name);
+        namePanel.add(nameField);
+
+        JTextArea phoneField = new JTextArea(phone);
+        phonePanel.add(phoneField);
+
+
+        JSplitPane splitPane = new JSplitPane(
+                JSplitPane.HORIZONTAL_SPLIT,
+                namePanel,
+                phonePanel
+        );
 
         add(splitPane, BorderLayout.CENTER);
 
@@ -44,15 +55,14 @@ public class ProfilePage extends JFrame {
             phone = phoneField.getText();
             // save to storage for name and telephone number
             });
-        //add(saveButton);
+        add(saveButton);
 
         // landing page action
         //landingPage.addActionListener(e -> LandingPage.launch());
-
-
-
     }
 
+    public void setName(String name) { this.name = name; }
+    public void setPhone(String phone) { this.phone = phone; }
 
 
     public static void main(String[] args) {
