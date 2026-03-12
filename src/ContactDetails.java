@@ -1,12 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class ContactDetails {
 
     Contact contact;
+    List<Contact> allContacts;
 
-    public ContactDetails(Contact contact) {
+    public ContactDetails(Contact contact, List<Contact> contacts) {
         this.contact = contact;
+        this.allContacts = contacts;
     }
    
     public JPanel getDisplayContactDetails() {
@@ -37,6 +40,9 @@ public class ContactDetails {
         JButton editButton = new JButton("Edit details");
 
         JButton deleteButton = new JButton("Delete contact");
+        deleteButton.addActionListener(e ->
+            deleteContact()
+        );
 
         buttons.add(viewButton);
         buttons.add(editButton);
@@ -49,7 +55,9 @@ public class ContactDetails {
     }
 
     public void deleteContact(){
-         
+        allContacts.remove(contact);
+        Main.contactPage.reloadContacts();
     }
+
 }
         

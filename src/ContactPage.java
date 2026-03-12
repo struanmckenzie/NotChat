@@ -1,11 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class ContactPage {
 
-    public static void launch(Contact[] contacts) {
+    private JFrame frame;
+    private JPanel contactsPage;
+    private List<Contact> contacts;
 
-        JFrame frame = new JFrame();
+    public ContactPage(List<Contact> contacts){
+        this.contacts = contacts;
+    }
+
+    public void drawUI(List<Contact> contacts) {
+
+        frame = new JFrame();
         frame.setSize(1080, 1920);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setTitle("Contacts");
@@ -41,12 +50,12 @@ public class ContactPage {
 
         mainContent.add(sideBar, BorderLayout.WEST);
         
-        JPanel contactsPage = new JPanel();
+        contactsPage = new JPanel();
         contactsPage.setLayout(new BoxLayout(contactsPage, BoxLayout.Y_AXIS));
         contactsPage.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         for (Contact contact : contacts ){
-            ContactDetails contactBox = new ContactDetails(contact);
+            ContactDetails contactBox = new ContactDetails(contact, contacts);
             JPanel displayableContactBox = contactBox.getDisplayContactDetails();
             contactsPage.add(displayableContactBox);
             contactsPage.add(Box.createVerticalStrut(20));
@@ -62,6 +71,24 @@ public class ContactPage {
         
         frame.setVisible(true);
 
+    }
+
+    public void reloadContacts() {
+        contactsPage.removeAll(); // clear previous contacts
+
+        for (Contact contact : contacts) {
+            ContactDetails contactBox = new ContactDetails(contact, contacts);
+            JPanel displayableContactBox = contactBox.getDisplayContactDetails();
+            contactsPage.add(displayableContactBox);
+            contactsPage.add(Box.createVerticalStrut(20));
+        }
+
+        contactsPage.revalidate(); // refresh layout
+        contactsPage.repaint();    // redraw panel
+    }
+
+    public static ContactPage launch(List<Contact> contacts) {
+        return new ContactPage(contacts);
     }
 
 }
