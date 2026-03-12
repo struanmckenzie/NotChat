@@ -21,7 +21,7 @@ public class LandingPage {
         frame.add(title, BorderLayout.NORTH);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1));
+        panel.setLayout(new GridLayout(5, 1)); 
 
         JButton edit, viewCon, create, viewCha, exit;
         edit = new JButton("Edit Profile");
