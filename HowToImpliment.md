@@ -1,6 +1,6 @@
 # How To Implement `Message.java` in `ChatPage.java`
 
-This guide shows how to connect your `Message` class to `ChatPage` so that you dont look like a idiot trying to understand my code. Message allows us to store all messages in a simple format "Author | message | data and time".
+This guide shows how to connect your `Message` class to `ChatPage` so that you dont look like an idiot trying to understand my code. Message allows us to store all messages in a simple format "Author | message | data and time".
 
 ## 1. Add a queue field to `ChatPage`
 
