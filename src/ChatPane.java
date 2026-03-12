@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.time.Instant;
 
 public class ChatPane {
 
@@ -34,7 +35,7 @@ public class ChatPane {
 
         // Send Button Action
         sendButton.addActionListener(e -> {
-            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME"));
+            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), Instant.now()));
 
             // refresh when sent
             chat.revalidate();
@@ -47,7 +48,8 @@ public class ChatPane {
 
         // Enter Key Action
         messageField.addActionListener(e -> {
-            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME"));
+            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), Instant.now()));
+
 
             // refresh when sent
             chat.revalidate();
@@ -56,9 +58,6 @@ public class ChatPane {
             // make new field blank, ready for new message
             messageField.setText("");
         });
-
-
-
 
         JScrollPane scrollPane = new JScrollPane(chat);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -69,9 +68,9 @@ public class ChatPane {
         frame.setVisible(true);
     }
 
-    private static JPanel chatBubble(String chatName, String content, String time) {
+    private static JPanel chatBubble(String chatName, String content, Instant time) {
         // configure how the chat bubble looks
-        JPanel panel = new JPanel();
+        JPanel panel = new JPanel(new GridLayout(2, 1));
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(5, 5, 5, 5),
                 BorderFactory.createLineBorder(Color.magenta, 1)
