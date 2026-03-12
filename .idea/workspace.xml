@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="trying to make text wrap dynamically">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,13 +81,14 @@
   "keyToString": {
     "Application.ChatPage.executor": "Run",
     "Application.ChatPane.executor": "Run",
+    "Application.ChatTemp.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.ProfilePage.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "chat-messages(struan)",
+    "git-widget-placeholder": "#15 on chat-messages(struan)",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",

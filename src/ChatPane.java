@@ -1,75 +1,77 @@
+
 import javax.swing.*;
 import java.awt.*;
 import java.time.Instant;
 
 public class ChatPane {
 
-    public static void launch() {
+    private JFrame frame;
+    private JPanel chat;
+    private JTextField messageField;
+    private JButton sendButton;
 
-        JFrame frame = new JFrame("CONTACT_NAME");
+    public ChatPane() {
+        initializeUI();
+    }
+
+    public void launch() {
+        frame.setVisible(true);
+    }
+
+    private void initializeUI() {
+
+        frame = new JFrame("CONTACT_NAME");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
-        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setLayout(new BorderLayout());
 
-        // menu bar
+        // Menu Bar
         JMenuBar menuBar = new JMenuBar();
         JMenuItem landingPage = new JMenuItem("Landing Page");
         menuBar.add(landingPage);
         frame.setJMenuBar(menuBar);
 
-        //landingPage.addActionListener(e -> LandingPage.launch());
-
         // Chat panel (scrollable chat list)
-        JPanel chat = new JPanel();
+        chat = new JPanel();
         chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
-
-        // Input Panel
-        JPanel inputPanel = new JPanel(new BorderLayout());
-        JTextField messageField = new JTextField();
-        JButton sendButton = new JButton("Send");
-
-        inputPanel.add(messageField, BorderLayout.CENTER);
-        inputPanel.add(sendButton, BorderLayout.EAST);
-        frame.add(inputPanel, BorderLayout.SOUTH);
-
-
-        // Send Button Action
-        sendButton.addActionListener(e -> {
-            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), Instant.now()));
-
-            // refresh when sent
-            chat.revalidate();
-            chat.repaint();
-
-            // make new field blank, ready for new message
-            messageField.setText("");
-        });
-
-
-        // Enter Key Action
-        messageField.addActionListener(e -> {
-            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), Instant.now()));
-
-
-            // refresh when sent
-            chat.revalidate();
-            chat.repaint();
-
-            // make new field blank, ready for new message
-            messageField.setText("");
-        });
 
         JScrollPane scrollPane = new JScrollPane(chat);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.getVerticalScrollBar().setUnitIncrement(30);
 
+        frame.add(scrollPane, BorderLayout.CENTER);
 
-        frame.add(scrollPane);
-        frame.setVisible(true);
+        // Input panel
+        JPanel inputPanel = new JPanel(new BorderLayout());
+        messageField = new JTextField();
+        sendButton = new JButton("Send");
+
+        inputPanel.add(messageField, BorderLayout.CENTER);
+        inputPanel.add(sendButton, BorderLayout.EAST);
+
+        frame.add(inputPanel, BorderLayout.SOUTH);
+
+        // Send Button Action
+        sendButton.addActionListener(e -> sendMessage());
+
+        // Enter Key Action
+        messageField.addActionListener(e -> sendMessage());
     }
 
-    private static JPanel chatBubble(String chatName, String content, Instant time) {
-        // configure how the chat bubble looks
+    private void sendMessage() {
+        String text = messageField.getText().trim();
+        if (text.isEmpty()) return;
+
+        chat.add(createChatBubble("TEMP_NAME", text, Instant.now()));
+
+        chat.revalidate();
+        chat.repaint();
+
+        // Clear message box
+        messageField.setText("");
+    }
+
+    private JPanel createChatBubble(String chatName, String content, Instant time) {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(5, 5, 5, 5),
@@ -77,7 +79,6 @@ public class ChatPane {
         ));
         panel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // configure how chat content is displayed
         JLabel title = new JLabel(chatName + ": " + time);
         JTextArea body = new JTextArea(content);
 
@@ -93,7 +94,6 @@ public class ChatPane {
     }
 
     public static void main(String[] args) {
-        ChatPane.launch();
+        new ChatPane().launch();
     }
-
 }
