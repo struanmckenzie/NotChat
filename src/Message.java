@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a single message by storing the sender, content, and timestamp.
+ * Represennts a single message by storing the sender, content, and timestamp.
  */
 public class Message {
     private String sender;

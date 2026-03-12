@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Represents a queue of chat Messages.
+ * Represents a queeue of chat Messages.
  * Allows saving the entire queue to a CSV file and loading it back.
  */
 public class Queue {
