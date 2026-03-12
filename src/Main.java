@@ -7,8 +7,7 @@ public class Main {
            contacts[i] = new Contact("Contact " + i, "2345678"); 
         }
 
-        ContactPage contactPage = new ContactPage();
-        contactPage.launch(contacts);
+        ContactPage.launch(contacts);
     }
 
 }

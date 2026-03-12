@@ -48,5 +48,8 @@ public class ContactDetails {
         return messageBox;
     }
 
+    public void deleteContact(){
+         
+    }
 }
         

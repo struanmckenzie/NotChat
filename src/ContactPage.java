@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class ContactPage {
 
-    public void launch(Contact[] contacts) {
+    public static void launch(Contact[] contacts) {
 
         JFrame frame = new JFrame();
         frame.setSize(1080, 1920);
@@ -14,6 +14,7 @@ public class ContactPage {
 
         JPanel header = new JPanel();
         header.setLayout(new BorderLayout());
+        header.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         //Temp change the userName to userName variable once I know it 
         JLabel userName = new JLabel("Username", SwingConstants.CENTER); 
@@ -26,7 +27,7 @@ public class ContactPage {
 
         JPanel sideBar = new JPanel();
         sideBar.setLayout(new GridLayout(0, 1)); 
-        sideBar.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
         JButton createNewContact = new JButton("Create new contact");
 
