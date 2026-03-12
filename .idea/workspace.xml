@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "chat-messages(struan)",
+    "git-widget-placeholder": "#21 on profile-page(struan)",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",
