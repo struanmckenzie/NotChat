@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         List<Contact> contacts = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 25; i++) {
             contacts.add(new Contact("Contact " + i, "234567364657"));
         }
 
