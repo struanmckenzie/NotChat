@@ -1,0 +1,16 @@
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>static void main(){\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision b2badba8ae52de2551881e38c2ec2561759d1d48)
++++ b/src/Main.java	(date 1773227985475)
+@@ -1,3 +1,3 @@
+-static void main(){
++static void main() {
+ 
+ }
+\ No newline at end of file
