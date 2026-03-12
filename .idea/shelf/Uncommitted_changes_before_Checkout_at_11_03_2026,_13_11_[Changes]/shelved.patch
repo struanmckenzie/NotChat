@@ -1,0 +1,17 @@
+Index: src/ChatPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\nimport java.awt.*;\nimport java.time.Instant;\n\n/**\n * Class to view chat history\n * @author Struan McK\n */\npublic class ChatPage extends JFrame {\n    private JTextArea chatArea;\n    private JTextField messageField;\n    private JButton sendButton;\n\n    public ChatPage() {\n        setTitle(\"Simple Chat\");\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        setSize(400, 300);\n        setLayout(new BorderLayout());\n\n        // menu bar\n        JMenuBar menuBar = new JMenuBar();\n        JMenu menu = new JMenu(\"File\");\n        JMenuItem menuItem = new JMenuItem(\"Landing Page\");\n        menu.add(menuItem);\n        menuBar.add(menu);\n        setJMenuBar(menuBar);\n\n        // landing page action\n        menuItem.addActionListener(e -> LandingPage.launch();)\n\n\n        // Chat Area\n        chatArea = new JTextArea();\n        chatArea.setEditable(false);\n        JScrollPane scrollPane = new JScrollPane(chatArea);\n        add(scrollPane, BorderLayout.CENTER);\n\n        // Input Panel\n        JPanel inputPanel = new JPanel(new BorderLayout());\n        messageField = new JTextField();\n        sendButton = new JButton(\"Send\");\n        inputPanel.add(messageField, BorderLayout.CENTER);\n        inputPanel.add(sendButton, BorderLayout.EAST);\n        add(inputPanel, BorderLayout.SOUTH);\n\n\n        // Send Button Action\n        sendButton.addActionListener(e -> sendMessage());\n\n        // Enter Key Action\n        messageField.addActionListener(e -> sendMessage());\n\n        setVisible(true);\n    }\n\n    private void sendMessage() {\n        String message = messageField.getText().trim();\n        if (!message.isEmpty()) {\n            chatArea.append(\"You: \" + message + \"\\n\"); // Add message to chat area\n            messageField.setText(\"\");  // Clear input field\n        }\n    }\n\n    public static void main(String[] args) {\n        SwingUtilities.invokeLater(ChatPage::new);\n    }\n}\n
+===================================================================
+diff --git a/src/ChatPage.java b/src/ChatPage.java
+--- a/src/ChatPage.java	(revision ec26728d1bdfcca8ef5f7cab8ffbce83c231316e)
++++ b/src/ChatPage.java	(date 1773234555401)
+@@ -26,7 +26,7 @@
+         setJMenuBar(menuBar);
+ 
+         // landing page action
+-        menuItem.addActionListener(e -> LandingPage.launch();)
++        //menuItem.addActionListener(e -> LandingPage.launch();)
+ 
+ 
+         // Chat Area
