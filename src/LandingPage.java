@@ -55,7 +55,7 @@ public class LandingPage {
         leftPanel.add(viewCha);
         leftPanel.add(exit);
 
-        // RIGHT PANEL (scrollable chat list)
+        // RIGHT PANEL (scrollable chat list)/
         JPanel chatListPanel = new JPanel();
         chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
 
