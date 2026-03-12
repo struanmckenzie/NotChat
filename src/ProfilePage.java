@@ -12,13 +12,9 @@ public class ProfilePage extends JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setTitle("Profile Page");
-        setLocationByPlatform(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        JLabel title = new JLabel(name, SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 32));
-        add(title, BorderLayout.NORTH);
 
         // menu bar
         JMenuBar menuBar = new JMenuBar();
@@ -28,11 +24,27 @@ public class ProfilePage extends JFrame {
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
-        JPanel profilePanel = new JPanel();
-        JTextField nameField = new JTextField(name);
-        JTextField phoneField = new JTextField(phone);
-        add(nameField);
-        add(phoneField);
+        JTextArea textArea = new JTextArea("Profile Page");
+        textArea.setEditable(false);
+        add(textArea, BorderLayout.CENTER);
+
+        // info boxes
+        JTextArea nameField = new JTextArea(name);
+        JTextArea phoneField = new JTextArea(phone);
+
+        JSplitPane splitPane = new JSplitPane();
+
+        add(splitPane, BorderLayout.CENTER);
+
+        // save button
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(e -> {
+            System.out.println("Save button pressed");
+            name = nameField.getText();
+            phone = phoneField.getText();
+            // save to storage for name and telephone number
+            });
+        //add(saveButton);
 
         // landing page action
         //landingPage.addActionListener(e -> LandingPage.launch());
