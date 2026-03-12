@@ -109,7 +109,7 @@ public class Queue {
      */
     public void saveToCSV(String filename) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
-            writer.println("sender,content,timestamp"); // header row
+            writer.println("sender|content|timestamp"); // header row
             Node current = top;
             while (current != null) {
                 writer.println(current.getData().toCSVRow());
