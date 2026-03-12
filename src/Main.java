@@ -4,7 +4,7 @@ public class Main {
         Contact[] contacts = new Contact[100]; 
 
         for (int i = 0; i < contacts.length; i++) {
-           contacts[i] = new Contact("test " + i, "2345678"); 
+           contacts[i] = new Contact("Contact " + i, "2345678"); 
         }
 
         ContactPage contactPage = new ContactPage();

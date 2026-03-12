@@ -21,6 +21,14 @@ public class ContactDetails {
         JLabel phoneNumber = new JLabel(contact.getPhoneNumber());
         phoneNumber.setFont(new Font("Arial", Font.BOLD, 20));
 
+        JPanel userDetails = new JPanel();
+        userDetails.setLayout(new BorderLayout());
+        userDetails.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        userDetails.setBackground(Color.LIGHT_GRAY);
+        
+        userDetails.add(userName, BorderLayout.NORTH);
+        userDetails.add(phoneNumber, BorderLayout.SOUTH);
+
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1, 0));
 
@@ -34,8 +42,7 @@ public class ContactDetails {
         buttons.add(editButton);
         buttons.add(deleteButton);
 
-        messageBox.add(userName, BorderLayout.NORTH);
-        messageBox.add(phoneNumber);
+        messageBox.add(userDetails);
         messageBox.add(buttons, BorderLayout.EAST);
 
         return messageBox;
