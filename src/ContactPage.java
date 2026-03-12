@@ -1,12 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import javax.swing.*;
+import javax.swing.border.Border;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import java.awt.*;
 
 public class ContactPage {
 
@@ -17,28 +12,55 @@ public class ContactPage {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setTitle("Contacts");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
 
-        JPanel sidebar = new JPanel();
-        sidebar.setLayout(new GridLayout(0, 1));
+        JPanel header = new JPanel();
+        header.setLayout(new BorderLayout());
+        
+        //Temp change the userName to userName variable once I know it 
+        JLabel userName = new JLabel("Username", SwingConstants.CENTER); 
+        userName.setFont(new Font("Arial", Font.BOLD, 32));
 
-        for (Contact contact : contacts) {
-            JButton button = new JButton(contact.getName());
-            //Update action listener to display contact details with options to edit and delete contact
-            button.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "Open contact details for " + contact.getName())
-            );
-            sidebar.add(button);
+        header.add(userName, BorderLayout.NORTH);
+
+        JPanel mainContent = new JPanel();
+        mainContent.setLayout(new BorderLayout());
+
+        JPanel sideBar = new JPanel();
+        sideBar.setLayout(new GridLayout(0, 1)); 
+        sideBar.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        JButton createNewContact = new JButton("Create new contact");
+
+        JButton sortContacts = new JButton("Sort contacts");
+
+        JButton returnMainMenu = new JButton("Return");
+
+        sideBar.add(createNewContact);
+        sideBar.add(sortContacts);
+        sideBar.add(returnMainMenu);
+
+        mainContent.add(sideBar, BorderLayout.WEST);
+        
+        JPanel contactsPage = new JPanel();
+        contactsPage.setLayout(new BoxLayout(contactsPage, BoxLayout.Y_AXIS));
+        contactsPage.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+
+        for (Contact contact : contacts ){
+            ContactDetails contactBox = new ContactDetails(contact);
+            JPanel displayableContactBox = contactBox.getDisplayContactDetails();
+            contactsPage.add(displayableContactBox);
+            contactsPage.add(Box.createVerticalStrut(20));
         }
 
-        JButton button = new JButton("Add new contact");
-        sidebar.add(button);
+        JScrollPane contactsPageScrollable = new JScrollPane(contactsPage);
+        contactsPageScrollable.getVerticalScrollBar().setUnitIncrement(20);
 
-        JScrollPane sidebarScrollBar = new JScrollPane(sidebar);
-        sidebarScrollBar.setPreferredSize(new Dimension(200, 0));
-        sidebarScrollBar.getVerticalScrollBar().setUnitIncrement(20);
+        mainContent.add(contactsPageScrollable);
 
-        frame.add(sidebarScrollBar, BorderLayout.WEST);
-
+        frame.add(header, BorderLayout.NORTH);
+        frame.add(mainContent);
+        
         frame.setVisible(true);
 
     }
