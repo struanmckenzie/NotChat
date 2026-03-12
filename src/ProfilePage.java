@@ -3,7 +3,8 @@ import java.awt.*;
 
 
 public class ProfilePage extends JFrame {
-    private String name;
+    private String name = "TEMP_NAME";
+    private String phone = "TEMP_NUMBER";
 
 
     public ProfilePage() {
@@ -27,11 +28,17 @@ public class ProfilePage extends JFrame {
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
+        JPanel profilePanel = new JPanel();
+        JTextField nameField = new JTextField(name);
+        JTextField phoneField = new JTextField(phone);
+        (nameField);
+        add(phoneField);
+
         // landing page action
         //landingPage.addActionListener(e -> LandingPage.launch());
 
 
-        JTextArea
+
     }
 
 
