@@ -54,7 +54,7 @@ public class Message {
      * Saves this message as a single line in our data file.
      * The three fields (sender, content, timestamp) are separated by a | 
      *
-     * Example output:  Alice|Hello there!|2026-03-12 10:05:00
+     * An output could look like:  Jack|I hate Struan|2026-03-12 14:15:00
      */
     public String toCSVRow() {
         return sender + "|" + content + "|" + timestamp.format(FORMATTER);
@@ -63,7 +63,7 @@ public class Message {
     /**
      * Reads a saved line back from the data file and turns it into a Message.
      *
-     * @param savedLine A line from the data file, e.g. Alice|Hello there!|2026-03-12 10:05:00
+     * @param savedLine A line from the data file that has sender | content | timestamp
      * @return The reconstructed Message.
      */
     public static Message fromCSVRow(String savedLine) {
