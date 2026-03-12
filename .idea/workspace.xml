@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="add necessary files" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="add necessary files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,17 +38,17 @@
   ],
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7Jtz8u",
-        "number": 6
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7Jtz8u&quot;,
+        &quot;number&quot;: 6
       },
-      "lastSeen": 1773237695905
+      &quot;lastSeen&quot;: 1773237695905
     }
   ]
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/SStreamlinerr/NotChat&quot;,
@@ -75,12 +79,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ChatPage.executor": "Run",
+    "Application.ChatPane.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.ProfilePage.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "chat-messages(struan)",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",

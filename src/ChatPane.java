@@ -8,7 +8,7 @@ public class ChatPane {
         JFrame frame = new JFrame("CONTACT_NAME");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 800);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         // menu bar
         JMenuBar menuBar = new JMenuBar();
@@ -33,12 +33,29 @@ public class ChatPane {
 
 
         // Send Button Action
-        sendButton.addActionListener(e ->
-                chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME")));
+        sendButton.addActionListener(e -> {
+            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME"));
+
+            // refresh when sent
+            chat.revalidate();
+            chat.repaint();
+
+            // make new field blank, ready for new message
+            messageField.setText("");
+        });
+
 
         // Enter Key Action
-        messageField.addActionListener(e ->
-                chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME")));
+        messageField.addActionListener(e -> {
+            chat.add(chatBubble("TEMP_NAME", messageField.getText().trim(), "TEMP_TIME"));
+
+            // refresh when sent
+            chat.revalidate();
+            chat.repaint();
+
+            // make new field blank, ready for new message
+            messageField.setText("");
+        });
 
 
 
@@ -53,14 +70,22 @@ public class ChatPane {
     }
 
     private static JPanel chatBubble(String chatName, String content, String time) {
-        JPanel panel = new JPanel(new GridLayout(2, 1));
+        // configure how the chat bubble looks
+        JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(5, 5, 5, 5),
                 BorderFactory.createLineBorder(Color.magenta, 1)
         ));
+        panel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
+        // configure how chat content is displayed
         JLabel title = new JLabel(chatName + ": " + time);
-        JLabel body = new JLabel(content);
+        JTextArea body = new JTextArea(content);
+
+        body.setLineWrap(true);
+        body.setWrapStyleWord(true);
+        body.setEditable(false);
+        body.setOpaque(false);
 
         panel.add(title);
         panel.add(body);
