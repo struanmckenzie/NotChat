@@ -31,7 +31,7 @@ public class ProfilePage extends JFrame {
         JPanel profilePanel = new JPanel();
         JTextField nameField = new JTextField(name);
         JTextField phoneField = new JTextField(phone);
-        (nameField);
+        add(nameField);
         add(phoneField);
 
         // landing page action
