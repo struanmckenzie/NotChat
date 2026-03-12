@@ -29,6 +29,8 @@ public class ChatPane {
         JMenuBar menuBar = new JMenuBar();
         JMenuItem landingPage = new JMenuItem("Landing Page");
         menuBar.add(landingPage);
+        landingPage.addActionListener(e -> LandingPage.launch());
+
         frame.setJMenuBar(menuBar);
 
         // Chat panel (scrollable chat list)
