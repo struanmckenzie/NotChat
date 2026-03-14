@@ -39,6 +39,7 @@ public class ContactPage {
         sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
         JButton createNewContact = new JButton("Create new contact");
+        createNewContact.addActionListener(e -> addContactPage());
 
         JButton sortContacts = new JButton("Sort contacts");
 
@@ -87,8 +88,14 @@ public class ContactPage {
         contactsPage.repaint();    // redraw panel
     }
 
+    public void addContactPage() {
+        contactsPage.removeAll();
+        contactsPage.revalidate(); // refresh layout
+        contactsPage.repaint();    // redraw panel
+    }
+
     public static ContactPage launch(List<Contact> contacts) {
         return new ContactPage(contacts);
     }
-
+    
 }

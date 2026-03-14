@@ -14,8 +14,6 @@ public class Main {
 
         contactPage = new ContactPage(contacts);
         contactPage.drawUI(contacts);
-        contacts.remove(0);
-        contactPage.reloadContacts();
     }
 
 }
