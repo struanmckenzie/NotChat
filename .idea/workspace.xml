@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
+      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773321675635</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
+      <option name="closed" value="true" />
+      <created>1773580743889</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773580743889</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,6 +247,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="add necessary files" />
     <MESSAGE value="trying to make text wrap dynamically" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make text wrap dynamically" />
+    <MESSAGE value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
   </component>
 </project>
