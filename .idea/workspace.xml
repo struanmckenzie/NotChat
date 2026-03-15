@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="chatpane now disposes on close">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="suggest removal of Main - just put it in landing page coz that needs opened first anyway">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$5.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +24,23 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="test" />
+                <branch-info repo="$PROJECT_DIR$" source="chat-messages(struan)" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="profile-page(struan)" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,6 +97,7 @@
     "Application.ChatPage.executor": "Run",
     "Application.ChatPane.executor": "Debug",
     "Application.ChatTemp.executor": "Run",
+    "Application.LandingPage.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.ProfilePage.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -106,6 +114,25 @@
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ChatPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChatPane" />
+      <module name="NotChat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ChatPane" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -233,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773580743889</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="suggest removal of Main - just put it in landing page coz that needs opened first anyway">
+      <option name="closed" value="true" />
+      <created>1773599785135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1773599785135</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -259,6 +294,7 @@
     <MESSAGE value="add necessary files" />
     <MESSAGE value="trying to make text wrap dynamically" />
     <MESSAGE value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
+    <MESSAGE value="suggest removal of Main - just put it in landing page coz that needs opened first anyway" />
+    <option name="LAST_COMMIT_MESSAGE" value="suggest removal of Main - just put it in landing page coz that needs opened first anyway" />
   </component>
 </project>

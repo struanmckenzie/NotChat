@@ -1,70 +1,101 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 
 public class ProfilePage extends JFrame {
     private String name;
-    private String phone;
+    private String number;
+    private final String saveLocation = "src/profile_details";
 
-    public ProfilePage(String name, String phone) {
-        this.name = name;
-        this.phone = phone;
+    /**
+     * loads name and number into variables from file
+     */
+    public ProfilePage() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(saveLocation))) {
+            this.name = reader.readLine();
+            this.number = reader.readLine();
 
+        } catch (IOException e) {
+            System.out.println("Error loading profile details " + e.getMessage());
+        }
         initialiseUI();
     }
 
+    /**
+     * formats and starts profile page
+     */
     public void initialiseUI() {
-        setSize(800, 600);
+        setSize(500, 300);
 
-        setTitle("Profile");
+        setTitle(getName()+"'s Profile");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // menu bar
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("Menu");
-        JMenuItem landingPage = new JMenuItem("Return to landing page");
-        JMenuItem saveDetails = new JMenuItem("Save details");
-        menu.add(landingPage);
-        menu.add(saveDetails);
-        menuBar.add(menu);
-        setJMenuBar(menuBar);
-
-        // landing page action
-        landingPage.addActionListener(e -> LandingPage.launch());
-
-        JTextArea textArea = new JTextArea("Profile");
-        textArea.setEditable(false);
-        add(textArea, BorderLayout.CENTER);
 
         // show details
         JPanel detailsPanel = new JPanel();
 
         JTextArea nameField = new JTextArea(name);
-        JTextArea phoneField = new JTextArea(phone);
-        detailsPanel.add(nameField);
-        detailsPanel.add(phoneField);
+        JTextArea numberField = new JTextArea(number);
+        nameField.setFont(new Font("default", Font.PLAIN, 20));
+        numberField.setFont(new Font("default", Font.PLAIN, 20));
+        detailsPanel.add(nameField, BorderLayout.WEST);
+        detailsPanel.add(numberField, BorderLayout.EAST);
 
-        add(detailsPanel);
+        add(detailsPanel, BorderLayout.CENTER);
 
-        // save menu item action
-        saveDetails.addActionListener(e -> {
-            // save to storage for name and telephone number
-            name = nameField.getText();
-            phone = phoneField.getText();
-            JOptionPane.showMessageDialog(null, "Details saved!");
+        // save buttons
+        JPanel savePanel = new JPanel();
+
+        JButton saveName = new JButton("Save name");
+        JButton saveNumber = new JButton("Save number");
+        saveName.setPreferredSize(new Dimension(200, 50));
+        saveNumber.setPreferredSize(new Dimension(200, 50));
+
+        savePanel.add(saveName, BorderLayout.WEST);
+        savePanel.add(saveNumber, BorderLayout.EAST);
+        add(savePanel, BorderLayout.AFTER_LAST_LINE);
+
+        // save buttons actions
+        saveName.addActionListener(e -> {
+            setName(nameField.getText());
+            saveDetails();
+            JOptionPane.showMessageDialog(null, "Name "+getName()+" saved");
+        });
+
+        saveNumber.addActionListener(e -> {
+            setNumber(numberField.getText());
+            saveDetails();
+            JOptionPane.showMessageDialog(null, "Number "+getNumber()+" saved");
         });
 
         setVisible(true);
     }
 
+    /**
+     * get/set methods
+     */
     public void setName(String name) { this.name = name; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public void setNumber(String phone) { this.number = phone; }
     public String getName() { return name; }
-    public String getNumber() { return phone; }
+    public String getNumber() { return number; }
 
+    /**
+     * saves details to a file
+     * existing file contents are overwritten
+     */
+    public void saveDetails() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(saveLocation))) {
+            writer.println(getName());
+            writer.println(getNumber());
+        } catch (IOException e) {
+            System.out.println("Error saving profile details: " + e.getMessage());
+        }
+    }
 
-    public static void main(String[] args) {
-        new ProfilePage("YourName", "07589 365934");
+    // starts profile page for testing
+    static void main(){
+        new ProfilePage();
     }
 
 }
