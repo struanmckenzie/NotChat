@@ -35,8 +35,8 @@ public class ContactPage {
         mainContent.setLayout(new BorderLayout());
 
         JPanel sideBar = new JPanel();
-        sideBar.setLayout(new GridLayout(0, 1)); 
-        sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        sideBar.setLayout(new GridBagLayout()); 
+        //sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
         JButton createNewContact = new JButton("Create new contact");
         createNewContact.addActionListener(e -> addContactPage());
@@ -90,6 +90,39 @@ public class ContactPage {
 
     public void addContactPage() {
         contactsPage.removeAll();
+
+        JPanel addNewContactPage = new JPanel();
+        addNewContactPage.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        constraints.gridx = 0;
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets = new Insets(10, 0, 10, 0);
+
+        InputBox nameField = new InputBox();
+        nameField.setPreferredSize(new Dimension(660, 80));
+
+        InputBox phoneNumberField = new InputBox();
+        phoneNumberField.setPreferredSize(new Dimension(660, 80));
+
+        JButton submitButton = new JButton("Add Contact"); 
+
+        nameField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        phoneNumberField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        constraints.gridy = 0;
+        addNewContactPage.add(nameField, constraints);
+
+        constraints.gridy = 1;
+        addNewContactPage.add(phoneNumberField, constraints);
+
+        constraints.gridy = 2;
+        addNewContactPage.add(submitButton, constraints);
+
+        contactsPage.add(addNewContactPage);
+
         contactsPage.revalidate(); // refresh layout
         contactsPage.repaint();    // redraw panel
     }

@@ -12,6 +12,7 @@ public class InputBox extends JPanel {
         setOpaque(false);
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 20));
+        setBackground(Color.GRAY);
     }
 
     @Override
