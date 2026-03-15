@@ -1,5 +1,5 @@
 /**
- * Represents a single node in a linked list that holds a Message.
+ * Represents a singlee node in a linked list that holds a Message.
  */
 public class Node {
     private Message data; // Data stored in the node
