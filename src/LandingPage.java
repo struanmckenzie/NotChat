@@ -40,7 +40,7 @@ public class LandingPage {
         JButton viewCha = new JButton("View Chats");
         viewCha.addActionListener(e -> {
             frame.dispose();
-            new ChatPane();
+            new ChatPane("temp_contact");
         });
 
         JButton exit = new JButton("Exit");
@@ -92,7 +92,7 @@ public class LandingPage {
 
         viewCha.addActionListener(e -> {
             frame.dispose();
-            new ChatPane();
+            new ChatPane("temp_contact");
         });
     }
 
