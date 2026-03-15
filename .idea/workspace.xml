@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="chatpane now disposes on close">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,22 +58,22 @@
     }
   ]
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/SStreamlinerr/NotChat.git",
-    "accountId": "b7687840-867d-4108-9ac2-7cfd0f4a87db"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/SStreamlinerr/NotChat.git&quot;,
+    &quot;accountId&quot;: &quot;b7687840-867d-4108-9ac2-7cfd0f4a87db&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "SStreamlinerr",
-    "repository": "NotChat"
+    &quot;owner&quot;: &quot;SStreamlinerr&quot;,
+    &quot;repository&quot;: &quot;NotChat&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -77,7 +88,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ChatPage.executor": "Run",
-    "Application.ChatPane.executor": "Run",
+    "Application.ChatPane.executor": "Debug",
     "Application.ChatTemp.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.ProfilePage.executor": "Run",
@@ -85,7 +96,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "profile-page(struan)",
+    "git-widget-placeholder": "chat-messages(struan)",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "project.structure.last.edited": "Project",
@@ -98,7 +109,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
       </set>
     </attachedChunks>
   </component>

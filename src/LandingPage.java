@@ -8,6 +8,7 @@ public class LandingPage {
 
         JFrame frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1280, 768);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setIconImage(
                 new ImageIcon(LandingPage.class.getResource("/img/alaba.png")).getImage()
@@ -116,5 +117,9 @@ public class LandingPage {
         panel.add(details);
 
         return panel;
+    }
+
+    static void main(String[] args) {
+        LandingPage.launch();
     }
 }

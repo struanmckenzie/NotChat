@@ -103,6 +103,9 @@ public class ChatPane extends JPanel {
         JLabel title = new JLabel(sender + ": " + time);
         JTextArea body = new JTextArea(content);
 
+        // CREATE BUTTON TO DELETE MESSAGES - TIE IN WITH Q
+        // MAYBE MAKE AN OPTION IN THE MENU TO DELETE THE LAST MESSAGE INSTEAD
+
         body.setLineWrap(true);
         body.setWrapStyleWord(true);
         body.setEditable(false);
