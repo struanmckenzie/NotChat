@@ -18,7 +18,7 @@ public class ChatPane extends JPanel {
     private void initializeUI() {
         // frame
         JFrame frame = new JFrame(chatName);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(600, 800);
         frame.setLayout(new BorderLayout());
 

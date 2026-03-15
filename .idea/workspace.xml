@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Queue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Queue.class" afterDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
       <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,22 +47,22 @@
     }
   ]
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SStreamlinerr/NotChat&quot;,
-    &quot;accountId&quot;: &quot;64636ec4-7e23-43d1-a97c-40081662208f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/SStreamlinerr/NotChat.git",
+    "accountId": "b7687840-867d-4108-9ac2-7cfd0f4a87db"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;SStreamlinerr&quot;,
-    &quot;repository&quot;: &quot;NotChat&quot;
+    "owner": "SStreamlinerr",
+    "repository": "NotChat"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -83,27 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;chat-messages(struan)&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatPage.executor": "Run",
+    "Application.ChatPane.executor": "Run",
+    "Application.ChatTemp.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.ProfilePage.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "profile-page(struan)",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -223,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773321675635</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
+      <option name="closed" value="true" />
+      <created>1773580743889</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773580743889</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,6 +247,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="add necessary files" />
     <MESSAGE value="trying to make text wrap dynamically" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make text wrap dynamically" />
+    <MESSAGE value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
   </component>
 </project>

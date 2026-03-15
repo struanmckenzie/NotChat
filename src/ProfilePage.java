@@ -6,67 +6,65 @@ public class ProfilePage extends JFrame {
     private String name;
     private String phone;
 
+    public ProfilePage(String name, String phone) {
+        this.name = name;
+        this.phone = phone;
 
-    public ProfilePage() {
-        setSize(1080, 1920);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        initialiseUI();
+    }
 
-        setTitle("Profile Page");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+    public void initialiseUI() {
+        setSize(800, 600);
 
+        setTitle("Profile");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // menu bar
         JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("File");
-        JMenuItem landingPage = new JMenuItem("Landing Page");
+        JMenu menu = new JMenu("Menu");
+        JMenuItem landingPage = new JMenuItem("Return to landing page");
+        JMenuItem saveDetails = new JMenuItem("Save details");
         menu.add(landingPage);
+        menu.add(saveDetails);
         menuBar.add(menu);
         setJMenuBar(menuBar);
 
-        JTextArea textArea = new JTextArea("Profile Page");
+        // landing page action
+        landingPage.addActionListener(e -> LandingPage.launch());
+
+        JTextArea textArea = new JTextArea("Profile");
         textArea.setEditable(false);
         add(textArea, BorderLayout.CENTER);
 
-        // info box panels
-        JPanel namePanel = new JPanel();
-        JPanel phonePanel = new JPanel();
+        // show details
+        JPanel detailsPanel = new JPanel();
 
         JTextArea nameField = new JTextArea(name);
-        namePanel.add(nameField);
-
         JTextArea phoneField = new JTextArea(phone);
-        phonePanel.add(phoneField);
+        detailsPanel.add(nameField);
+        detailsPanel.add(phoneField);
 
+        add(detailsPanel);
 
-        JSplitPane splitPane = new JSplitPane(
-                JSplitPane.HORIZONTAL_SPLIT,
-                namePanel,
-                phonePanel
-        );
-
-        add(splitPane, BorderLayout.CENTER);
-
-        // save button
-        JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(e -> {
-            System.out.println("Save button pressed");
+        // save menu item action
+        saveDetails.addActionListener(e -> {
+            // save to storage for name and telephone number
             name = nameField.getText();
             phone = phoneField.getText();
-            // save to storage for name and telephone number
-            });
-        add(saveButton);
+            JOptionPane.showMessageDialog(null, "Details saved!");
+        });
 
-        // landing page action
-        //landingPage.addActionListener(e -> LandingPage.launch());
+        setVisible(true);
     }
 
     public void setName(String name) { this.name = name; }
     public void setPhone(String phone) { this.phone = phone; }
+    public String getName() { return name; }
+    public String getNumber() { return phone; }
 
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(ProfilePage::new);
+        new ProfilePage("YourName", "07589 365934");
     }
 
 }
