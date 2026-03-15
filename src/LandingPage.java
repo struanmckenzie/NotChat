@@ -24,7 +24,7 @@ public class LandingPage {
 
         JButton edit = new JButton("Edit Profile");
         edit.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "temporary message, edit profile function")
+                new ProfilePage("name", "01863 589365")
         );
 
         JButton viewCon = new JButton("View Contacts");
