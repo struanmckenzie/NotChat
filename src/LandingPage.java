@@ -25,7 +25,7 @@ public class LandingPage {
 
         JButton edit = new JButton("Edit Profile");
         edit.addActionListener(e ->
-                new ProfilePage("name", "01863 589365")
+                new ProfilePage()
         );
 
         JButton viewCon = new JButton("View Contacts");

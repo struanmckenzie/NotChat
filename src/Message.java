@@ -25,12 +25,11 @@ public class Message {
     }
 
     /**
-     * Creates a message with an explicit timestamp.
-     * This can be used when loading messages from a file.
+     * Creates a message w timestamp.
      *
-     * @param sender    The name of the person sending the message.
-     * @param content   The text of the message.
-     * @param timestamp The time the message was sent.
+     * @param sender    name of the person sending the message.
+     * @param content   text of the message.
+     * @param timestamp time the message was sent.
      */
     public Message(String sender, String content, LocalDateTime timestamp) {
         this.sender = sender;
@@ -52,9 +51,8 @@ public class Message {
 
     /**
      * Saves this message as a single line in our data file.
-     * The three fields (sender, content, timestamp) are separated by a | 
+     * The three fields (sender, content, timestamp) are separated by a vomma
      *
-     * An output could look like:  Jack|I hate Struan|2026-03-12 14:15:00
      */
     public String toCSVRow() {
         return sender + "|" + content + "|" + timestamp.format(FORMATTER);
