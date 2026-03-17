@@ -74,6 +74,20 @@ public class Queue {
     }
 
     /**
+     * returns length of queue
+     */
+    public int getLength() {
+        int count = 0;
+        Node current = top;
+        while (current != null) {
+            count++;
+            current = current.getNext();
+        }
+        return count;
+    }
+
+
+    /**
      * Check if the list is empty.
      * 
      * @return True if the list is empty, false otherwise.
@@ -109,7 +123,6 @@ public class Queue {
      */
     public void saveToCSV(String filename) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
-            writer.println("sender|content|timestamp"); // header row
             Node current = top;
             while (current != null) {
                 writer.println(current.getData().toCSVRow());
@@ -128,7 +141,7 @@ public class Queue {
      */
     public void loadFromCSV(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line = reader.readLine(); // skip header
+            String line;
             while ((line = reader.readLine()) != null) {
                 if (!line.isBlank()) {
                     push(Message.fromCSVRow(line));
