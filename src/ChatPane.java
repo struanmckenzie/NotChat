@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.time.Instant;
 
-public class ChatPane extends JPanel {
+public class ChatPane extends JFrame {
 
     private JPanel chat;
     private JTextField messageField;
@@ -21,6 +21,7 @@ public class ChatPane extends JPanel {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(600, 800);
         frame.setLayout(new BorderLayout());
+        frame.setLocationRelativeTo(null);
 
         // menu bar
         JMenuBar menuBar = new JMenuBar();
