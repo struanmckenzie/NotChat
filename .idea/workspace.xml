@@ -4,10 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="added unfinished profile picture stuff to profilepage">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="added necessary files">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026,_12_47_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026,_13_58_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026__12_47__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026__13_58__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026,_13_50_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026,_13_50_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026__13_50__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026__13_50__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_11_29_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_12_33_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_12_50_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__11_29__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__12_33__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__12_50__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Queue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Queue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/profile_details" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +131,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -307,7 +324,31 @@
       <option name="project" value="LOCAL" />
       <updated>1773771207970</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771438986</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771438986</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771448709</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771448709</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771453201</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771453201</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,6 +380,7 @@
     <MESSAGE value="edited comments" />
     <MESSAGE value="chats now save on close, prevoius chats load on opening chat, therre is now a non functional delete button, time is now localdatetime, added new method for loading messages into chat" />
     <MESSAGE value="added unfinished profile picture stuff to profilepage" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unfinished profile picture stuff to profilepage" />
+    <MESSAGE value="added necessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added necessary files" />
   </component>
 </project>

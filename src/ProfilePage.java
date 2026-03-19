@@ -1,6 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.Buffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -11,7 +14,7 @@ public class ProfilePage extends JFrame {
     private String name;
     private String number;
     private String pfp;
-    private final String saveLocation = "src/profile_details";
+    private final String saveLocation = "profile_details";
 
     /**
      * loads name and number into variables from file
@@ -32,7 +35,7 @@ public class ProfilePage extends JFrame {
      * formats and starts profile page
      */
     public void initialiseUI() {
-        setSize(500, 210);
+        setSize(500, 170);
         setLocationRelativeTo(null);
 
         setTitle(getName()+"'s Profile");
@@ -49,10 +52,16 @@ public class ProfilePage extends JFrame {
         numberField.setFont(new Font(null, Font.PLAIN, 20));
 
         // get profile picture
-        JLabel pfp = new JLabel(new ImageIcon(Objects.requireNonNull(ProfilePage.class.getResource(getPfp()))));
-        pfp.setSize(new Dimension(100, 100));
+        // the AMOUNT of research i had to do, all the stackoverflow
+        // and wikihows and everything JUST FOR THIS
+        // worth it ;-D
+        ImageIcon image = new ImageIcon(Objects.requireNonNull(getClass().getResource(getPfp())));
+        Image scaledImg = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+        ImageIcon profileP = new ImageIcon(scaledImg);
+        JLabel pic = new JLabel(profileP);
+        pic.setPreferredSize(new Dimension(100, 100));
 
-        detailsPanel.add(pfp);
+        detailsPanel.add(pic);
         detailsPanel.add(nameField);
         detailsPanel.add(numberField);
 
@@ -64,9 +73,9 @@ public class ProfilePage extends JFrame {
         JButton saveName = new JButton("Save name");
         JButton saveNumber = new JButton("Save number");
         JButton selectPhoto = new JButton("Select image");
-        saveName.setPreferredSize(new Dimension(150, 30));
-        saveNumber.setPreferredSize(new Dimension(150, 30));
-        selectPhoto.setPreferredSize(new Dimension(150, 30));
+        aesthetic(saveName);
+        aesthetic(saveNumber);
+        aesthetic(selectPhoto);
 
         savePanel.add(selectPhoto);
         savePanel.add(saveName);
@@ -105,6 +114,15 @@ public class ProfilePage extends JFrame {
         });
 
         setVisible(true);
+    }
+
+    private void aesthetic(JButton b) {
+        b.setPreferredSize(new Dimension(150, 30));
+        b.setBackground(Color.gray);
+        b.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createEmptyBorder(),
+                BorderFactory.createBevelBorder(0)
+        ));
     }
 
     /**
