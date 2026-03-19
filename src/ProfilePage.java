@@ -11,16 +11,14 @@ public class ProfilePage extends JFrame {
     // fields
     private String name;
     private String number;
-    private final String PFP_LOCATION = "/img/default.png";
-    private final String saveLocation = "profile_details";
-
-    private JPanel details;
+    private final String PFP_LOCATION = "/resources/images/profile_picture.png";
+    private final String DETAILS_LOCATION = "src/resources/profile_details";
 
     /**
      * loads name and number into variables from file
      */
     public ProfilePage() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(saveLocation))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(DETAILS_LOCATION))) {
             this.name = reader.readLine();
             this.number = reader.readLine();
 
@@ -42,7 +40,7 @@ public class ProfilePage extends JFrame {
 
 
         // show details
-        details = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel details = new JPanel(new FlowLayout(FlowLayout.CENTER));
         details.setBackground(Color.LIGHT_GRAY);
 
         JTextArea nameField = new JTextArea(name);
@@ -148,7 +146,7 @@ public class ProfilePage extends JFrame {
      * existing file contents are overwritten
      */
     public void saveDetails() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(saveLocation))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(DETAILS_LOCATION))) {
             writer.println(getName());
             writer.println(getNumber());
             writer.println(PFP_LOCATION);

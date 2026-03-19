@@ -2,16 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
+/**
+ * open chat window, load chats from selected chat
+ * @author struan
+ */
 public class ChatPane extends JFrame {
 
     private JPanel chat;
     private JTextField messageField;
     private final String chatName;
+    private final String CHAT_LOCATION;
     private final Queue messages = new Queue();
 
     /**
@@ -20,6 +22,7 @@ public class ChatPane extends JFrame {
      */
     public ChatPane(String chatName) {
         this.chatName = chatName;
+        this.CHAT_LOCATION = "src/resources/chats/" + chatName;
         initializeUI();
     }
 
@@ -31,7 +34,6 @@ public class ChatPane extends JFrame {
         JFrame frame = new JFrame(chatName);
         frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         frame.setSize(600, 800);
-        frame.setLayout(new BorderLayout());
         frame.setLocationRelativeTo(null);
 
         // listens for when close button is pressed and calls
@@ -39,7 +41,7 @@ public class ChatPane extends JFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                messages.saveToCSV(chatName);
+                messages.saveToCSV(CHAT_LOCATION);
                 frame.dispose();
             }
         });
@@ -49,7 +51,7 @@ public class ChatPane extends JFrame {
             @Override
             public void windowOpened(WindowEvent e) {
                 // load messages into q
-                messages.loadFromCSV(chatName);
+                messages.loadFromCSV(CHAT_LOCATION);
                 int len = messages.getLength();
 
                 // send messages on chat
@@ -60,21 +62,10 @@ public class ChatPane extends JFrame {
             }
         });
 
-        // menu bar
-        JMenuBar menuBar = new JMenuBar();
-        JMenu m = new JMenu("File");
-        JMenuItem sendContactMessage = new JMenuItem("Receive from " + chatName);
-        m.add(sendContactMessage);
-        menuBar.add(m);
-
-        // send other action - probably just for testing
-        sendContactMessage.addActionListener(e -> sendMessage(chatName));
-
-        frame.setJMenuBar(menuBar);
-
         // chat page
         chat = new JPanel();
         chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
+        chat.setBackground(Color.gray);
 
         JScrollPane scrollPane = new JScrollPane(chat);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -105,11 +96,16 @@ public class ChatPane extends JFrame {
         // Enter Key Action
         messageField.addActionListener(e -> sendMessage("You"));
 
+        deleteButton.addActionListener(e -> {
+            // DELETE MESSAGE WHEN PRESSED!!!!!!!!!!!!!!
+        });
+
         frame.setVisible(true);
     }
 
     /**
      * formats a message with name, time, and text
+     * this is for chats sent by the user
      */
     private void sendMessage(String sender) {
         String text = messageField.getText().trim();
@@ -155,25 +151,34 @@ public class ChatPane extends JFrame {
      * @return a chat bubble panel
      */
     private JPanel createChatBubble(String sender, String content, LocalDateTime time) {
-        // create the panel itself
-        JPanel panel = new JPanel(new GridLayout(2, 2));
+        // create the chat itself
+        JPanel panel = new JPanel(new GridLayout(2, 1));
+        panel.setBackground(Color.gray);
 
-        // format appearance
+        // format border
         panel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(5, 5, 5, 5),
-                BorderFactory.createLineBorder(Color.magenta, 1)
-        ));
-        panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                BorderFactory.createEmptyBorder(0,5,0,5),
+                BorderFactory.createCompoundBorder(BorderFactory.createBevelBorder(0),
+                        BorderFactory.createEmptyBorder(5,5,5,5)
+        )));
 
         // add title and content
         JLabel title = new JLabel(sender + ": " + time);
         JTextArea body = new JTextArea(content);
+
+        body.setFont(new Font(null, Font.PLAIN, 15));
 
         // set appearance of body text
         body.setLineWrap(true);
         body.setWrapStyleWord(true);
         body.setEditable(false);
         body.setOpaque(false);
+
+        // set side chat is on
+        if (sender.equals("You"))
+            panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        else
+            panel.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         panel.add(title);
         panel.add(body);
