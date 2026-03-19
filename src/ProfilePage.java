@@ -1,9 +1,7 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.Buffer;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -13,8 +11,10 @@ public class ProfilePage extends JFrame {
     // fields
     private String name;
     private String number;
-    private String pfp;
+    private final String PFP_LOCATION = "/img/default.png";
     private final String saveLocation = "profile_details";
+
+    private JPanel details;
 
     /**
      * loads name and number into variables from file
@@ -23,7 +23,6 @@ public class ProfilePage extends JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader(saveLocation))) {
             this.name = reader.readLine();
             this.number = reader.readLine();
-            this.pfp = reader.readLine();
 
         } catch (IOException e) {
             System.out.println("Error loading profile details " + e.getMessage());
@@ -43,8 +42,8 @@ public class ProfilePage extends JFrame {
 
 
         // show details
-        JPanel detailsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        detailsPanel.setBackground(Color.LIGHT_GRAY);
+        details = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        details.setBackground(Color.LIGHT_GRAY);
 
         JTextArea nameField = new JTextArea(name);
         JTextArea numberField = new JTextArea(number);
@@ -55,17 +54,17 @@ public class ProfilePage extends JFrame {
         // the AMOUNT of research i had to do, all the stackoverflow
         // and wikihows and everything JUST FOR THIS
         // worth it ;-D
-        ImageIcon image = new ImageIcon(Objects.requireNonNull(getClass().getResource(getPfp())));
+        ImageIcon image = new ImageIcon(Objects.requireNonNull(getClass().getResource(PFP_LOCATION)));
         Image scaledImg = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
         ImageIcon profileP = new ImageIcon(scaledImg);
         JLabel pic = new JLabel(profileP);
         pic.setPreferredSize(new Dimension(100, 100));
 
-        detailsPanel.add(pic);
-        detailsPanel.add(nameField);
-        detailsPanel.add(numberField);
+        details.add(pic);
+        details.add(nameField);
+        details.add(numberField);
 
-        add(detailsPanel, BorderLayout.CENTER);
+        add(details, BorderLayout.CENTER);
 
         // save buttons
         JPanel savePanel = new JPanel(new GridLayout(1,3));
@@ -95,27 +94,38 @@ public class ProfilePage extends JFrame {
             JOptionPane.showMessageDialog(null, "Number "+getNumber()+" saved");
         });
 
-        /**
-         * this action listener opens a graphical file explorer fr the user
-         * so they can shoose a new pfp to use
-         * then copies the pfp to the img directory for the program to use
-         */
+
+        // this action listener opens a graphical file explorer fr the user
+        // so they can shoose a new pfp to use
+        // then copies the pfp to the img directory for the program to use
         selectPhoto.addActionListener(e -> {
             // open file explorer
             JFileChooser f = new JFileChooser();
             f.showSaveDialog(null);
 
-            // copy selected image to the img directory
-            try {
-                Files.copy(f.getSelectedFile().toPath(), Paths.get("./src/img"), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+            // if user selects a file set it as the pfp
+            if (f.getSelectedFile() != null) {
+                // copy selected image to the img directory
+                try {
+                    Files.copy(f.getSelectedFile().toPath(), Paths.get(getClass().getResource(PFP_LOCATION).toURI()), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException | URISyntaxException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                // this is probably an awful way to do this but idk how else
+                // close window and open a new one with updated image
+                dispose();
+                new ProfilePage();
             }
         });
 
         setVisible(true);
     }
 
+    /**
+     * sets the desired appearance of buttons on the page
+     * @param b button to configure
+     */
     private void aesthetic(JButton b) {
         b.setPreferredSize(new Dimension(150, 30));
         b.setBackground(Color.gray);
@@ -130,10 +140,8 @@ public class ProfilePage extends JFrame {
      */
     public void setName(String name) { this.name = name; }
     public void setNumber(String phone) { this.number = phone; }
-    public void setPfp(String pfp) { this.pfp = pfp; }
     public String getName() { return name; }
     public String getNumber() { return number; }
-    public String getPfp() { return pfp; }
 
     /**
      * saves details to a file
@@ -143,7 +151,7 @@ public class ProfilePage extends JFrame {
         try (PrintWriter writer = new PrintWriter(new FileWriter(saveLocation))) {
             writer.println(getName());
             writer.println(getNumber());
-            writer.println(getPfp());
+            writer.println(PFP_LOCATION);
         } catch (IOException e) {
             System.out.println("Error saving profile details: " + e.getMessage());
         }

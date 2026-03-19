@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="added necessary files">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026,_12_47_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026,_13_58_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026__12_47__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_11_03_2026__13_58__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026,_13_50_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026,_13_50_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026__13_50__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_11_03_2026__13_50__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_11_29_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_12_33_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026,_12_50_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__11_29__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__12_33__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_03_2026__12_50__Changes_.xml" beforeDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/profile_details" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/profile_details" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/profile_details" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/default.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773771453201</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="FINALLY sorted the profile image scaling thing. also moved profile details file">
+      <option name="closed" value="true" />
+      <created>1773924915532</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1773924915533</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,6 +375,7 @@
     <MESSAGE value="chats now save on close, prevoius chats load on opening chat, therre is now a non functional delete button, time is now localdatetime, added new method for loading messages into chat" />
     <MESSAGE value="added unfinished profile picture stuff to profilepage" />
     <MESSAGE value="added necessary files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added necessary files" />
+    <MESSAGE value="FINALLY sorted the profile image scaling thing. also moved profile details file" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINALLY sorted the profile image scaling thing. also moved profile details file" />
   </component>
 </project>
