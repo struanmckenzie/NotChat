@@ -8,3 +8,7 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# custom ignored files
+# this one is a fucking pain in the ass
+workspace.xml
