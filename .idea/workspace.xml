@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="other files to commit">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chats/Chat 2" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/Chat 2" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,13 +22,28 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="SimpleSourceFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="test" />
+                <branch-info repo="$PROJECT_DIR$" source="chat-messages(struan)" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="profile-page(struan)" />
+        <entry key="$PROJECT_DIR$" value="Contacts-(Lewis)" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,21 +57,245 @@
   ],
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
     {
-      &quot;id&quot;: {
-        &quot;id&quot;: &quot;PR_kwDORjUuOc7Jtz8u&quot;,
-        &quot;number&quot;: 6
+      "id": {
+        "id": "PR_kwDORjUuOc7Jtz8u",
+        "number": 6
       },
-      &quot;lastSeen&quot;: 1773237695905
+      "lastSeen": 1773237695905
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7JtI39",
+        "number": 3
+      },
+      "lastSeen": 1773937113566
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7Mwdq-",
+        "number": 40
+      },
+      "lastSeen": 1774288995263
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KD1fy",
+        "number": 18
+      },
+      "lastSeen": 1774289056376
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KFRki",
+        "number": 23
+      },
+      "lastSeen": 1774289058231
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KF1jT",
+        "number": 26
+      },
+      "lastSeen": 1774289065668
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KF9KE",
+        "number": 27
+      },
+      "lastSeen": 1774289067566
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KFwe_",
+        "number": 25
+      },
+      "lastSeen": 1774289081584
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KCtjh",
+        "number": 14
+      },
+      "lastSeen": 1774289082442
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KCuxP",
+        "number": 15
+      },
+      "lastSeen": 1774289083486
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7J18kJ",
+        "number": 13
+      },
+      "lastSeen": 1774289083826
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7JvcLM",
+        "number": 10
+      },
+      "lastSeen": 1774289084998
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7J1g9-",
+        "number": 11
+      },
+      "lastSeen": 1774289085528
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7JvVLm",
+        "number": 8
+      },
+      "lastSeen": 1774289086427
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7JvbUM",
+        "number": 9
+      },
+      "lastSeen": 1774289086596
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7JuCOR",
+        "number": 7
+      },
+      "lastSeen": 1774289087288
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KFUeR",
+        "number": 24
+      },
+      "lastSeen": 1774289087572
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KFH-x",
+        "number": 21
+      },
+      "lastSeen": 1774289088197
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KE3iR",
+        "number": 20
+      },
+      "lastSeen": 1774289091642
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7J10Nx",
+        "number": 12
+      },
+      "lastSeen": 1774289091859
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KEU9D",
+        "number": 19
+      },
+      "lastSeen": 1774289095484
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KF-rz",
+        "number": 28
+      },
+      "lastSeen": 1774289100948
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7Kv2hs",
+        "number": 32
+      },
+      "lastSeen": 1774289102669
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KuMkK",
+        "number": 31
+      },
+      "lastSeen": 1774289104555
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7LT7UV",
+        "number": 34
+      },
+      "lastSeen": 1774289106059
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KuL5g",
+        "number": 30
+      },
+      "lastSeen": 1774289108106
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7Mv_ZI",
+        "number": 39
+      },
+      "lastSeen": 1774289111132
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7KuC-K",
+        "number": 29
+      },
+      "lastSeen": 1774289117583
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7L3XzO",
+        "number": 37
+      },
+      "lastSeen": 1774289118096
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7L5mX6",
+        "number": 38
+      },
+      "lastSeen": 1774289123609
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7LT8wE",
+        "number": 35
+      },
+      "lastSeen": 1774289125605
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7LT6bk",
+        "number": 33
+      },
+      "lastSeen": 1774289127151
+    },
+    {
+      "id": {
+        "id": "PR_kwDORjUuOc7L3Qtr",
+        "number": 36
+      },
+      "lastSeen": 1774289128552
     }
   ]
-}</component>
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SStreamlinerr/NotChat&quot;,
-    &quot;accountId&quot;: &quot;64636ec4-7e23-43d1-a97c-40081662208f&quot;
+    &quot;url&quot;: &quot;https://github.com/struanmckenzie/NotChat.git&quot;,
+    &quot;accountId&quot;: &quot;b7687840-867d-4108-9ac2-7cfd0f4a87db&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
     &quot;server&quot;: {
@@ -77,26 +324,75 @@
     &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
     &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
     &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;chat-messages(struan)&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;struan-decided-to-take-landing-page-matters-into-his-own-hands&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/images" />
+      <recent name="$PROJECT_DIR$/src/resources/chats" />
+      <recent name="$PROJECT_DIR$/src/resources" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ChatPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChatPane" />
+      <module name="NotChat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="UNNAMED_CLASS_CONFIGURATION" value="true" />
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="NotChat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NotChat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NotChat" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.ChatPane" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.ChatPane" />
+        <item itemvalue="Application.ChatPane" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
       </set>
     </attachedChunks>
   </component>
@@ -212,7 +508,119 @@
       <option name="project" value="LOCAL" />
       <updated>1773321675635</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu">
+      <option name="closed" value="true" />
+      <created>1773580743889</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1773580743889</updated>
+    </task>
+    <task id="LOCAL-00015" summary="suggest removal of Main - just put it in landing page coz that needs opened first anyway">
+      <option name="closed" value="true" />
+      <created>1773599785135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1773599785135</updated>
+    </task>
+    <task id="LOCAL-00016" summary="jiggery pokery with files and shi">
+      <option name="closed" value="true" />
+      <created>1773765290213</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1773765290213</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added method to get length">
+      <option name="closed" value="true" />
+      <created>1773770545918</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1773770545918</updated>
+    </task>
+    <task id="LOCAL-00018" summary="edited comments">
+      <option name="closed" value="true" />
+      <created>1773770693747</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1773770693747</updated>
+    </task>
+    <task id="LOCAL-00019" summary="chats now save on close, prevoius chats load on opening chat, therre is now a non functional delete button, time is now localdatetime, added new method for loading messages into chat">
+      <option name="closed" value="true" />
+      <created>1773771164632</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771164632</updated>
+    </task>
+    <task id="LOCAL-00020" summary="added unfinished profile picture stuff to profilepage">
+      <option name="closed" value="true" />
+      <created>1773771207970</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771207970</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771438986</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771438986</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771448709</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771448709</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added necessary files">
+      <option name="closed" value="true" />
+      <created>1773771453201</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1773771453201</updated>
+    </task>
+    <task id="LOCAL-00024" summary="FINALLY sorted the profile image scaling thing. also moved profile details file">
+      <option name="closed" value="true" />
+      <created>1773924915532</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1773924915533</updated>
+    </task>
+    <task id="LOCAL-00025" summary="new pfp can now be selected, changed button appearance">
+      <option name="closed" value="true" />
+      <created>1773928556148</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1773928556148</updated>
+    </task>
+    <task id="LOCAL-00026" summary="moved files, updated to newest landing page, changed appearance of chats">
+      <option name="closed" value="true" />
+      <created>1773936885775</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1773936885775</updated>
+    </task>
+    <task id="LOCAL-00027" summary="other files to commit">
+      <option name="closed" value="true" />
+      <created>1773936914122</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1773936914122</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +645,18 @@
     <MESSAGE value="update" />
     <MESSAGE value="add necessary files" />
     <MESSAGE value="trying to make text wrap dynamically" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make text wrap dynamically" />
+    <MESSAGE value="profile page is displayed better, disposed on close, opens with temp name and number when selected from landing page. can save details from option in menu" />
+    <MESSAGE value="suggest removal of Main - just put it in landing page coz that needs opened first anyway" />
+    <MESSAGE value="jiggery pokery with files and shi" />
+    <MESSAGE value="added method to get length" />
+    <MESSAGE value="edited comments" />
+    <MESSAGE value="chats now save on close, prevoius chats load on opening chat, therre is now a non functional delete button, time is now localdatetime, added new method for loading messages into chat" />
+    <MESSAGE value="added unfinished profile picture stuff to profilepage" />
+    <MESSAGE value="added necessary files" />
+    <MESSAGE value="FINALLY sorted the profile image scaling thing. also moved profile details file" />
+    <MESSAGE value="new pfp can now be selected, changed button appearance" />
+    <MESSAGE value="moved files, updated to newest landing page, changed appearance of chats" />
+    <MESSAGE value="other files to commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="other files to commit" />
   </component>
 </project>

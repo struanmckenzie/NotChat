@@ -35,7 +35,7 @@ public class Node {
 
     /**
      * Get the next node in the list.
-     * 
+     *
      * @return A reference to the next node.
      */
     public Node getNext() {
@@ -44,7 +44,7 @@ public class Node {
 
     /**
      * Set the next node in the list.
-     * 
+     *
      * @param next A reference to the next node.
      */
     public void setNext(Node next) {

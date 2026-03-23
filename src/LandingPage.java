@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;;
 
 public class LandingPage {
 
@@ -8,12 +11,22 @@ public class LandingPage {
 
         JFrame frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800,600);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setIconImage(
-                new ImageIcon(LandingPage.class.getResource("/img/alaba.png")).getImage()
+                new ImageIcon(LandingPage.class.getResource("/resources/images/alaba.png")).getImage()
         );
 
-        JLabel title = new JLabel("Username", SwingConstants.CENTER);
+        // gets name of user from the profile details file
+        String username = "Unknown user";
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
+            username = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Error getting name " + e.getMessage());
+        }
+
+
+        JLabel title = new JLabel(username, SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 32));
         frame.add(title, BorderLayout.NORTH);
 
@@ -24,24 +37,18 @@ public class LandingPage {
 
         JButton edit = new JButton("Edit Profile");
         edit.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "temporary message, edit profile function")
+                new ProfilePage()
         );
 
         JButton viewCon = new JButton("View Contacts");
         viewCon.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "temporary message, View contacts function")
+                Main.main()
         );
 
         JButton create = new JButton("Create New Chat");
         create.addActionListener(e ->
                 JOptionPane.showMessageDialog(null, "temporary message, create chat function")
         );
-
-        JButton viewCha = new JButton("View Chats");
-        viewCha.addActionListener(e -> {
-            frame.dispose();
-            new ChatPane();
-        });
 
         JButton exit = new JButton("Exit");
         exit.addActionListener(e -> {
@@ -52,23 +59,13 @@ public class LandingPage {
         leftPanel.add(edit);
         leftPanel.add(viewCon);
         leftPanel.add(create);
-        leftPanel.add(viewCha);
         leftPanel.add(exit);
 
-        // RIGHT PANEL (scrollable chat list)/
+        // RIGHT PANEL (scrollable chat list)
         JPanel chatListPanel = new JPanel();
         chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
 
-        // TEMPORARY: add 15 fake chats
-        for (int i = 1; i <= 15; i++) {
-            chatListPanel.add(createChatEntry(
-                    "Chat " + i,
-                    "Contact " + i,
-                    "2026-03-11",
-                    (i % 2 == 0) ? "Delivered" : "Read",
-                    (i % 3 == 0) ? "Unread" : "Read"
-            ));
-        }
+
 
         JScrollPane scrollPane = new JScrollPane(chatListPanel);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -84,36 +81,58 @@ public class LandingPage {
         splitPane.setDividerLocation(300);
         splitPane.setEnabled(false);
 
+        // TEMPORARY: add 15 fake chats
+        for (int i = 1; i <= 15; i++) {
+            chatListPanel.add(createChatEntry(
+                    splitPane,
+                    "Chat " + i,
+                    "Contact " + i,
+                    "2026-03-11",
+                    (i % 2 == 0) ? "Delivered" : "Read",
+                    (i % 3 == 0) ? "Unread" : "Read"
+            ));
+        }
+
         frame.add(splitPane);
         frame.setVisible(true);
 
         // BUTTON ACTIONS
         exit.addActionListener(e -> System.exit(0));
-
-        viewCha.addActionListener(e -> {
-            frame.dispose();
-            new ChatPane();
-        });
     }
 
-    private static JPanel createChatEntry(String chatName, String contact, String date, String statusContact, String statusUser) {
-        JPanel panel = new JPanel(new GridLayout(2, 1));
+    private static JPanel createChatEntry(
+            JSplitPane splitPane,
+            String chatName,
+            String contact,
+            String date,
+            String statusContact,
+            String statusUser
+    ) {
+        JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createEmptyBorder(10, 10, 10, 10),
                 BorderFactory.createLineBorder(Color.GRAY, 1)
         ));
-
-        panel.setPreferredSize(new Dimension(0, 80)); // increase height
+        panel.setPreferredSize(new Dimension(0, 80));
 
         JLabel title = new JLabel(chatName + " — " + contact);
-        title.setFont(new Font("Arial", Font.BOLD, 18)); // slightly bigger
+        title.setFont(new Font("Arial", Font.BOLD, 18));
 
         JLabel details = new JLabel("Date: " + date +
                 " | Contact: " + statusContact +
                 " | You: " + statusUser);
 
-        panel.add(title);
-        panel.add(details);
+        JPanel textPanel = new JPanel(new GridLayout(2, 1));
+        textPanel.add(title);
+        textPanel.add(details);
+
+        JButton openButton = new JButton("Open Chat");
+        openButton.addActionListener(e -> {
+            new ChatPane(chatName);
+        });
+
+        panel.add(textPanel, BorderLayout.CENTER);
+        panel.add(openButton, BorderLayout.EAST);
 
         return panel;
     }
