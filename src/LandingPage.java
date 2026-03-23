@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class LandingPage {
 
@@ -8,12 +11,22 @@ public class LandingPage {
 
         JFrame frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800,600);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setIconImage(
-                new ImageIcon(LandingPage.class.getResource("/img/alaba.png")).getImage()
+                new ImageIcon(LandingPage.class.getResource("/resources/images/alaba.png")).getImage()
         );
 
-        JLabel title = new JLabel("Username", SwingConstants.CENTER);
+        // gets name of user from the profile details file
+        String username = "Unknown user";
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
+            username = reader.readLine();
+        } catch (IOException e) {
+            System.out.println("Error getting name " + e.getMessage());
+        }
+
+
+        JLabel title = new JLabel(username, SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 32));
         frame.add(title, BorderLayout.NORTH);
 
@@ -24,7 +37,7 @@ public class LandingPage {
 
         JButton edit = new JButton("Edit Profile");
         edit.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "temporary message, edit profile function")
+                new ProfilePage()
         );
 
         JButton viewCon = new JButton("View Contacts");
@@ -115,8 +128,7 @@ public class LandingPage {
 
         JButton openButton = new JButton("Open Chat");
         openButton.addActionListener(e -> {
-            ChatPane chatPane = new ChatPane(chatName);
-            splitPane.setRightComponent(chatPane);
+            new ChatPane(chatName);
         });
 
         panel.add(textPanel, BorderLayout.CENTER);
