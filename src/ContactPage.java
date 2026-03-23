@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactPage {
@@ -8,6 +9,8 @@ public class ContactPage {
     private JPanel contactsPage;
     private List<Contact> contacts;
     private final String USERNAME;
+    public static ContactPage contactPage;
+
 
     public ContactPage(List<Contact> contacts, String username){
         this.contacts = contacts;
@@ -129,5 +132,16 @@ public class ContactPage {
 
         contactsPage.revalidate(); // refresh layout
         contactsPage.repaint();    // redraw panel
+    }
+
+    static void launch(String username) {
+
+        List<Contact> contacts = new ArrayList<>();
+
+        for (int i = 0; i < 25; i++) {
+            contacts.add(new Contact("Contact " + i, "234567364657"));
+        }
+
+        contactPage = new ContactPage(contacts, username);
     }
 }

@@ -185,8 +185,4 @@ public class ChatPane extends JFrame {
 
         return panel;
     }
-
-    static void main() {
-        new ChatPane("John");
-    }
 }
