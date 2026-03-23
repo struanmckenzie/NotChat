@@ -154,10 +154,4 @@ public class ProfilePage extends JFrame {
             System.out.println("Error saving profile details: " + e.getMessage());
         }
     }
-
-    // starts profile page for testing
-    static void main(){
-        new ProfilePage();
-    }
-
 }
