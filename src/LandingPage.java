@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.IOException;;
 
 public class LandingPage {
 
@@ -42,7 +42,7 @@ public class LandingPage {
 
         JButton viewCon = new JButton("View Contacts");
         viewCon.addActionListener(e ->
-                JOptionPane.showMessageDialog(null, "temporary message, View contacts function")
+                Main.main()
         );
 
         JButton create = new JButton("Create New Chat");

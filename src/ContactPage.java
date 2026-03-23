@@ -7,9 +7,12 @@ public class ContactPage {
     private JFrame frame;
     private JPanel contactsPage;
     private List<Contact> contacts;
+    private final String USERNAME;
 
-    public ContactPage(List<Contact> contacts){
+    public ContactPage(List<Contact> contacts, String username){
         this.contacts = contacts;
+        this.USERNAME = username;
+        drawUI(contacts);
     }
 
     public void drawUI(List<Contact> contacts) {
@@ -18,15 +21,16 @@ public class ContactPage {
         frame.setSize(1080, 1920);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setTitle("Contacts");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // ive made this dispose so that you can close the page without closing landingpage as well
         frame.setLayout(new BorderLayout());
 
         JPanel header = new JPanel();
         header.setLayout(new BorderLayout());
         header.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        //Temp change the userName to userName variable once I know it 
-        JLabel userName = new JLabel("Username", SwingConstants.CENTER); 
+        //Temp change the userName to userName variable once I know it
+        // DW lewis i got u ;-)
+        JLabel userName = new JLabel(USERNAME, SwingConstants.CENTER);
         userName.setFont(new Font("Arial", Font.BOLD, 32));
 
         header.add(userName, BorderLayout.NORTH);
@@ -126,9 +130,4 @@ public class ContactPage {
         contactsPage.revalidate(); // refresh layout
         contactsPage.repaint();    // redraw panel
     }
-
-    public static ContactPage launch(List<Contact> contacts) {
-        return new ContactPage(contacts);
-    }
-    
 }
