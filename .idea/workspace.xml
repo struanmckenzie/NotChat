@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/profile_details" afterDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="other files to commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/John" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/John" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/img/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_details" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/images/profile_picture.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +59,19 @@
         &quot;number&quot;: 6
       },
       &quot;lastSeen&quot;: 1773237695905
+    },
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JtI39&quot;,
+        &quot;number&quot;: 3
+      },
+      &quot;lastSeen&quot;: 1773937113566
     }
   ]
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/SStreamlinerr/NotChat.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/struanmckenzie/NotChat.git&quot;,
     &quot;accountId&quot;: &quot;b7687840-867d-4108-9ac2-7cfd0f4a87db&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
@@ -100,30 +96,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatPage.executor": "Run",
-    "Application.ChatPane.executor": "Run",
-    "Application.ChatTemp.executor": "Run",
-    "Application.LandingPage.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ProfilePage.executor": "Run",
-    "Application.main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "chat-messages(struan)",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chat-messages(struan)&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources/images" />
@@ -133,7 +129,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.main">
     <configuration name="ChatPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatPane" />
       <module name="NotChat" />
@@ -151,6 +147,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.ChatPane" />
+        <item itemvalue="Application.ChatPane" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.ChatPane" />
       </list>
@@ -371,7 +370,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773928556148</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="moved files, updated to newest landing page, changed appearance of chats">
+      <option name="closed" value="true" />
+      <created>1773936885775</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1773936885775</updated>
+    </task>
+    <task id="LOCAL-00027" summary="other files to commit">
+      <option name="closed" value="true" />
+      <created>1773936914122</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1773936914122</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +421,8 @@
     <MESSAGE value="added necessary files" />
     <MESSAGE value="FINALLY sorted the profile image scaling thing. also moved profile details file" />
     <MESSAGE value="new pfp can now be selected, changed button appearance" />
-    <option name="LAST_COMMIT_MESSAGE" value="new pfp can now be selected, changed button appearance" />
+    <MESSAGE value="moved files, updated to newest landing page, changed appearance of chats" />
+    <MESSAGE value="other files to commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="other files to commit" />
   </component>
 </project>
