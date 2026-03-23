@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="other files to commit">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContactDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/chats/Chat 2" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/Chat 2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Contacts-(Lewis)" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,241 +57,241 @@
   ],
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7Jtz8u",
-        "number": 6
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7Jtz8u&quot;,
+        &quot;number&quot;: 6
       },
-      "lastSeen": 1773237695905
+      &quot;lastSeen&quot;: 1773237695905
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7JtI39",
-        "number": 3
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JtI39&quot;,
+        &quot;number&quot;: 3
       },
-      "lastSeen": 1773937113566
+      &quot;lastSeen&quot;: 1773937113566
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7Mwdq-",
-        "number": 40
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7Mwdq-&quot;,
+        &quot;number&quot;: 40
       },
-      "lastSeen": 1774288995263
+      &quot;lastSeen&quot;: 1774288995263
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KD1fy",
-        "number": 18
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KD1fy&quot;,
+        &quot;number&quot;: 18
       },
-      "lastSeen": 1774289056376
+      &quot;lastSeen&quot;: 1774289056376
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KFRki",
-        "number": 23
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KFRki&quot;,
+        &quot;number&quot;: 23
       },
-      "lastSeen": 1774289058231
+      &quot;lastSeen&quot;: 1774289058231
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KF1jT",
-        "number": 26
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KF1jT&quot;,
+        &quot;number&quot;: 26
       },
-      "lastSeen": 1774289065668
+      &quot;lastSeen&quot;: 1774289065668
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KF9KE",
-        "number": 27
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KF9KE&quot;,
+        &quot;number&quot;: 27
       },
-      "lastSeen": 1774289067566
+      &quot;lastSeen&quot;: 1774289067566
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KFwe_",
-        "number": 25
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KFwe_&quot;,
+        &quot;number&quot;: 25
       },
-      "lastSeen": 1774289081584
+      &quot;lastSeen&quot;: 1774289081584
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KCtjh",
-        "number": 14
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KCtjh&quot;,
+        &quot;number&quot;: 14
       },
-      "lastSeen": 1774289082442
+      &quot;lastSeen&quot;: 1774289082442
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KCuxP",
-        "number": 15
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KCuxP&quot;,
+        &quot;number&quot;: 15
       },
-      "lastSeen": 1774289083486
+      &quot;lastSeen&quot;: 1774289083486
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7J18kJ",
-        "number": 13
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7J18kJ&quot;,
+        &quot;number&quot;: 13
       },
-      "lastSeen": 1774289083826
+      &quot;lastSeen&quot;: 1774289083826
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7JvcLM",
-        "number": 10
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JvcLM&quot;,
+        &quot;number&quot;: 10
       },
-      "lastSeen": 1774289084998
+      &quot;lastSeen&quot;: 1774289084998
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7J1g9-",
-        "number": 11
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7J1g9-&quot;,
+        &quot;number&quot;: 11
       },
-      "lastSeen": 1774289085528
+      &quot;lastSeen&quot;: 1774289085528
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7JvVLm",
-        "number": 8
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JvVLm&quot;,
+        &quot;number&quot;: 8
       },
-      "lastSeen": 1774289086427
+      &quot;lastSeen&quot;: 1774289086427
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7JvbUM",
-        "number": 9
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JvbUM&quot;,
+        &quot;number&quot;: 9
       },
-      "lastSeen": 1774289086596
+      &quot;lastSeen&quot;: 1774289086596
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7JuCOR",
-        "number": 7
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7JuCOR&quot;,
+        &quot;number&quot;: 7
       },
-      "lastSeen": 1774289087288
+      &quot;lastSeen&quot;: 1774289087288
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KFUeR",
-        "number": 24
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KFUeR&quot;,
+        &quot;number&quot;: 24
       },
-      "lastSeen": 1774289087572
+      &quot;lastSeen&quot;: 1774289087572
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KFH-x",
-        "number": 21
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KFH-x&quot;,
+        &quot;number&quot;: 21
       },
-      "lastSeen": 1774289088197
+      &quot;lastSeen&quot;: 1774289088197
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KE3iR",
-        "number": 20
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KE3iR&quot;,
+        &quot;number&quot;: 20
       },
-      "lastSeen": 1774289091642
+      &quot;lastSeen&quot;: 1774289091642
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7J10Nx",
-        "number": 12
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7J10Nx&quot;,
+        &quot;number&quot;: 12
       },
-      "lastSeen": 1774289091859
+      &quot;lastSeen&quot;: 1774289091859
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KEU9D",
-        "number": 19
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KEU9D&quot;,
+        &quot;number&quot;: 19
       },
-      "lastSeen": 1774289095484
+      &quot;lastSeen&quot;: 1774289095484
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KF-rz",
-        "number": 28
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KF-rz&quot;,
+        &quot;number&quot;: 28
       },
-      "lastSeen": 1774289100948
+      &quot;lastSeen&quot;: 1774289100948
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7Kv2hs",
-        "number": 32
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7Kv2hs&quot;,
+        &quot;number&quot;: 32
       },
-      "lastSeen": 1774289102669
+      &quot;lastSeen&quot;: 1774289102669
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KuMkK",
-        "number": 31
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KuMkK&quot;,
+        &quot;number&quot;: 31
       },
-      "lastSeen": 1774289104555
+      &quot;lastSeen&quot;: 1774289104555
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7LT7UV",
-        "number": 34
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7LT7UV&quot;,
+        &quot;number&quot;: 34
       },
-      "lastSeen": 1774289106059
+      &quot;lastSeen&quot;: 1774289106059
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KuL5g",
-        "number": 30
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KuL5g&quot;,
+        &quot;number&quot;: 30
       },
-      "lastSeen": 1774289108106
+      &quot;lastSeen&quot;: 1774289108106
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7Mv_ZI",
-        "number": 39
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7Mv_ZI&quot;,
+        &quot;number&quot;: 39
       },
-      "lastSeen": 1774289111132
+      &quot;lastSeen&quot;: 1774289111132
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7KuC-K",
-        "number": 29
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7KuC-K&quot;,
+        &quot;number&quot;: 29
       },
-      "lastSeen": 1774289117583
+      &quot;lastSeen&quot;: 1774289117583
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7L3XzO",
-        "number": 37
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7L3XzO&quot;,
+        &quot;number&quot;: 37
       },
-      "lastSeen": 1774289118096
+      &quot;lastSeen&quot;: 1774289118096
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7L5mX6",
-        "number": 38
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7L5mX6&quot;,
+        &quot;number&quot;: 38
       },
-      "lastSeen": 1774289123609
+      &quot;lastSeen&quot;: 1774289123609
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7LT8wE",
-        "number": 35
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7LT8wE&quot;,
+        &quot;number&quot;: 35
       },
-      "lastSeen": 1774289125605
+      &quot;lastSeen&quot;: 1774289125605
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7LT6bk",
-        "number": 33
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7LT6bk&quot;,
+        &quot;number&quot;: 33
       },
-      "lastSeen": 1774289127151
+      &quot;lastSeen&quot;: 1774289127151
     },
     {
-      "id": {
-        "id": "PR_kwDORjUuOc7L3Qtr",
-        "number": 36
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDORjUuOc7L3Qtr&quot;,
+        &quot;number&quot;: 36
       },
-      "lastSeen": 1774289128552
+      &quot;lastSeen&quot;: 1774289128552
     }
   ]
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/struanmckenzie/NotChat.git&quot;,
@@ -319,30 +319,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;struan-decided-to-take-landing-page-matters-into-his-own-hands&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatPage.executor": "Run",
+    "Application.ChatPane.executor": "Run",
+    "Application.ChatTemp.executor": "Run",
+    "Application.LandingPage.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.ProfilePage.executor": "Run",
+    "Application.main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "test",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources/images" />
@@ -352,7 +352,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.main">
     <configuration name="ChatPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ChatPane" />
       <module name="NotChat" />
@@ -385,7 +385,7 @@
         <item itemvalue="Application.ChatPane" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.ChatPane" />
-        <item itemvalue="Application.ChatPane" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
