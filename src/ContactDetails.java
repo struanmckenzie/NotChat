@@ -58,7 +58,7 @@ public class ContactDetails {
 
     public void deleteContact(){
         allContacts.remove(contact);
-        Main.contactPage.reloadContacts();
+        ContactPage.contactPage.reloadContacts();
     }
 
 }

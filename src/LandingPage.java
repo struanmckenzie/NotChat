@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;;
@@ -18,7 +17,7 @@ public class LandingPage {
         );
 
         // gets name of user from the profile details file
-        String username = "Unknown user";
+        String username = "Unknown Username";
         try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
             username = reader.readLine();
         } catch (IOException e) {
@@ -41,8 +40,9 @@ public class LandingPage {
         );
 
         JButton viewCon = new JButton("View Contacts");
+        String finalUsername = username; // soz idk y this is necessary
         viewCon.addActionListener(e ->
-                Main.main()
+                ContactPage.launch(finalUsername)
         );
 
         JButton create = new JButton("Create New Chat");
