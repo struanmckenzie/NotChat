@@ -282,6 +282,8 @@ public class LandingPage {
 
         JButton open = createStyledButton("Open");
 
+        open.addActionListener(e -> new ChatPane(chatName));
+
         panel.add(textPanel, BorderLayout.CENTER);
         panel.add(open, BorderLayout.EAST);
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));

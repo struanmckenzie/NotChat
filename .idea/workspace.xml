@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="updating graphics of application">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="added custom ui parts to the gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,31 +320,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;landing-page(william)&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatPage.executor": "Run",
+    "Application.ChatPane.executor": "Run",
+    "Application.ChatTemp.executor": "Run",
+    "Application.LandingPage.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.ProfilePage.executor": "Run",
+    "Application.main.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "landing-page(william)",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources/images" />
@@ -650,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775042812135</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="added custom ui parts to the gui">
+      <option name="closed" value="true" />
+      <created>1775044849231</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1775044849231</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -665,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a class a chat page" />
     <MESSAGE value="added beginnings of a chat page" />
     <MESSAGE value="changed menuItem to landingPage" />
     <MESSAGE value="added base for proile page" />
@@ -690,7 +698,8 @@
     <MESSAGE value="new ui changes using old.class so im commiting to work" />
     <MESSAGE value="accidnetly lost a function + unversioned files" />
     <MESSAGE value="updating graphics of application" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating graphics of application" />
+    <MESSAGE value="added custom ui parts to the gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="added custom ui parts to the gui" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
