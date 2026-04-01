@@ -10,7 +10,7 @@ public class LandingPage {
     private JFrame frame;
     private JLabel title;
 
-    // Dark theme colors (GitHub Dark Tritanopia inspired)
+    // Dark theme colors
     private final Color BG = new Color(13, 17, 23);
     private final Color PANEL = new Color(22, 27, 34);
     private final Color BORDER = new Color(48, 54, 61);
@@ -45,20 +45,95 @@ public class LandingPage {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        frame = new JFrame("Landing Page");
+
+        frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.getContentPane().setBackground(BG);
 
         String username = loadUsername();
+        JPanel topBar = new JPanel(new BorderLayout());
+        topBar.setBackground(BG);
+        topBar.setPreferredSize(new Dimension(frame.getWidth(), 60));
 
+        // Welcome title
         title = new JLabel("Welcome, " + username, SwingConstants.CENTER);
-        title.setFont(new Font("Segoe UI", Font.BOLD, 34));
         title.setForeground(TEXT);
-        title.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
-        frame.add(title, BorderLayout.NORTH);
+        title.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        topBar.add(title, BorderLayout.CENTER);
 
-        // LEFT PANEL
+
+        // ===== Window Controls (Minimize, Maximize, Close) =====
+        JPanel windowControls = new JPanel();
+        windowControls.setLayout(new FlowLayout(FlowLayout.RIGHT, 0, 0));
+        windowControls.setBackground(BG);
+
+        // Maximize button
+        JButton maxBtn = new JButton("⬜");
+        maxBtn.setForeground(TEXT);
+        maxBtn.setBackground(BG);
+        maxBtn.setBorder(null);
+        maxBtn.setFocusPainted(false);
+        maxBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        maxBtn.setPreferredSize(new Dimension(50, 30));
+
+        maxBtn.addActionListener(e -> {
+            if ((frame.getExtendedState() & JFrame.MAXIMIZED_BOTH) == JFrame.MAXIMIZED_BOTH) {
+                frame.setExtendedState(JFrame.NORMAL);
+            } else {
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            }
+        });
+
+        maxBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) { maxBtn.setBackground(HOVER); }
+            @Override
+            public void mouseExited(MouseEvent e) { maxBtn.setBackground(BG); }
+        });
+
+        // Close button
+        JButton closeBtn = new JButton("X");
+        closeBtn.setForeground(TEXT);
+        closeBtn.setBackground(BG);
+        closeBtn.setBorder(null);
+        closeBtn.setFocusPainted(false);
+        closeBtn.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        closeBtn.setPreferredSize(new Dimension(50, 30));
+
+        closeBtn.addActionListener(e -> System.exit(0));
+        closeBtn.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) { closeBtn.setBackground(EXIT_HOVER); }
+            @Override
+            public void mouseExited(MouseEvent e) { closeBtn.setBackground(BG); }
+        });
+
+        // Add both buttons
+        windowControls.add(maxBtn);
+        windowControls.add(closeBtn);
+
+        // Add to top bar
+        topBar.add(windowControls, BorderLayout.EAST);
+
+        // Make window draggable
+        final Point dragOffset = new Point();
+        topBar.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                dragOffset.x = e.getX();
+                dragOffset.y = e.getY();
+            }
+        });
+        topBar.addMouseMotionListener(new MouseAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                frame.setLocation(e.getXOnScreen() - dragOffset.x, e.getYOnScreen() - dragOffset.y);
+            }
+        });
+
+        frame.add(topBar, BorderLayout.NORTH);
+
+        // ===== Left Panel =====
         JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
         leftPanel.setBackground(BG);
@@ -84,7 +159,7 @@ public class LandingPage {
         leftPanel.add(Box.createVerticalGlue());
         leftPanel.add(exit);
 
-        // CHAT LIST
+        // ===== Chat List =====
         JPanel chatListPanel = new JPanel();
         chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
         chatListPanel.setBackground(BG);
@@ -92,26 +167,15 @@ public class LandingPage {
         JScrollPane scrollPane = new JScrollPane(chatListPanel);
         scrollPane.setBorder(null);
         scrollPane.getViewport().setBackground(BG);
-
-        // SPEED 🔥
         scrollPane.getVerticalScrollBar().setUnitIncrement(25);
         scrollPane.getVerticalScrollBar().setBlockIncrement(80);
-
-        // STYLE 🎨
         scrollPane.getVerticalScrollBar().setUI(new javax.swing.plaf.basic.BasicScrollBarUI() {
             protected void configureScrollBarColors() {
                 this.thumbColor = BORDER;
                 this.trackColor = BG;
             }
-
-            protected JButton createDecreaseButton(int orientation) {
-                return createZeroButton();
-            }
-
-            protected JButton createIncreaseButton(int orientation) {
-                return createZeroButton();
-            }
-
+            protected JButton createDecreaseButton(int orientation) { return createZeroButton(); }
+            protected JButton createIncreaseButton(int orientation) { return createZeroButton(); }
             private JButton createZeroButton() {
                 JButton button = new JButton();
                 button.setPreferredSize(new Dimension(0, 0));
@@ -121,16 +185,16 @@ public class LandingPage {
             }
         });
 
+        // ===== Split Pane =====
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scrollPane);
         splitPane.setDividerLocation(260);
         splitPane.setEnabled(false);
         splitPane.setBorder(null);
-
+        splitPane.setDividerSize(2);
         splitPane.setUI(new javax.swing.plaf.basic.BasicSplitPaneUI() {
             public javax.swing.plaf.basic.BasicSplitPaneDivider createDefaultDivider() {
                 return new javax.swing.plaf.basic.BasicSplitPaneDivider(this) {
                     public void setBorder(Border b) {}
-
                     @Override
                     public void paint(Graphics g) {
                         g.setColor(BORDER);
@@ -140,8 +204,7 @@ public class LandingPage {
             }
         });
 
-        splitPane.setDividerSize(2);
-
+        // ===== Dummy Chat Entries =====
         for (int i = 1; i <= 15; i++) {
             chatListPanel.add(createChatEntry(
                     "Chat " + i,
@@ -153,7 +216,7 @@ public class LandingPage {
             chatListPanel.add(Box.createVerticalStrut(10));
         }
 
-        frame.add(splitPane);
+        frame.add(splitPane, BorderLayout.CENTER);
         frame.setVisible(true);
     }
 
@@ -167,33 +230,18 @@ public class LandingPage {
                 BorderFactory.createLineBorder(BORDER),
                 BorderFactory.createEmptyBorder(10, 15, 10, 15)
         ));
-
         button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
-
         button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(HOVER);
-            }
-
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(PANEL);
-            }
+            public void mouseEntered(MouseEvent e) { button.setBackground(HOVER); }
+            public void mouseExited(MouseEvent e) { button.setBackground(PANEL); }
         });
-
         return button;
     }
 
     private void addExitHoverEffect(JButton button) {
         button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) {
-                button.setBackground(EXIT_HOVER);
-                button.setForeground(Color.WHITE);
-            }
-
-            public void mouseExited(MouseEvent e) {
-                button.setBackground(PANEL);
-                button.setForeground(TEXT);
-            }
+            public void mouseEntered(MouseEvent e) { button.setBackground(EXIT_HOVER); button.setForeground(Color.WHITE); }
+            public void mouseExited(MouseEvent e) { button.setBackground(PANEL); button.setForeground(TEXT); }
         });
     }
 
@@ -219,9 +267,9 @@ public class LandingPage {
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
 
-        JLabel title = new JLabel(chatName + " — " + contact);
-        title.setForeground(TEXT);
-        title.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        JLabel chatTitle = new JLabel(chatName + " — " + contact);
+        chatTitle.setForeground(TEXT);
+        chatTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
 
         JLabel details = new JLabel("Date: " + date + " | Contact: " + statusContact + " | You: " + statusUser);
         details.setForeground(new Color(139, 148, 158));
@@ -229,14 +277,13 @@ public class LandingPage {
 
         JPanel textPanel = new JPanel(new GridLayout(2, 1));
         textPanel.setBackground(PANEL);
-        textPanel.add(title);
+        textPanel.add(chatTitle);
         textPanel.add(details);
 
         JButton open = createStyledButton("Open");
 
         panel.add(textPanel, BorderLayout.CENTER);
         panel.add(open, BorderLayout.EAST);
-
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));
 
         return panel;

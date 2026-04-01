@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="accidnetly lost a function + unversioned files">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="updating graphics of application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
     </list>
@@ -642,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775042277404</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="updating graphics of application">
+      <option name="closed" value="true" />
+      <created>1775042812135</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1775042812135</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -657,7 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added a class for message objects" />
     <MESSAGE value="added a class a chat page" />
     <MESSAGE value="added beginnings of a chat page" />
     <MESSAGE value="changed menuItem to landingPage" />
@@ -682,7 +689,8 @@
     <MESSAGE value="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page" />
     <MESSAGE value="new ui changes using old.class so im commiting to work" />
     <MESSAGE value="accidnetly lost a function + unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="accidnetly lost a function + unversioned files" />
+    <MESSAGE value="updating graphics of application" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating graphics of application" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
