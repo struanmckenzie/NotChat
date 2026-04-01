@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="some changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/chats/Chat 2" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/Chat 2" afterDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time">
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +45,11 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;history&quot;: [
@@ -309,6 +311,10 @@
     &quot;repository&quot;: &quot;NotChat&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -320,29 +326,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatPage.executor": "Run",
-    "Application.ChatPane.executor": "Run",
-    "Application.ChatTemp.executor": "Run",
-    "Application.LandingPage.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ProfilePage.executor": "Run",
-    "Application.main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "landing-page(william)",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chat-messages(struan)&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -619,63 +625,7 @@
       <option name="project" value="LOCAL" />
       <updated>1775038555790</updated>
     </task>
-    <task id="LOCAL-00029" summary="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page">
-      <option name="closed" value="true" />
-      <created>1775040780246</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1775040780246</updated>
-    </task>
-    <task id="LOCAL-00030" summary="new ui changes using old.class so im commiting to work">
-      <option name="closed" value="true" />
-      <created>1775042094248</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1775042094248</updated>
-    </task>
-    <task id="LOCAL-00031" summary="accidnetly lost a function + unversioned files">
-      <option name="closed" value="true" />
-      <created>1775042277404</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1775042277404</updated>
-    </task>
-    <task id="LOCAL-00032" summary="updating graphics of application">
-      <option name="closed" value="true" />
-      <created>1775042812135</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1775042812135</updated>
-    </task>
-    <task id="LOCAL-00033" summary="added custom ui parts to the gui">
-      <option name="closed" value="true" />
-      <created>1775044849231</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1775044849231</updated>
-    </task>
-    <task id="LOCAL-00034" summary="made opening conversatiosn work again">
-      <option name="closed" value="true" />
-      <created>1775045872087</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1775045872087</updated>
-    </task>
-    <task id="LOCAL-00035" summary="some changes">
-      <option name="closed" value="true" />
-      <created>1775046235223</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1775046235223</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -690,6 +640,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="added main class :)" />
+    <MESSAGE value="added a class for message objects" />
+    <MESSAGE value="added a class a chat page" />
+    <MESSAGE value="added beginnings of a chat page" />
+    <MESSAGE value="changed menuItem to landingPage" />
     <MESSAGE value="added base for proile page" />
     <MESSAGE value="made it open fullscreen" />
     <MESSAGE value="update" />
@@ -708,14 +663,7 @@
     <MESSAGE value="moved files, updated to newest landing page, changed appearance of chats" />
     <MESSAGE value="other files to commit" />
     <MESSAGE value="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time" />
-    <MESSAGE value="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page" />
-    <MESSAGE value="new ui changes using old.class so im commiting to work" />
-    <MESSAGE value="accidnetly lost a function + unversioned files" />
-    <MESSAGE value="updating graphics of application" />
-    <MESSAGE value="added custom ui parts to the gui" />
-    <MESSAGE value="made opening conversatiosn work again" />
-    <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
