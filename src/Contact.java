@@ -1,4 +1,5 @@
 import java.time.Instant;
+import java.util.UUID;
 
 public class Contact {
 
@@ -6,11 +7,13 @@ public class Contact {
     private String name;
     private String phoneNumber;
     private Instant creationTime;
+    private UUID id;
 
     public Contact(String name, String phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.creationTime = Instant.now();
+        this.id = UUID.randomUUID();
     }
 
     //Getters and setters 
@@ -32,5 +35,9 @@ public class Contact {
 
     public Instant getTime(){
         return creationTime;
+    }
+
+    public UUID getID(){
+        return id;
     }
 }

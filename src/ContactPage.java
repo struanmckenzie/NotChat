@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ContactPage {
 
@@ -11,10 +12,10 @@ public class ContactPage {
     private final String USERNAME;
     public static ContactPage contactPage;
 
-
-    public ContactPage(List<Contact> contacts, String username){
+    public ContactPage(List<Contact> contacts, String username) {
         this.contacts = contacts;
         this.USERNAME = username;
+        this.contactPage = this;
         drawUI(contacts);
     }
 
@@ -24,14 +25,15 @@ public class ContactPage {
         frame.setSize(1080, 1920);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setTitle("Contacts");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // ive made this dispose so that you can close the page without closing landingpage as well
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // ive made this dispose so that you can close the page
+                                                                 // without closing landingpage as well
         frame.setLayout(new BorderLayout());
 
         JPanel header = new JPanel();
         header.setLayout(new BorderLayout());
         header.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        
-        //Temp change the userName to userName variable once I know it
+
+        // Temp change the userName to userName variable once I know it
         // DW lewis i got u ;-)
         JLabel userName = new JLabel(USERNAME, SwingConstants.CENTER);
         userName.setFont(new Font("Arial", Font.BOLD, 32));
@@ -42,8 +44,8 @@ public class ContactPage {
         mainContent.setLayout(new BorderLayout());
 
         JPanel sideBar = new JPanel();
-        sideBar.setLayout(new GridBagLayout()); 
-        //sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        sideBar.setLayout(new GridBagLayout());
+        // sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
         JButton createNewContact = new JButton("Create new contact");
         createNewContact.addActionListener(e -> addContactPage());
@@ -57,17 +59,13 @@ public class ContactPage {
         sideBar.add(returnMainMenu);
 
         mainContent.add(sideBar, BorderLayout.WEST);
-        
+
         contactsPage = new JPanel();
         contactsPage.setLayout(new BoxLayout(contactsPage, BoxLayout.Y_AXIS));
         contactsPage.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        for (Contact contact : contacts ){
-            ContactDetails contactBox = new ContactDetails(contact, contacts);
-            JPanel displayableContactBox = contactBox.getDisplayContactDetails();
-            contactsPage.add(displayableContactBox);
-            contactsPage.add(Box.createVerticalStrut(20));
-        }
+        reloadContacts();
+
 
         JScrollPane contactsPageScrollable = new JScrollPane(contactsPage);
         contactsPageScrollable.getVerticalScrollBar().setUnitIncrement(20);
@@ -76,7 +74,7 @@ public class ContactPage {
 
         frame.add(header, BorderLayout.NORTH);
         frame.add(mainContent);
-        
+
         frame.setVisible(true);
 
     }
@@ -85,14 +83,14 @@ public class ContactPage {
         contactsPage.removeAll(); // clear previous contacts
 
         for (Contact contact : contacts) {
-            ContactDetails contactBox = new ContactDetails(contact, contacts);
+            ContactDetails contactBox = new ContactDetails(contact, contacts, contactPage);
             JPanel displayableContactBox = contactBox.getDisplayContactDetails();
             contactsPage.add(displayableContactBox);
             contactsPage.add(Box.createVerticalStrut(20));
         }
 
         contactsPage.revalidate(); // refresh layout
-        contactsPage.repaint();    // redraw panel
+        contactsPage.repaint(); // redraw panel
     }
 
     public void addContactPage() {
@@ -107,31 +105,129 @@ public class ContactPage {
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets = new Insets(10, 0, 10, 0);
 
+        JLabel title = new JLabel("Add new contact");
+        title.setFont(new Font("Arial", Font.BOLD, 28));
+
         InputBox nameField = new InputBox();
-        nameField.setPreferredSize(new Dimension(660, 80));
+        nameField.setPreferredSize(new Dimension(760, 80));
+        JTextArea nameText = new JTextArea();
+        nameText.setPreferredSize(new Dimension(720, 70));
+        nameText.setWrapStyleWord(true);
+        nameText.setLineWrap(true);
+        nameText.setOpaque(false);
+        nameText.setFont(new Font("Arial", Font.PLAIN, 28));
+        nameField.add(nameText, BorderLayout.CENTER);
 
         InputBox phoneNumberField = new InputBox();
-        phoneNumberField.setPreferredSize(new Dimension(660, 80));
+        phoneNumberField.setPreferredSize(new Dimension(760, 80));
+        JTextArea phoneNumberText = new JTextArea();
+        phoneNumberText.setPreferredSize(new Dimension(720, 70));
+        phoneNumberText.setWrapStyleWord(true);
+        phoneNumberText.setLineWrap(true);
+        phoneNumberText.setOpaque(false);
+        phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
+        phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
 
-        JButton submitButton = new JButton("Add Contact"); 
+        JButton submitButton = new JButton("Add Contact");
+        submitButton.addActionListener(e -> addContact(nameText.getText(), phoneNumberText.getText()));
 
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
         nameField.setAlignmentX(Component.CENTER_ALIGNMENT);
         phoneNumberField.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         constraints.gridy = 0;
-        addNewContactPage.add(nameField, constraints);
+        addNewContactPage.add(title, constraints);
 
         constraints.gridy = 1;
-        addNewContactPage.add(phoneNumberField, constraints);
+        addNewContactPage.add(nameField, constraints);
 
         constraints.gridy = 2;
+        addNewContactPage.add(phoneNumberField, constraints);
+
+        constraints.gridy = 3;
         addNewContactPage.add(submitButton, constraints);
 
         contactsPage.add(addNewContactPage);
 
         contactsPage.revalidate(); // refresh layout
-        contactsPage.repaint();    // redraw panel
+        contactsPage.repaint(); // redraw panel
+    }
+
+    public void editContactPage(Contact contact) {
+        contactsPage.removeAll();
+
+        JPanel addNewContactPage = new JPanel();
+        addNewContactPage.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        constraints.gridx = 0;
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets = new Insets(10, 0, 10, 0);
+
+        JLabel title = new JLabel("Edit contact");
+        title.setFont(new Font("Arial", Font.BOLD, 28));
+
+        InputBox nameField = new InputBox();
+        nameField.setPreferredSize(new Dimension(760, 80));
+        JTextArea nameText = new JTextArea();
+        nameText.setPreferredSize(new Dimension(720, 70));
+        nameText.setWrapStyleWord(true);
+        nameText.setLineWrap(true);
+        nameText.setOpaque(false);
+        nameText.setFont(new Font("Arial", Font.PLAIN, 28));
+        nameField.add(nameText, BorderLayout.CENTER);
+
+        InputBox phoneNumberField = new InputBox();
+        phoneNumberField.setPreferredSize(new Dimension(760, 80));
+        JTextArea phoneNumberText = new JTextArea();
+        phoneNumberText.setPreferredSize(new Dimension(720, 70));
+        phoneNumberText.setWrapStyleWord(true);
+        phoneNumberText.setLineWrap(true);
+        phoneNumberText.setOpaque(false);
+        phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
+        phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
+
+        JButton submitButton = new JButton("Edit contact");
+        submitButton.addActionListener(e -> editContact(contact.getID() ,nameText.getText(), phoneNumberText.getText()));
+
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        nameField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        phoneNumberField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        constraints.gridy = 0;
+        addNewContactPage.add(title, constraints);
+
+        constraints.gridy = 1;
+        addNewContactPage.add(nameField, constraints);
+
+        constraints.gridy = 2;
+        addNewContactPage.add(phoneNumberField, constraints);
+
+        constraints.gridy = 3;
+        addNewContactPage.add(submitButton, constraints);
+
+        contactsPage.add(addNewContactPage);
+
+        contactsPage.revalidate(); // refresh layout
+        contactsPage.repaint(); // redraw panel
+    }
+
+    private void addContact(String contactName, String phoneNumber) {
+        contacts.add(new Contact(contactName, phoneNumber));
+        reloadContacts();
+    }
+
+    private void editContact(UUID id, String contactName, String phoneNumber){
+        for (Contact c : contacts){
+            if (c.getID().equals(id)){
+                c.setName(contactName);
+                c.setPhoneNumber(phoneNumber);
+            }
+        }
+        reloadContacts();
     }
 
     static void launch(String username) {
@@ -142,6 +238,6 @@ public class ContactPage {
             contacts.add(new Contact("Contact " + i, "234567364657"));
         }
 
-        contactPage = new ContactPage(contacts, username);
+        new ContactPage(contacts, username);
     }
 }
