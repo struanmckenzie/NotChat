@@ -139,6 +139,12 @@ public class LandingPage {
         }
     }
 
+    public void updateUsername(String newName) {
+        title.setText("Welcome, " + newName);
+        frame.revalidate();
+        frame.repaint();
+    }
+
     private JPanel createChatEntry(String chatName, String contact, String date, String statusContact, String statusUser) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(PANEL);
