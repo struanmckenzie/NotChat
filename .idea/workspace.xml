@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="other files to commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContactDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time">
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/louis/IdeaProjects/NotChat" value="3AnTKDpga4FmI1dDG21ZmFnVlnp" />
+    </persistenceIdMap>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -43,10 +45,11 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;history&quot;: [
@@ -295,7 +298,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/struanmckenzie/NotChat.git&quot;,
-    &quot;accountId&quot;: &quot;b7687840-867d-4108-9ac2-7cfd0f4a87db&quot;
+    &quot;accountId&quot;: &quot;4613e7bb-721a-474a-829a-a68019ed5324&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
     &quot;server&quot;: {
@@ -308,6 +311,10 @@
     &quot;repository&quot;: &quot;NotChat&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -319,28 +326,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatPage.executor": "Run",
-    "Application.ChatPane.executor": "Run",
-    "Application.ChatTemp.executor": "Run",
-    "Application.LandingPage.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ProfilePage.executor": "Run",
-    "Application.main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "test",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatPane.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatTemp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LandingPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ProfilePage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chat-messages(struan)&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -368,17 +376,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="NotChat" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="NotChat" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.main" />
@@ -392,7 +389,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28539.33" />
       </set>
     </attachedChunks>
   </component>
@@ -620,7 +617,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773936914122</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time">
+      <option name="closed" value="true" />
+      <created>1775038555790</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1775038555790</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -657,6 +662,15 @@
     <MESSAGE value="new pfp can now be selected, changed button appearance" />
     <MESSAGE value="moved files, updated to newest landing page, changed appearance of chats" />
     <MESSAGE value="other files to commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="other files to commit" />
+    <MESSAGE value="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time" />
+    <option name="LAST_COMMIT_MESSAGE" value="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
