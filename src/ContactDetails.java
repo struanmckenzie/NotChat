@@ -6,12 +6,14 @@ public class ContactDetails {
 
     Contact contact;
     List<Contact> allContacts;
+    ContactPage contactPage;
 
-    public ContactDetails(Contact contact, List<Contact> contacts) {
+    public ContactDetails(Contact contact, List<Contact> contacts, ContactPage contactPage) {
         this.contact = contact;
         this.allContacts = contacts;
+        this.contactPage = contactPage;
     }
-   
+
     public JPanel getDisplayContactDetails() {
         JPanel messageBox = new JPanel();
         messageBox.setLayout(new BorderLayout());
@@ -30,7 +32,7 @@ public class ContactDetails {
         userDetails.setLayout(new BorderLayout());
         userDetails.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         userDetails.setBackground(Color.LIGHT_GRAY);
-        
+
         userDetails.add(userName, BorderLayout.NORTH);
         userDetails.add(phoneNumber, BorderLayout.SOUTH);
 
@@ -40,11 +42,10 @@ public class ContactDetails {
         JButton viewButton = new JButton("View details");
 
         JButton editButton = new JButton("Edit details");
+        editButton.addActionListener(e -> editContact());
 
         JButton deleteButton = new JButton("Delete contact");
-        deleteButton.addActionListener(e ->
-            deleteContact()
-        );
+        deleteButton.addActionListener(e -> deleteContact());
 
         buttons.add(viewButton);
         buttons.add(editButton);
@@ -56,10 +57,14 @@ public class ContactDetails {
         return messageBox;
     }
 
-    public void deleteContact(){
+    public void deleteContact() {
         allContacts.remove(contact);
         ContactPage.contactPage.reloadContacts();
     }
 
+    public void editContact() {
+        ContactPage.contactPage.reloadContacts();
+        contactPage.editContactPage(contact);
+    }
+
 }
-        
