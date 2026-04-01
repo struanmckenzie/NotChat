@@ -1,6 +1,8 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +13,8 @@ public class ContactPage {
     private List<Contact> contacts;
     private final String USERNAME;
     public static ContactPage contactPage;
+    private Boolean alphabeltical = false;
+    private String sorted = "Alphabetical";
 
     public ContactPage(List<Contact> contacts, String username) {
         this.contacts = contacts;
@@ -44,13 +48,14 @@ public class ContactPage {
         mainContent.setLayout(new BorderLayout());
 
         JPanel sideBar = new JPanel();
-        sideBar.setLayout(new GridBagLayout());
-        // sideBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        sideBar.setLayout(new GridLayout(5, 1, 10, 10));
+        sideBar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JButton createNewContact = new JButton("Create new contact");
         createNewContact.addActionListener(e -> addContactPage());
 
         JButton sortContacts = new JButton("Sort contacts");
+        sortContacts.addActionListener(e -> sortContacts());
 
         JButton returnMainMenu = new JButton("Return");
 
@@ -75,12 +80,18 @@ public class ContactPage {
         frame.add(header, BorderLayout.NORTH);
         frame.add(mainContent);
 
+        sortContacts();
+
         frame.setVisible(true);
 
     }
 
     public void reloadContacts() {
         contactsPage.removeAll(); // clear previous contacts
+
+        JLabel sortTitle = new JLabel(sorted);
+        sortTitle.setFont(new Font("Arial", Font.BOLD, 26));
+        contactsPage.add(sortTitle);
 
         for (Contact contact : contacts) {
             ContactDetails contactBox = new ContactDetails(contact, contacts, contactPage);
@@ -226,6 +237,19 @@ public class ContactPage {
                 c.setName(contactName);
                 c.setPhoneNumber(phoneNumber);
             }
+        }
+        reloadContacts();
+    }
+
+    private void sortContacts(){
+        if (alphabeltical){
+            contacts.sort(Comparator.comparing(Contact::getTime).reversed());
+            sorted = "Recently added";
+            alphabeltical = false;
+        } else {
+            contacts.sort(Comparator.comparing(Contact::getName));
+            sorted = "Alphabetical";
+            alphabeltical = true;
         }
         reloadContacts();
     }
