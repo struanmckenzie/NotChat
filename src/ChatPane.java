@@ -65,7 +65,6 @@ public class ChatPane extends JFrame {
         // chat page
         chat = new JPanel();
         chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
-        chat.setBackground(Color.gray);
 
         JScrollPane scrollPane = new JScrollPane(chat);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -153,12 +152,12 @@ public class ChatPane extends JFrame {
     private JPanel createChatBubble(String sender, String content, LocalDateTime time) {
         // create the chat itself
         JPanel panel = new JPanel(new GridLayout(2, 1));
-        panel.setBackground(Color.gray);
+        panel.setBackground(Color.ORANGE);
 
         // format border
         panel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(0,5,0,5),
-                BorderFactory.createCompoundBorder(BorderFactory.createBevelBorder(0),
+                BorderFactory.createEmptyBorder(5,5,5,5),
+                BorderFactory.createCompoundBorder(BorderFactory.createSoftBevelBorder(0),
                         BorderFactory.createEmptyBorder(5,5,5,5)
         )));
 
@@ -174,11 +173,13 @@ public class ChatPane extends JFrame {
         body.setEditable(false);
         body.setOpaque(false);
 
-        // set side chat is on
+        /* set side chat is on
         if (sender.equals("You"))
             panel.setAlignmentX(Component.LEFT_ALIGNMENT);
         else
             panel.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+         */
 
         panel.add(title);
         panel.add(body);
