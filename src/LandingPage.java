@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import javax.swing.border.Border;
 
 public class LandingPage {
 
@@ -23,6 +24,27 @@ public class LandingPage {
     }
 
     public void launch() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+
+            UIManager.put("control", BG);
+            UIManager.put("info", BG);
+            UIManager.put("nimbusBase", BG);
+            UIManager.put("nimbusAlertYellow", BG);
+            UIManager.put("nimbusDisabledText", TEXT);
+            UIManager.put("nimbusFocus", ACCENT);
+            UIManager.put("nimbusGreen", BG);
+            UIManager.put("nimbusInfoBlue", BG);
+            UIManager.put("nimbusLightBackground", BG);
+            UIManager.put("nimbusOrange", BG);
+            UIManager.put("nimbusRed", EXIT_HOVER);
+            UIManager.put("nimbusSelectedText", TEXT);
+            UIManager.put("nimbusSelectionBackground", ACCENT);
+            UIManager.put("text", TEXT);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -71,10 +93,54 @@ public class LandingPage {
         scrollPane.setBorder(null);
         scrollPane.getViewport().setBackground(BG);
 
+        // SPEED 🔥
+        scrollPane.getVerticalScrollBar().setUnitIncrement(25);
+        scrollPane.getVerticalScrollBar().setBlockIncrement(80);
+
+        // STYLE 🎨
+        scrollPane.getVerticalScrollBar().setUI(new javax.swing.plaf.basic.BasicScrollBarUI() {
+            protected void configureScrollBarColors() {
+                this.thumbColor = BORDER;
+                this.trackColor = BG;
+            }
+
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton() {
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                button.setMinimumSize(new Dimension(0, 0));
+                button.setMaximumSize(new Dimension(0, 0));
+                return button;
+            }
+        });
+
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scrollPane);
         splitPane.setDividerLocation(260);
         splitPane.setEnabled(false);
         splitPane.setBorder(null);
+
+        splitPane.setUI(new javax.swing.plaf.basic.BasicSplitPaneUI() {
+            public javax.swing.plaf.basic.BasicSplitPaneDivider createDefaultDivider() {
+                return new javax.swing.plaf.basic.BasicSplitPaneDivider(this) {
+                    public void setBorder(Border b) {}
+
+                    @Override
+                    public void paint(Graphics g) {
+                        g.setColor(BORDER);
+                        g.fillRect(0, 0, getSize().width, getSize().height);
+                    }
+                };
+            }
+        });
+
+        splitPane.setDividerSize(2);
 
         for (int i = 1; i <= 15; i++) {
             chatListPanel.add(createChatEntry(
@@ -149,7 +215,7 @@ public class LandingPage {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(PANEL);
         panel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(BORDER),
+                BorderFactory.createMatteBorder(0, 0, 1, 0, BORDER),
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
 

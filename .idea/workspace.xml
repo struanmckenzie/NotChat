@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="accidnetly lost a function + unversioned files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -630,7 +626,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775040780246</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="new ui changes using old.class so im commiting to work">
+      <option name="closed" value="true" />
+      <created>1775042094248</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1775042094248</updated>
+    </task>
+    <task id="LOCAL-00031" summary="accidnetly lost a function + unversioned files">
+      <option name="closed" value="true" />
+      <created>1775042277404</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1775042277404</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -645,7 +657,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added main class :)" />
     <MESSAGE value="added a class for message objects" />
     <MESSAGE value="added a class a chat page" />
     <MESSAGE value="added beginnings of a chat page" />
@@ -669,7 +680,9 @@
     <MESSAGE value="other files to commit" />
     <MESSAGE value="i dont even remember these changes as i just opened the IDE and so i guess i forgot to save cahnges last time" />
     <MESSAGE value="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Main, LandingPage and ProfilePage so that when you update username in edit profile it updates name on landing page" />
+    <MESSAGE value="new ui changes using old.class so im commiting to work" />
+    <MESSAGE value="accidnetly lost a function + unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="accidnetly lost a function + unversioned files" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
