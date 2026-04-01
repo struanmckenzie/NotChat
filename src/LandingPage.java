@@ -6,9 +6,16 @@ import java.io.IOException;;
 
 public class LandingPage {
 
-    public static void launch() {
+    private JFrame frame;
+    private JLabel title;
 
-        JFrame frame = new JFrame("Landing Page");
+    public LandingPage() {
+        launch();
+    }
+
+    public void launch() {
+
+        frame = new JFrame("Landing Page");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800,600);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -16,16 +23,18 @@ public class LandingPage {
                 new ImageIcon(LandingPage.class.getResource("/resources/images/alaba.png")).getImage()
         );
 
+        String username = loadUsername();
+
         // gets name of user from the profile details file
-        String username = "Unknown Username";
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
-            username = reader.readLine();
-        } catch (IOException e) {
-            System.out.println("Error getting name " + e.getMessage());
-        }
+        //String username = "Unknown Username";
+        //try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
+        //    username = reader.readLine();
+        //} catch (IOException e) {
+        //    System.out.println("Error getting name " + e.getMessage());
+        //}
 
 
-        JLabel title = new JLabel(username, SwingConstants.CENTER);
+        title = new JLabel(username, SwingConstants.CENTER);
         title.setFont(new Font("Arial", Font.BOLD, 32));
         frame.add(title, BorderLayout.NORTH);
 
@@ -36,7 +45,7 @@ public class LandingPage {
 
         JButton edit = new JButton("Edit Profile");
         edit.addActionListener(e ->
-                new ProfilePage()
+                new ProfilePage(this)
         );
 
         JButton viewCon = new JButton("View Contacts");
@@ -99,6 +108,20 @@ public class LandingPage {
         // BUTTON ACTIONS
         exit.addActionListener(e -> System.exit(0));
     }
+
+    private String loadUsername() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/resources/profile_details"))) {
+            return reader.readLine();
+        } catch (IOException e) {
+            return "Unknown username";
+        }
+    }
+    public void updateUsername(String newName) {
+        title.setText(newName);
+        frame.revalidate();
+        frame.repaint();
+    }
+
 
     private static JPanel createChatEntry(
             JSplitPane splitPane,

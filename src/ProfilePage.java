@@ -9,15 +9,18 @@ import java.util.Objects;
 
 public class ProfilePage extends JFrame {
     // fields
+    private LandingPage landingPage;
     private String name;
     private String number;
+    private String username;
     private final String PFP_LOCATION = "/resources/images/profile_picture.png";
     private final String DETAILS_LOCATION = "src/resources/profile_details";
 
     /**
      * loads name and number into variables from file
      */
-    public ProfilePage() {
+    public ProfilePage(LandingPage landingPage) {
+        this.landingPage = landingPage;
         try (BufferedReader reader = new BufferedReader(new FileReader(DETAILS_LOCATION))) {
             this.name = reader.readLine();
             this.number = reader.readLine();
@@ -83,7 +86,9 @@ public class ProfilePage extends JFrame {
         saveName.addActionListener(e -> {
             setName(nameField.getText());
             saveDetails();
-            JOptionPane.showMessageDialog(null, "Name "+getName()+" saved");
+            JOptionPane.showMessageDialog(null, "Name " + getName() + " saved");
+
+            landingPage.updateUsername(getName());
         });
 
         saveNumber.addActionListener(e -> {
@@ -113,7 +118,7 @@ public class ProfilePage extends JFrame {
                 // this is probably an awful way to do this but idk how else
                 // close window and open a new one with updated image
                 dispose();
-                new ProfilePage();
+                new ProfilePage(landingPage);
             }
         });
 
