@@ -96,23 +96,45 @@ public class Queue {
         return top == null;
     }
 
-    /**
-     * Remove and return the Message at the front of the queue.
-     *
-     * @return The oldest Message, or null if the queue is empty.
-     */
-    public Message pop() {
-        if (isEmpty()) {
-            System.out.println("Queue is empty. Nothing to remove.");
-            return null;
-        }
-        Message data = top.getData();
-        top = top.getNext();
-        if (top == null) {
-            bottom = null;
-        }
-        return data;
-    }
+     /**
+      * Remove and return the Message at the front of the queue.
+      *
+      * @return The oldest Message, or null if the queue is empty.
+      */
+     public Message pop() {
+         if (isEmpty()) {
+             System.out.println("Queue is empty. Nothing to remove.");
+             return null;
+         }
+         Message data = top.getData();
+         top = top.getNext();
+         if (top == null) {
+             bottom = null;
+         }
+         return data;
+     }
+
+     /**
+      * Peek at a message at a specific index without removing it from the queue.
+      *
+      * @param index The position of the message (0-based).
+      * @return The Message at the specified index, or null if index is out of bounds.
+      */
+     public Message peek(int index) {
+         if (index < 0) {
+             return null;
+         }
+         Node current = top;
+         int count = 0;
+         while (current != null) {
+             if (count == index) {
+                 return current.getData();
+             }
+             count++;
+             current = current.getNext();
+         }
+         return null;
+     }
 
     /**
      * Saves all messages in the queue to a CSV file.

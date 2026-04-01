@@ -62,6 +62,52 @@ public class ChatPane extends JFrame {
             }
         });
 
+        JMenuBar menuBar = new JMenuBar();
+        JMenu file = new JMenu("File");
+        JMenuItem search =  new JMenuItem("Search");
+        file.add(search);
+        menuBar.add(file);
+        frame.setJMenuBar(menuBar);
+
+        search.addActionListener(e -> {
+            String query = JOptionPane.showInputDialog(frame, "Enter search:");
+            if (query != null && !query.trim().isEmpty()) {
+                // Create a new window for search results
+                JFrame searchResultsFrame = new JFrame("Search Results: \"" + query + "\"");
+                searchResultsFrame.setSize(600, 400);
+                searchResultsFrame.setLocationRelativeTo(frame);
+
+                JPanel resultsPanel = new JPanel();
+                resultsPanel.setLayout(new BoxLayout(resultsPanel, BoxLayout.Y_AXIS));
+
+                JScrollPane scrollPane = new JScrollPane(resultsPanel);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.getVerticalScrollBar().setUnitIncrement(30);
+
+                searchResultsFrame.add(scrollPane);
+
+                // Search through messages using peek (non-destructive)
+                int resultCount = 0;
+                for (int i = 0; i < messages.getLength(); i++) {
+                    Message m = messages.peek(i);
+                    if (m != null && m.getContent().toLowerCase().contains(query.toLowerCase())) {
+                        JPanel highlightedBubble = createChatBubble(m.getSender(), m.getContent(), m.getTimestamp());
+                        highlightedBubble.setBackground(Color.ORANGE);
+                        resultsPanel.add(highlightedBubble);
+                        resultCount++;
+                    }
+                }
+
+                if (resultCount == 0) {
+                    JLabel noResults = new JLabel("No messages found matching \"" + query + "\"");
+                    noResults.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+                    resultsPanel.add(noResults);
+                }
+
+                searchResultsFrame.setVisible(true);
+            }
+        });
+
         // chat page
         chat = new JPanel();
         chat.setLayout(new BoxLayout(chat, BoxLayout.Y_AXIS));
