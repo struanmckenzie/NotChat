@@ -48,8 +48,9 @@ public class LandingPage {
 
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
+        frame.setSize(1280, 800);
+        frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
 
         String username = loadUsername();
@@ -81,6 +82,8 @@ public class LandingPage {
         maxBtn.addActionListener(e -> {
             if ((frame.getExtendedState() & JFrame.MAXIMIZED_BOTH) == JFrame.MAXIMIZED_BOTH) {
                 frame.setExtendedState(JFrame.NORMAL);
+                frame.setSize(1280, 800);
+                frame.setLocationRelativeTo(null);
             } else {
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
             }

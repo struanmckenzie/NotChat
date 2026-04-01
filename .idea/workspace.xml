@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="made opening conversatiosn work again">
+    <list default="true" id="6a814bec-2bec-4408-9d0b-89ea90dbc991" name="Changes" comment="some changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LandingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LandingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chats/Chat 2" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/Chat 2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -665,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775045872087</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1775046235223</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775046235223</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -680,7 +690,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed menuItem to landingPage" />
     <MESSAGE value="added base for proile page" />
     <MESSAGE value="made it open fullscreen" />
     <MESSAGE value="update" />
@@ -705,7 +714,8 @@
     <MESSAGE value="updating graphics of application" />
     <MESSAGE value="added custom ui parts to the gui" />
     <MESSAGE value="made opening conversatiosn work again" />
-    <option name="LAST_COMMIT_MESSAGE" value="made opening conversatiosn work again" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
