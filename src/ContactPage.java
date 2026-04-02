@@ -265,12 +265,6 @@ public class ContactPage {
 
         List<Contact> contacts = new ArrayList<>();
 
-        /* DELETE IF LOADING WORKS
-        for (int i = 0; i < 25; i++) {
-            contacts.add(new Contact("Contact " + i, "234567364657"));
-        }
-         */
-
         // this is gonna load contacts from FILES
         try (BufferedReader br = new BufferedReader(new FileReader("src/resources/contacts"))) {
             String line;
