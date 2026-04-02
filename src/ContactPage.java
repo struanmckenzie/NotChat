@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -228,6 +230,7 @@ public class ContactPage {
 
     private void addContact(String contactName, String phoneNumber) {
         contacts.add(new Contact(contactName, phoneNumber));
+        saveContacts(); // update contacts file
         reloadContacts();
     }
 
@@ -254,14 +257,46 @@ public class ContactPage {
         reloadContacts();
     }
 
+    /**
+     * loads list of contacts into a list
+     * @param username name of current user
+     */
     static void launch(String username) {
 
         List<Contact> contacts = new ArrayList<>();
 
-        for (int i = 0; i < 25; i++) {
-            contacts.add(new Contact("Contact " + i, "234567364657"));
+        // this is gonna load contacts from FILES
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/contacts"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // read line and split into parts
+                String[] c = line.split(",");
+
+                // add to arraylist
+                contacts.add(new Contact(c[0], c[1], LocalDateTime.parse(c[2]), UUID.fromString(c[3])));
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading contacts: " + e.getMessage());
         }
 
+
         new ContactPage(contacts, username);
+    }
+
+    /**
+     * save list of contacts to ONE FILE
+     * each line stores 1 contacts details
+     */
+    private void saveContacts() {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/contacts"))) {
+            for (Contact contact : contacts) {
+                pw.println(contact.getName() + "," +
+                        contact.getPhoneNumber() + "," +
+                        contact.getTime() + "," +
+                        contact.getID());
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving contacts: " + e.getMessage());
+        }
     }
 }

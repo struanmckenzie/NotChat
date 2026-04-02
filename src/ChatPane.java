@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.time.LocalDateTime;
@@ -16,6 +18,11 @@ public class ChatPane extends JFrame {
     private final String CHAT_LOCATION;
     private final Queue messages = new Queue();
 
+    // theme
+    private final Color BG = new Color(13, 17, 23);
+    private final Color BORDER = new Color(48, 54, 61);
+    private final Color TEXT = new Color(201, 209, 217);
+
     /**
      * overloaded constructor
      * @param chatName name oof contact
@@ -30,11 +37,19 @@ public class ChatPane extends JFrame {
      * create and deploy gui
      */
     private void initializeUI() {
+        // get screen size to set size of chat page accordingly
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = screenSize.width/3;
+        int height = screenSize.height*5/6;
+
+
         // frame
         JFrame frame = new JFrame(chatName);
         frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        frame.setSize(600, 800);
+        frame.setSize(width, height);
         frame.setLocationRelativeTo(null);
+        frame.setBackground(BG);
+        frame.setResizable(false);
 
         // listens for when close button is pressed and calls
         // message method to save current conversation to a csv
@@ -62,15 +77,21 @@ public class ChatPane extends JFrame {
             }
         });
 
-        JMenuBar menuBar = new JMenuBar();
-        JMenu file = new JMenu("File");
-        JMenuItem search =  new JMenuItem("Search");
-        file.add(search);
-        menuBar.add(file);
-        frame.setJMenuBar(menuBar);
+        // search bar
+        JPanel searchBar = new JPanel(new BorderLayout());
+        JTextField searchBox = new JTextField();
+        JButton search = new JButton("Search");
 
+        // style button
+        ProfilePage.aesthetic(search);
+
+        searchBar.add(searchBox, BorderLayout.CENTER);
+        searchBar.add(search, BorderLayout.EAST);
+        frame.add(searchBar, BorderLayout.NORTH);
+
+        // search for text from the search box in messages
         search.addActionListener(e -> {
-            String query = JOptionPane.showInputDialog(frame, "Enter search:");
+            String query = searchBox.getText();
             if (query != null && !query.trim().isEmpty()) {
                 // Create a new window for search results
                 JFrame searchResultsFrame = new JFrame("Search Results: \"" + query + "\"");
@@ -92,7 +113,7 @@ public class ChatPane extends JFrame {
                     Message m = messages.peek(i);
                     if (m != null && m.getContent().toLowerCase().contains(query.toLowerCase())) {
                         JPanel highlightedBubble = createChatBubble(m.getSender(), m.getContent(), m.getTimestamp());
-                        highlightedBubble.setBackground(Color.ORANGE);
+                        highlightedBubble.setBackground(BORDER);
                         resultsPanel.add(highlightedBubble);
                         resultCount++;
                     }
@@ -124,11 +145,11 @@ public class ChatPane extends JFrame {
 
         messageField = new JTextField();
         JButton sendButton = new JButton("Send");
-        JButton deleteButton = new JButton("Delete");
+
+        ProfilePage.aesthetic(sendButton);
 
         // add buttons to button panel
         buttonPanel.add(sendButton);
-        buttonPanel.add(deleteButton);
 
         inputPanel.add(messageField, BorderLayout.CENTER);
         inputPanel.add(buttonPanel, BorderLayout.EAST);
@@ -140,10 +161,6 @@ public class ChatPane extends JFrame {
 
         // Enter Key Action
         messageField.addActionListener(e -> sendMessage("You"));
-
-        deleteButton.addActionListener(e -> {
-            // DELETE MESSAGE WHEN PRESSED!!!!!!!!!!!!!!
-        });
 
         frame.setVisible(true);
     }
@@ -198,7 +215,7 @@ public class ChatPane extends JFrame {
     private JPanel createChatBubble(String sender, String content, LocalDateTime time) {
         // create the chat itself
         JPanel panel = new JPanel(new GridLayout(2, 1));
-        panel.setBackground(Color.ORANGE);
+        panel.setBackground(BORDER);
 
         // format border
         panel.setBorder(BorderFactory.createCompoundBorder(
@@ -210,6 +227,8 @@ public class ChatPane extends JFrame {
         // add title and content
         JLabel title = new JLabel(sender + ": " + time);
         JTextArea body = new JTextArea(content);
+        body.setForeground(TEXT);
+        title.setForeground(TEXT);
 
         body.setFont(new Font(null, Font.PLAIN, 15));
 
@@ -218,14 +237,6 @@ public class ChatPane extends JFrame {
         body.setWrapStyleWord(true);
         body.setEditable(false);
         body.setOpaque(false);
-
-        /* set side chat is on
-        if (sender.equals("You"))
-            panel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        else
-            panel.setAlignmentX(Component.RIGHT_ALIGNMENT);
-
-         */
 
         panel.add(title);
         panel.add(body);

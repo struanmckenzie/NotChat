@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6107f2b-d1b7-4a0b-bd8d-303326e0ecc0" name="Changes" comment="">
+    <list default="true" id="a6107f2b-d1b7-4a0b-bd8d-303326e0ecc0" name="Changes" comment="deleted delete button for individual chats coz cant figure out how to impliment it&#10;&#10;contacts are saved and loaded from a file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ChatPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Contact.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/ContactDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ContactDetails.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ContactPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ContactPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/InputBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/InputBox.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage$3.class" afterDir="false" />
@@ -23,11 +20,15 @@
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/LandingPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/ProfilePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/Queue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/Queue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NotChat/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/chats/Chat 1" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/chats/Chat 1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/contacts" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/contacts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NotChat/resources/profile_details" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChatPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChatPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContactPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/chats/Chat 1" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/chats/Chat 1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/profile_details" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/profile_details" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +43,54 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "struanmckenzie"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/struanmckenzie/NotChat.git",
+    "accountId": "b7687840-867d-4108-9ac2-7cfd0f4a87db"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "struanmckenzie",
+    "repository": "NotChat"
+  }
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="3BnjrWxtZrE1LPZZCPguguNMbcp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "chat-messages(struan)"
+    "Application.main.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "chat-messages(struan)",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Application.main">
@@ -74,7 +116,38 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Unjanked the fucking mess - works properly now with no funny business">
+      <option name="closed" value="true" />
+      <created>1775130976894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775130976894</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a6107f2b-d1b7-4a0b-bd8d-303326e0ecc0" name="Changes" comment="Unjanked the fucking mess - works properly now with no funny business" />
+      <created>1775131930782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775131930782</updated>
+    </task>
+    <task id="LOCAL-00002" summary="deleted delete button for individual chats coz cant figure out how to impliment it&#10;&#10;contacts are saved and loaded from a file">
+      <option name="closed" value="true" />
+      <created>1775135804706</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775135804706</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +160,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Unjanked the fucking mess - works properly now with no funny business" />
+    <MESSAGE value="deleted delete button for individual chats coz cant figure out how to impliment it&#10;&#10;contacts are saved and loaded from a file" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted delete button for individual chats coz cant figure out how to impliment it&#10;&#10;contacts are saved and loaded from a file" />
   </component>
 </project>
