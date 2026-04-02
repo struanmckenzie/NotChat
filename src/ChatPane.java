@@ -124,11 +124,9 @@ public class ChatPane extends JFrame {
 
         messageField = new JTextField();
         JButton sendButton = new JButton("Send");
-        JButton deleteButton = new JButton("Delete");
 
         // add buttons to button panel
         buttonPanel.add(sendButton);
-        buttonPanel.add(deleteButton);
 
         inputPanel.add(messageField, BorderLayout.CENTER);
         inputPanel.add(buttonPanel, BorderLayout.EAST);
@@ -140,10 +138,6 @@ public class ChatPane extends JFrame {
 
         // Enter Key Action
         messageField.addActionListener(e -> sendMessage("You"));
-
-        deleteButton.addActionListener(e -> {
-            // DELETE MESSAGE WHEN PRESSED!!!!!!!!!!!!!!
-        });
 
         frame.setVisible(true);
     }
