@@ -12,6 +12,8 @@ public class ProfilePage extends JFrame {
     private LandingPage landingPage;
     private String name;
     private String number;
+    private JTextArea nameField;
+    private JTextArea numberField;
     private final String PFP_LOCATION = "/resources/images/profile_picture.png";
     private final String DETAILS_LOCATION = "src/resources/profile_details";
 
@@ -45,24 +47,13 @@ public class ProfilePage extends JFrame {
         JPanel details = new JPanel(new FlowLayout(FlowLayout.CENTER));
         details.setBackground(Color.LIGHT_GRAY);
 
-        JTextArea nameField = new JTextArea(name);
-        JTextArea numberField = new JTextArea(number);
+        nameField = new JTextArea(name);
+        numberField = new JTextArea(number);
         nameField.setFont(new Font(null, Font.PLAIN, 20));
         numberField.setFont(new Font(null, Font.PLAIN, 20));
 
-        // get profile picture
-        // the AMOUNT of research i had to do, all the stackoverflow
-        // and wikihows and everything JUST FOR THIS
-        // worth it ;-D
-        ImageIcon image = new ImageIcon(Objects.requireNonNull(getClass().getResource(PFP_LOCATION)));
-        Image scaledImg = image.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-        ImageIcon profileP = new ImageIcon(scaledImg);
-        JLabel pic = new JLabel(profileP);
-        pic.setPreferredSize(new Dimension(100, 100));
+        updateProfile(details);
 
-        details.add(pic);
-        details.add(nameField);
-        details.add(numberField);
 
         add(details, BorderLayout.CENTER);
 
@@ -114,10 +105,13 @@ public class ProfilePage extends JFrame {
                     throw new RuntimeException(ex);
                 }
 
+                /*
                 // this is probably an awful way to do this but idk how else
                 // close window and open a new one with updated image
                 dispose();
-                new ProfilePage(landingPage);
+                new ProfilePage(landingPage); */
+
+                updateProfile(details);
             }
         });
 
@@ -125,10 +119,29 @@ public class ProfilePage extends JFrame {
     }
 
     /**
+     * get profile picture
+     * set profile picture
+     * @param details panel to add pic to
+     */
+    private void updateProfile(JPanel details) {
+        details.removeAll();
+        ImageIcon image = new ImageIcon(Objects.requireNonNull(getClass().getResource(PFP_LOCATION)));
+        Image scaledImg = image.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+        ImageIcon profileP = new ImageIcon(scaledImg);
+        JLabel pic = new JLabel(profileP);
+        pic.setPreferredSize(new Dimension(100, 100));
+
+        details.add(pic);
+        details.add(nameField);
+        details.add(numberField);
+        details.updateUI();
+    }
+
+    /**
      * sets the desired appearance of buttons on the page
      * @param b button to configure
      */
-    private void aesthetic(JButton b) {
+    public static void aesthetic(JButton b) {
         b.setPreferredSize(new Dimension(150, 30));
         b.setBackground(Color.gray);
         b.setBorder(BorderFactory.createCompoundBorder(
