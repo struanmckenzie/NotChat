@@ -1,4 +1,4 @@
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Contact {
@@ -6,14 +6,22 @@ public class Contact {
     //Contact details depending on time could implement profile pictures
     private String name;
     private String phoneNumber;
-    private Instant creationTime;
+    private LocalDateTime creationTime;
     private UUID id;
 
     public Contact(String name, String phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.creationTime = Instant.now();
+        this.creationTime = LocalDateTime.now();
         this.id = UUID.randomUUID();
+    }
+
+    // this is for loading already created contacts
+    public Contact(String name, String phoneNumber, LocalDateTime cTime, UUID id) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.creationTime = cTime;
+        this.id = id;
     }
 
     //Getters and setters 
@@ -33,7 +41,7 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public Instant getTime(){
+    public LocalDateTime getTime(){
         return creationTime;
     }
 

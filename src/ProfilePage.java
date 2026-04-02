@@ -12,7 +12,6 @@ public class ProfilePage extends JFrame {
     private LandingPage landingPage;
     private String name;
     private String number;
-    private String username;
     private final String PFP_LOCATION = "/resources/images/profile_picture.png";
     private final String DETAILS_LOCATION = "src/resources/profile_details";
 
