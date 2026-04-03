@@ -4,6 +4,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
 import javax.swing.border.Border;
+import java.util.List;
+import java.util.ArrayList;
 
 public class LandingPage {
 
@@ -57,6 +59,10 @@ public class LandingPage {
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(BG);
         topBar.setPreferredSize(new Dimension(frame.getWidth(), 60));
+
+        //Load contacts
+        List<Contact> contacts = ContactPage.loadContacts();
+
 
         // Welcome title
         title = new JLabel("Welcome, " + username, SwingConstants.CENTER);
@@ -207,14 +213,16 @@ public class LandingPage {
             }
         });
 
-        // ===== Dummy Chat Entries =====
-        for (int i = 1; i <= 15; i++) {
+        // ===== Creates chats for all the contacts =====
+        List<Chat> chats = new ArrayList<>();
+        for (int i = 1; i <= contacts.size(); i++) {
+            chats.add(new Chat(contacts.get(i - 1)));
             chatListPanel.add(createChatEntry(
-                    "Chat " + i,
-                    "Contact " + i,
-                    "2026-03-11",
-                    (i % 2 == 0) ? "Delivered" : "Read",
-                    (i % 3 == 0) ? "Unread" : "Read"
+                    chats.get(i - 1).getChatName(),
+                    chats.get(i - 1).getContact().getName(),
+                    chats.get(i - 1).getDate().toString(),
+                    chats.get(i - 1).getStatusContact(),
+                    chats.get(i - 1).getStatusUser()
             ));
             chatListPanel.add(Box.createVerticalStrut(10));
         }
@@ -270,7 +278,7 @@ public class LandingPage {
                 BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
 
-        JLabel chatTitle = new JLabel(chatName + " — " + contact);
+        JLabel chatTitle = new JLabel(contact);
         chatTitle.setForeground(TEXT);
         chatTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
 

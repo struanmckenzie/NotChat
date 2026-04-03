@@ -257,12 +257,7 @@ public class ContactPage {
         reloadContacts();
     }
 
-    /**
-     * loads list of contacts into a list
-     * @param username name of current user
-     */
-    static void launch(String username) {
-
+    public static List<Contact> loadContacts(){
         List<Contact> contacts = new ArrayList<>();
 
         // this is gonna load contacts from FILES
@@ -279,6 +274,16 @@ public class ContactPage {
             System.out.println("Error loading contacts: " + e.getMessage());
         }
 
+        return contacts;
+    }
+
+    /**
+     * loads list of contacts into a list
+     * @param username name of current user
+     */
+    static void launch(String username) {
+
+        List<Contact> contacts = loadContacts();
 
         new ContactPage(contacts, username);
     }
