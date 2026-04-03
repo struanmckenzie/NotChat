@@ -178,6 +178,28 @@ public class LandingPage {
         viewCon.addActionListener(e -> ContactPage.launch(username));
 
         JButton create = createStyledButton("Create Chat");
+        create.addActionListener(e -> {
+            String[] names = contacts.stream().map(Contact::getName).toArray(String[]::new);
+            String chosenContact = (String) JOptionPane.showInputDialog(create, "Select a contact:", "Create chat",
+                    JOptionPane.PLAIN_MESSAGE, null, names, names[0]);
+
+            if (chosenContact != null) {
+                Contact selectedContact = contacts.stream().filter(c -> c.getName().equals(chosenContact)).findFirst()
+                        .orElse(null);
+
+                if (selectedContact != null) {
+                    if (checkIfChatExists(selectedContact)) {
+                        new ChatPane(selectedContact.getID().toString());
+                    } else {
+
+                        Chat newChat = new Chat(selectedContact, selectedContact.getID().toString(), LocalDate.now(),
+                                "Unopened", "Unopened");
+                        chats.add(newChat);
+                        saveChats();
+                    }
+                }
+            }
+        });
 
         JButton exit = createStyledButton("Exit");
         addExitHoverEffect(exit);
@@ -305,7 +327,7 @@ public class LandingPage {
         }
     }
 
-    public void loadChats(){
+    public void loadChats() {
         chats = new ArrayList<>();
 
         // this is gonna load contacts from FILES
@@ -323,9 +345,9 @@ public class LandingPage {
         }
     }
 
-    public Contact matchContact(String id){
-        for (Contact contact : contacts){
-            if (contact.getID().toString().equals(id)){
+    public Contact matchContact(String id) {
+        for (Contact contact : contacts) {
+            if (contact.getID().toString().equals(id)) {
                 return contact;
             }
         }
@@ -380,5 +402,16 @@ public class LandingPage {
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));
 
         return panel;
+    }
+
+    // Checks to see if there is already a chat that has been created with the given
+    // contact
+    private Boolean checkIfChatExists(Contact contact) {
+        for (Chat chat : chats) {
+            if (chat.getContact() == contact) {
+                return true;
+            }
+        }
+        return false;
     }
 }
