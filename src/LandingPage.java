@@ -15,6 +15,7 @@ public class LandingPage {
 
     private JFrame frame;
     private JLabel title;
+    private JPanel chatListPanel;
 
     private List<Chat> chats;
     private List<Contact> contacts;
@@ -197,6 +198,7 @@ public class LandingPage {
                         chats.add(newChat);
                         saveChats();
                     }
+                    refreshChatList();
                 }
             }
         });
@@ -214,7 +216,7 @@ public class LandingPage {
         leftPanel.add(exit);
 
         // ===== Chat List =====
-        JPanel chatListPanel = new JPanel();
+        chatListPanel = new JPanel();
         chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
         chatListPanel.setBackground(BG);
 
@@ -268,16 +270,8 @@ public class LandingPage {
         });
 
         // ===== Creates chats from the list_of_chats file =====
-        loadChats();
-        for (int i = 1; i <= chats.size(); i++) {
-            chatListPanel.add(createChatEntry(
-                    chats.get(i - 1).getChatName(),
-                    chats.get(i - 1).getContact().getName(),
-                    chats.get(i - 1).getDate().toString(),
-                    chats.get(i - 1).getStatusContact(),
-                    chats.get(i - 1).getStatusUser()));
-            chatListPanel.add(Box.createVerticalStrut(10));
-        }
+
+        refreshChatList();
 
         frame.add(splitPane, BorderLayout.CENTER);
         frame.setVisible(true);
@@ -413,5 +407,24 @@ public class LandingPage {
             }
         }
         return false;
+    }
+
+    private void refreshChatList(){
+        chatListPanel.removeAll();
+
+        loadChats();
+        for (Chat chat : chats) {
+            chatListPanel.add(createChatEntry(
+                    chat.getChatName(),
+                    chat.getContact().getName(),
+                    chat.getDate().toString(),
+                    chat.getStatusContact(),
+                    chat.getStatusUser()));
+            chatListPanel.add(Box.createVerticalStrut(10));
+        }
+
+        chatListPanel.revalidate();
+        chatListPanel.repaint();
+
     }
 }
