@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.time.LocalDate;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.border.Border;
 import java.util.List;
 import java.util.ArrayList;
@@ -11,6 +15,9 @@ public class LandingPage {
 
     private JFrame frame;
     private JLabel title;
+
+    private List<Chat> chats;
+    private List<Contact> contacts;
 
     // Dark theme colors
     private final Color BG = new Color(13, 17, 23);
@@ -55,21 +62,27 @@ public class LandingPage {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
 
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                saveChats();
+                frame.dispose();
+            }
+        });
+
         String username = loadUsername();
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(BG);
         topBar.setPreferredSize(new Dimension(frame.getWidth(), 60));
 
-        //Load contacts
-        List<Contact> contacts = ContactPage.loadContacts();
-
+        // Load contacts
+        contacts = ContactPage.loadContacts();
 
         // Welcome title
         title = new JLabel("Welcome, " + username, SwingConstants.CENTER);
         title.setForeground(TEXT);
         title.setFont(new Font("Segoe UI", Font.BOLD, 20));
         topBar.add(title, BorderLayout.CENTER);
-
 
         // ===== Window Controls (Minimize, Maximize, Close) =====
         JPanel windowControls = new JPanel();
@@ -97,9 +110,14 @@ public class LandingPage {
 
         maxBtn.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(MouseEvent e) { maxBtn.setBackground(HOVER); }
+            public void mouseEntered(MouseEvent e) {
+                maxBtn.setBackground(HOVER);
+            }
+
             @Override
-            public void mouseExited(MouseEvent e) { maxBtn.setBackground(BG); }
+            public void mouseExited(MouseEvent e) {
+                maxBtn.setBackground(BG);
+            }
         });
 
         // Close button
@@ -114,9 +132,14 @@ public class LandingPage {
         closeBtn.addActionListener(e -> System.exit(0));
         closeBtn.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(MouseEvent e) { closeBtn.setBackground(EXIT_HOVER); }
+            public void mouseEntered(MouseEvent e) {
+                closeBtn.setBackground(EXIT_HOVER);
+            }
+
             @Override
-            public void mouseExited(MouseEvent e) { closeBtn.setBackground(BG); }
+            public void mouseExited(MouseEvent e) {
+                closeBtn.setBackground(BG);
+            }
         });
 
         // Add both buttons
@@ -183,8 +206,15 @@ public class LandingPage {
                 this.thumbColor = BORDER;
                 this.trackColor = BG;
             }
-            protected JButton createDecreaseButton(int orientation) { return createZeroButton(); }
-            protected JButton createIncreaseButton(int orientation) { return createZeroButton(); }
+
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
             private JButton createZeroButton() {
                 JButton button = new JButton();
                 button.setPreferredSize(new Dimension(0, 0));
@@ -203,7 +233,9 @@ public class LandingPage {
         splitPane.setUI(new javax.swing.plaf.basic.BasicSplitPaneUI() {
             public javax.swing.plaf.basic.BasicSplitPaneDivider createDefaultDivider() {
                 return new javax.swing.plaf.basic.BasicSplitPaneDivider(this) {
-                    public void setBorder(Border b) {}
+                    public void setBorder(Border b) {
+                    }
+
                     @Override
                     public void paint(Graphics g) {
                         g.setColor(BORDER);
@@ -213,17 +245,15 @@ public class LandingPage {
             }
         });
 
-        // ===== Creates chats for all the contacts =====
-        List<Chat> chats = new ArrayList<>();
-        for (int i = 1; i <= contacts.size(); i++) {
-            chats.add(new Chat(contacts.get(i - 1)));
+        // ===== Creates chats from the list_of_chats file =====
+        loadChats();
+        for (int i = 1; i <= chats.size(); i++) {
             chatListPanel.add(createChatEntry(
                     chats.get(i - 1).getChatName(),
                     chats.get(i - 1).getContact().getName(),
                     chats.get(i - 1).getDate().toString(),
                     chats.get(i - 1).getStatusContact(),
-                    chats.get(i - 1).getStatusUser()
-            ));
+                    chats.get(i - 1).getStatusUser()));
             chatListPanel.add(Box.createVerticalStrut(10));
         }
 
@@ -239,20 +269,31 @@ public class LandingPage {
         button.setBackground(PANEL);
         button.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(BORDER),
-                BorderFactory.createEmptyBorder(10, 15, 10, 15)
-        ));
+                BorderFactory.createEmptyBorder(10, 15, 10, 15)));
         button.setMaximumSize(new Dimension(Integer.MAX_VALUE, 45));
         button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) { button.setBackground(HOVER); }
-            public void mouseExited(MouseEvent e) { button.setBackground(PANEL); }
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(HOVER);
+            }
+
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(PANEL);
+            }
         });
         return button;
     }
 
     private void addExitHoverEffect(JButton button) {
         button.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent e) { button.setBackground(EXIT_HOVER); button.setForeground(Color.WHITE); }
-            public void mouseExited(MouseEvent e) { button.setBackground(PANEL); button.setForeground(TEXT); }
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(EXIT_HOVER);
+                button.setForeground(Color.WHITE);
+            }
+
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(PANEL);
+                button.setForeground(TEXT);
+            }
         });
     }
 
@@ -264,19 +305,59 @@ public class LandingPage {
         }
     }
 
+    public void loadChats(){
+        chats = new ArrayList<>();
+
+        // this is gonna load contacts from FILES
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // read line and split into parts
+                String[] c = line.split(",");
+
+                // add to arraylist
+                chats.add(new Chat(matchContact(c[0]), c[0], LocalDate.parse(c[1]), c[2], c[3]));
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading chats: " + e.getMessage());
+        }
+    }
+
+    public Contact matchContact(String id){
+        for (Contact contact : contacts){
+            if (contact.getID().toString().equals(id)){
+                return contact;
+            }
+        }
+        return null;
+    }
+
+    private void saveChats() {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
+            for (Chat chat : chats) {
+                pw.println(chat.getChatName() + "," +
+                        chat.getDate() + "," +
+                        chat.getStatusContact() + "," +
+                        chat.getStatusUser());
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving contacts: " + e.getMessage());
+        }
+    }
+
     public void updateUsername(String newName) {
         title.setText("Welcome, " + newName);
         frame.revalidate();
         frame.repaint();
     }
 
-    private JPanel createChatEntry(String chatName, String contact, String date, String statusContact, String statusUser) {
+    private JPanel createChatEntry(String chatName, String contact, String date, String statusContact,
+            String statusUser) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(PANEL);
         panel.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createMatteBorder(0, 0, 1, 0, BORDER),
-                BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
+                BorderFactory.createEmptyBorder(15, 15, 15, 15)));
 
         JLabel chatTitle = new JLabel(contact);
         chatTitle.setForeground(TEXT);

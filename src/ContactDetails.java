@@ -40,6 +40,7 @@ public class ContactDetails {
         buttons.setLayout(new GridLayout(1, 0));
 
         JButton viewButton = new JButton("View details");
+        viewButton.addActionListener(e -> viewContact());
 
         JButton editButton = new JButton("Edit details");
         editButton.addActionListener(e -> editContact());
@@ -65,6 +66,10 @@ public class ContactDetails {
     public void editContact() {
         ContactPage.contactPage.reloadContacts();
         contactPage.editContactPage(contact);
+    }
+
+    public void viewContact(){
+        contactPage.viewContactPage(contact);
     }
 
 }

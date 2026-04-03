@@ -170,8 +170,8 @@ public class ContactPage {
     public void editContactPage(Contact contact) {
         contactsPage.removeAll();
 
-        JPanel addNewContactPage = new JPanel();
-        addNewContactPage.setLayout(new GridBagLayout());
+        JPanel editContactPage = new JPanel();
+        editContactPage.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
 
         constraints.gridx = 0;
@@ -211,18 +211,56 @@ public class ContactPage {
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         constraints.gridy = 0;
-        addNewContactPage.add(title, constraints);
+        editContactPage.add(title, constraints);
 
         constraints.gridy = 1;
-        addNewContactPage.add(nameField, constraints);
+        editContactPage.add(nameField, constraints);
 
         constraints.gridy = 2;
-        addNewContactPage.add(phoneNumberField, constraints);
+        editContactPage.add(phoneNumberField, constraints);
 
         constraints.gridy = 3;
-        addNewContactPage.add(submitButton, constraints);
+        editContactPage.add(submitButton, constraints);
 
-        contactsPage.add(addNewContactPage);
+        contactsPage.add(editContactPage);
+
+        contactsPage.revalidate(); // refresh layout
+        contactsPage.repaint(); // redraw panel
+    }
+
+    public void viewContactPage(Contact contact){
+        contactsPage.removeAll();
+
+        JPanel viewContactPage = new JPanel();
+        viewContactPage.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+
+        constraints.gridx = 0;
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets = new Insets(10, 0, 10, 0);
+
+        JLabel name = new JLabel("Name: " + contact.getName());
+        name.setFont(new Font("Arial", Font.BOLD, 28));
+
+
+        JLabel phoneNumber = new JLabel("Phone Number: " + contact.getPhoneNumber());
+        phoneNumber.setFont(new Font("Arial", Font.BOLD, 26));
+
+
+        JLabel date = new JLabel("Contact created: " + contact.getReadableTime());
+        date.setFont(new Font("Arial", Font.BOLD, 22));
+
+        constraints.gridy = 0;
+        viewContactPage.add(name, constraints);
+        
+        constraints.gridy = 1;
+        viewContactPage.add(phoneNumber, constraints);
+
+        constraints.gridy = 2;
+        viewContactPage.add(date, constraints);
+
+        contactsPage.add(viewContactPage);
 
         contactsPage.revalidate(); // refresh layout
         contactsPage.repaint(); // redraw panel

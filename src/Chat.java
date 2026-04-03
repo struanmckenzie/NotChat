@@ -8,12 +8,12 @@ public class Chat {
     String statusContact;
     String statusUser;
 
-    public Chat(Contact contact){
+    public Chat(Contact contact, String chatName, LocalDate date, String statusContact, String statusUser){
         this.contact = contact;
-        this.chatName = this.contact.getID().toString();
-        date = LocalDate.now();
-        statusContact = "Delivered";
-        statusUser = "Unread";
+        this.chatName = chatName;
+        this.date = date;
+        this.statusContact = statusContact;
+        this.statusUser = statusUser;
     }
 
     public void displayChat(){
