@@ -39,8 +39,6 @@ public class ContactPage {
         header.setLayout(new BorderLayout());
         header.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Temp change the userName to userName variable once I know it
-        // DW lewis i got u ;-)
         JLabel userName = new JLabel(USERNAME, SwingConstants.CENTER);
         userName.setFont(new Font("Arial", Font.BOLD, 32));
 

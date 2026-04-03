@@ -180,27 +180,26 @@ public class LandingPage {
 
         JButton create = createStyledButton("Create Chat");
         create.addActionListener(e -> {
-            String[] names = contacts.stream().map(Contact::getName).toArray(String[]::new);
-            String chosenContact = (String) JOptionPane.showInputDialog(create, "Select a contact:", "Create chat",
-                    JOptionPane.PLAIN_MESSAGE, null, names, names[0]);
+            JPopupMenu popup = new JPopupMenu();
 
-            if (chosenContact != null) {
-                Contact selectedContact = contacts.stream().filter(c -> c.getName().equals(chosenContact)).findFirst()
-                        .orElse(null);
-
-                if (selectedContact != null) {
-                    if (checkIfChatExists(selectedContact)) {
-                        new ChatPane(selectedContact.getID().toString());
+            for (Contact contact : contacts) {
+                JMenuItem item = new JMenuItem(contact.getName());
+                item.addActionListener(ev -> {
+                    if (checkIfChatExists(contact)) {
+                        new ChatPane(contact.getID().toString());
                     } else {
-
-                        Chat newChat = new Chat(selectedContact, selectedContact.getID().toString(), LocalDate.now(),
+                        Chat newChat = new Chat(contact, contact.getID().toString(), LocalDate.now(),
                                 "Unopened", "Unopened");
                         chats.add(newChat);
                         saveChats();
                     }
                     refreshChatList();
-                }
+                });
+                popup.add(item);
             }
+
+            // show it directly below the create button
+            popup.show(create, 0, create.getHeight());
         });
 
         JButton exit = createStyledButton("Exit");
@@ -409,7 +408,7 @@ public class LandingPage {
         return false;
     }
 
-    private void refreshChatList(){
+    private void refreshChatList() {
         chatListPanel.removeAll();
 
         loadChats();
