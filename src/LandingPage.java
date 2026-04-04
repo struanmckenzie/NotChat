@@ -29,7 +29,8 @@ public class LandingPage {
     private final Color HOVER = new Color(33, 38, 45);
     private final Color EXIT_HOVER = new Color(220, 38, 38);
 
-    public LandingPage() {
+    public LandingPage(JFrame frame) {
+        this.frame = frame;
         launch();
     }
 
@@ -56,9 +57,9 @@ public class LandingPage {
             e.printStackTrace();
         }
 
-        frame = new JFrame();
+        frame.setVisible(false);
+        frame.getContentPane().removeAll();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setUndecorated(true);
         frame.setSize(1280, 800);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
@@ -176,7 +177,7 @@ public class LandingPage {
         edit.addActionListener(e -> new ProfilePage(this));
 
         JButton viewCon = createStyledButton("View Contacts");
-        viewCon.addActionListener(e -> ContactPage.launch(username));
+        viewCon.addActionListener(e -> ContactPage.launch(username, frame));
 
         JButton create = createStyledButton("Create Chat");
         create.addActionListener(e -> {
@@ -273,6 +274,9 @@ public class LandingPage {
         refreshChatList();
 
         frame.add(splitPane, BorderLayout.CENTER);
+
+        frame.revalidate();
+        frame.repaint();
         frame.setVisible(true);
     }
 
@@ -323,7 +327,7 @@ public class LandingPage {
     public void loadChats() {
         chats = new ArrayList<>();
 
-        // this is gonna load contacts from FILES
+        // this is gonna load chats from FILES
         try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -347,6 +351,7 @@ public class LandingPage {
         return null;
     }
 
+    // Saves chats to a file list_of_chats
     private void saveChats() {
         try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
             for (Chat chat : chats) {
@@ -408,6 +413,7 @@ public class LandingPage {
         return false;
     }
 
+    // Refreshes the list of chats on the right
     private void refreshChatList() {
         chatListPanel.removeAll();
 

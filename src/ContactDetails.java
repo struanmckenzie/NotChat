@@ -1,6 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.nio.file.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class ContactDetails {
 
@@ -60,8 +64,59 @@ public class ContactDetails {
 
     public void deleteContact() {
         allContacts.remove(contact);
+        try {
+            Path path = Paths.get("src/resources/chats/" + contact.getID().toString());
+            Files.delete(path); // throws exception if file doesn't exist
+            System.out.println("File deleted successfully");
+        } catch (Exception e) {
+            System.out.println("Error deleting file: " + e.getMessage());
+        }
+
+        List<Chat> chats = new ArrayList<>();
+
+        // this is gonna load chats from FILES
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // read line and split into parts
+                String[] c = line.split(",");
+
+                // add to arraylist
+                Contact matched = matchContact(c[0]);
+                if (matched != null){
+                    chats.add(new Chat(matchContact(c[0]), c[0], LocalDate.parse(c[1]), c[2], c[3]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading chats: " + e.getMessage());
+        }
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
+            for (Chat chat : chats) {
+                if (chat != null && !chat.getContact().getID().equals(contact.getID())){
+                    System.out.println("Working");
+                    pw.println(chat.getChatName() + "," +
+                            chat.getDate() + "," +
+                            chat.getStatusContact() + "," +
+                            chat.getStatusUser());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving contacts: " + e.getMessage());
+        }
+
         ContactPage.saveContacts();
         ContactPage.contactPage.reloadContacts();
+    }
+
+
+    public Contact matchContact(String id) {
+        for (Contact contact : allContacts) {
+            if (contact.getID().toString().equals(id)) {
+                return contact;
+            }
+        }
+        return null;
     }
 
     public void editContact() {
@@ -69,7 +124,7 @@ public class ContactDetails {
         contactPage.editContactPage(contact);
     }
 
-    public void viewContact(){
+    public void viewContact() {
         contactPage.viewContactPage(contact);
     }
 

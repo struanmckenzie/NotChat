@@ -20,17 +20,18 @@ public class ContactPage {
     private Boolean alphabeltical = false;
     private String sorted = "Alphabetical";
 
-    public ContactPage(List<Contact> contacts, String username) {
+    public ContactPage(List<Contact> contacts, String username, JFrame frame) {
         this.contacts = contacts;
         this.USERNAME = username;
         this.contactPage = this;
+        this.frame = frame;
         drawUI(contacts);
     }
 
     public void drawUI(List<Contact> contacts) {
+        frame.getContentPane().removeAll();
 
-        frame = new JFrame();
-        frame.setSize(1080, 1920);
+        frame.setSize(1280, 800);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setTitle("Contacts");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // ive made this dispose so that you can close the page
@@ -49,6 +50,7 @@ public class ContactPage {
         JPanel mainContent = new JPanel();
         mainContent.setLayout(new BorderLayout());
 
+        // Sidebar
         JPanel sideBar = new JPanel();
         sideBar.setLayout(new GridLayout(5, 1, 10, 10));
         sideBar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -60,6 +62,7 @@ public class ContactPage {
         sortContacts.addActionListener(e -> sortContacts());
 
         JButton returnMainMenu = new JButton("Return");
+        returnMainMenu.addActionListener(e -> new LandingPage(frame));
 
         sideBar.add(createNewContact);
         sideBar.add(sortContacts);
@@ -67,6 +70,7 @@ public class ContactPage {
 
         mainContent.add(sideBar, BorderLayout.WEST);
 
+        // Create the contacts
         contactsPage = new JPanel();
         contactsPage.setLayout(new BoxLayout(contactsPage, BoxLayout.Y_AXIS));
         contactsPage.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -83,8 +87,8 @@ public class ContactPage {
 
         sortContacts();
 
-        frame.setVisible(true);
-
+        frame.revalidate();
+        frame.repaint();
     }
 
     public void reloadContacts() {
@@ -276,30 +280,39 @@ public class ContactPage {
         constraints.gridy = 2;
         viewContactPage.add(date, constraints);
 
-        constraints.gridy = 3;
-        viewContactPage.add(mostRecentMessages, constraints);
-
         Chat chat = matchContactToChat(contact);
-        Message[] last3Messages = chat.getLast3Messages();
-        if (last3Messages.length == 0) {
-            JLabel noMessagesText = new JLabel("There are no messages between you and this contact");
-            noMessagesText.setFont(new Font("Arial", Font.BOLD, 20));
-        }
-        for (Message message : last3Messages) {
-            ChatMessage chatMessage = new ChatMessage(message.getContent(), message.getSender(),
-                    message.getReadableTime(), contact.getID().toString());
-            JPanel chatMessageBox = chatMessage.getDisplayMessage();
+        if (chat == null) {
+            JLabel noMessagesText = new JLabel("There are no currently messages between you and this contact");
+            noMessagesText.setFont(new Font("Arial", Font.BOLD, 24));
+            constraints.gridy = 3;
+            viewContactPage.add(noMessagesText, constraints);
+        } else {
+            Message[] last3Messages = chat.getLast3Messages();
+            if (last3Messages.length == 0) {
+                JLabel noMessagesText = new JLabel("There are currently no messages between you and this contact");
+                noMessagesText.setFont(new Font("Arial", Font.BOLD, 24));
+                constraints.gridy = 3;
+                viewContactPage.add(noMessagesText, constraints);
+            } else {
+                constraints.gridy = 3;
+                viewContactPage.add(mostRecentMessages, constraints);
+                for (Message message : last3Messages) {
+                    ChatMessage chatMessage = new ChatMessage(message.getContent(), message.getSender(),
+                            message.getReadableTime(), contact.getID().toString());
+                    JPanel chatMessageBox = chatMessage.getDisplayMessage();
 
-            constraints.gridy++;
-            constraints.fill = GridBagConstraints.HORIZONTAL;
-            constraints.weightx = 0.8;
-            viewContactPage.add(chatMessageBox, constraints);
+                    constraints.gridy++;
+                    constraints.fill = GridBagConstraints.HORIZONTAL;
+                    constraints.weightx = 0.8;
+                    viewContactPage.add(chatMessageBox, constraints);
+                }
+            }
         }
 
         JButton returnButton = new JButton("Return to contacts");
         returnButton.addActionListener(e -> reloadContacts());
 
-        constraints.gridy ++;
+        constraints.gridy++;
         constraints.weightx = 0;
         constraints.fill = GridBagConstraints.NONE;
         viewContactPage.add(returnButton, constraints);
@@ -323,6 +336,7 @@ public class ContactPage {
                 c.setPhoneNumber(phoneNumber);
             }
         }
+        saveContacts();
         reloadContacts();
     }
 
@@ -364,11 +378,11 @@ public class ContactPage {
      * 
      * @param username name of current user
      */
-    static void launch(String username) {
+    static void launch(String username, JFrame frame) {
 
         List<Contact> contacts = loadContacts();
 
-        new ContactPage(contacts, username);
+        new ContactPage(contacts, username, frame);
     }
 
     /**
