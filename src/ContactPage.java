@@ -9,6 +9,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import java.time.LocalDate;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 
 public class ContactPage {
 
@@ -28,6 +30,7 @@ public class ContactPage {
     public static ContactPage contactPage;
     private Boolean alphabeltical = false;
     private String sorted = "Alphabetical";
+    private Contact currentViewingContact = null;
 
     public ContactPage(List<Contact> contacts, String username, JFrame frame) {
         this.contacts = contacts;
@@ -105,12 +108,27 @@ public class ContactPage {
 
         sortContacts(); // initial sort
 
+        frame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+                loadChats();
+                refreshCurrentView();
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                loadChats();
+                refreshCurrentView();
+            }
+        });
+
         frame.revalidate();
         frame.repaint();
     }
 
     public void reloadContacts() {
         contactsPage.removeAll();
+        currentViewingContact = null;
         loadChats();
 
         JLabel sortTitle = new JLabel(sorted);
@@ -129,6 +147,12 @@ public class ContactPage {
 
         contactsPage.revalidate();
         contactsPage.repaint();
+    }
+
+    public void refreshCurrentView() {
+        if (currentViewingContact != null) {
+            viewContactPage(currentViewingContact);
+        }
     }
 
     public void addContactPage() {
@@ -296,6 +320,7 @@ public class ContactPage {
 
     public void viewContactPage(Contact contact) {
         contactsPage.removeAll();
+        currentViewingContact = contact;
 
         JPanel viewContactPage = new JPanel(new GridBagLayout());
         viewContactPage.setBackground(BG);
