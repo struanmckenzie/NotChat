@@ -125,6 +125,12 @@ public class ContactPage {
         JLabel title = new JLabel("Add new contact");
         title.setFont(new Font("Arial", Font.BOLD, 28));
 
+        //Create panel for the name input field
+        JPanel nameBox = new JPanel(new BorderLayout());
+
+        JLabel name = new JLabel("Name         ");
+        name.setFont(new Font ("Arial", Font.BOLD, 32));
+
         InputBox nameField = new InputBox();
         nameField.setPreferredSize(new Dimension(760, 80));
         JTextArea nameText = new JTextArea();
@@ -135,6 +141,15 @@ public class ContactPage {
         nameText.setFont(new Font("Arial", Font.PLAIN, 28));
         nameField.add(nameText, BorderLayout.CENTER);
 
+        nameBox.add(name, BorderLayout.WEST);
+        nameBox.add(nameField, BorderLayout.EAST);
+
+        //Create panel for the phone number input field
+        JPanel phoneBox = new JPanel(new BorderLayout());
+
+        JLabel phone = new JLabel("Phone Number ");
+        phone.setFont(new Font("Arial", Font.BOLD, 32));
+
         InputBox phoneNumberField = new InputBox();
         phoneNumberField.setPreferredSize(new Dimension(760, 80));
         JTextArea phoneNumberText = new JTextArea();
@@ -144,6 +159,9 @@ public class ContactPage {
         phoneNumberText.setOpaque(false);
         phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
         phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
+
+        phoneBox.add(phone, BorderLayout.WEST);
+        phoneBox.add(phoneNumberField, BorderLayout.EAST);
 
         JButton submitButton = new JButton("Add Contact");
         submitButton.addActionListener(e -> addContact(nameText.getText(), phoneNumberText.getText()));
@@ -161,10 +179,10 @@ public class ContactPage {
         addNewContactPage.add(title, constraints);
 
         constraints.gridy = 1;
-        addNewContactPage.add(nameField, constraints);
+        addNewContactPage.add(nameBox, constraints);
 
         constraints.gridy = 2;
-        addNewContactPage.add(phoneNumberField, constraints);
+        addNewContactPage.add(phoneBox, constraints);
 
         constraints.gridy = 3;
         addNewContactPage.add(submitButton, constraints);
@@ -193,6 +211,12 @@ public class ContactPage {
         JLabel title = new JLabel("Edit contact");
         title.setFont(new Font("Arial", Font.BOLD, 28));
 
+        //Create panel for the name input field
+        JPanel nameBox = new JPanel(new BorderLayout());
+
+        JLabel name = new JLabel("Name         ");
+        name.setFont(new Font ("Arial", Font.BOLD, 32));
+
         InputBox nameField = new InputBox();
         nameField.setPreferredSize(new Dimension(760, 80));
         JTextArea nameText = new JTextArea(contact.getName());
@@ -203,6 +227,15 @@ public class ContactPage {
         nameText.setFont(new Font("Arial", Font.PLAIN, 28));
         nameField.add(nameText, BorderLayout.CENTER);
 
+        nameBox.add(name, BorderLayout.WEST);
+        nameBox.add(nameField, BorderLayout.EAST);
+
+        //Create panel for the phone number input field
+        JPanel phoneBox = new JPanel(new BorderLayout());
+
+        JLabel phone = new JLabel("Phone Number ");
+        phone.setFont(new Font("Arial", Font.BOLD, 32));
+
         InputBox phoneNumberField = new InputBox();
         phoneNumberField.setPreferredSize(new Dimension(760, 80));
         JTextArea phoneNumberText = new JTextArea(contact.getPhoneNumber());
@@ -212,6 +245,9 @@ public class ContactPage {
         phoneNumberText.setOpaque(false);
         phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
         phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
+
+        phoneBox.add(phone, BorderLayout.WEST);
+        phoneBox.add(phoneNumberField, BorderLayout.EAST);
 
         JButton submitButton = new JButton("Edit contact");
         submitButton
@@ -230,10 +266,10 @@ public class ContactPage {
         editContactPage.add(title, constraints);
 
         constraints.gridy = 1;
-        editContactPage.add(nameField, constraints);
+        editContactPage.add(nameBox, constraints);
 
         constraints.gridy = 2;
-        editContactPage.add(phoneNumberField, constraints);
+        editContactPage.add(phoneBox, constraints);
 
         constraints.gridy = 3;
         editContactPage.add(submitButton, constraints);
