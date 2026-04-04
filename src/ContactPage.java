@@ -133,12 +133,11 @@ public class ContactPage {
 
         InputBox nameField = new InputBox();
         nameField.setPreferredSize(new Dimension(760, 80));
-        JTextArea nameText = new JTextArea();
+        JTextField nameText = new JTextField();
         nameText.setPreferredSize(new Dimension(720, 70));
-        nameText.setWrapStyleWord(true);
-        nameText.setLineWrap(true);
         nameText.setOpaque(false);
         nameText.setFont(new Font("Arial", Font.PLAIN, 28));
+        nameText.setBorder(BorderFactory.createEmptyBorder());
         nameField.add(nameText, BorderLayout.CENTER);
 
         nameBox.add(name, BorderLayout.WEST);
@@ -152,12 +151,11 @@ public class ContactPage {
 
         InputBox phoneNumberField = new InputBox();
         phoneNumberField.setPreferredSize(new Dimension(760, 80));
-        JTextArea phoneNumberText = new JTextArea();
+        JTextField phoneNumberText = new JTextField();
         phoneNumberText.setPreferredSize(new Dimension(720, 70));
-        phoneNumberText.setWrapStyleWord(true);
-        phoneNumberText.setLineWrap(true);
         phoneNumberText.setOpaque(false);
         phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
+        phoneNumberText.setBorder(BorderFactory.createEmptyBorder());
         phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
 
         phoneBox.add(phone, BorderLayout.WEST);
@@ -219,12 +217,11 @@ public class ContactPage {
 
         InputBox nameField = new InputBox();
         nameField.setPreferredSize(new Dimension(760, 80));
-        JTextArea nameText = new JTextArea(contact.getName());
+        JTextField nameText = new JTextField(contact.getName());
         nameText.setPreferredSize(new Dimension(720, 70));
-        nameText.setWrapStyleWord(true);
-        nameText.setLineWrap(true);
         nameText.setOpaque(false);
         nameText.setFont(new Font("Arial", Font.PLAIN, 28));
+        nameText.setBorder(BorderFactory.createEmptyBorder());
         nameField.add(nameText, BorderLayout.CENTER);
 
         nameBox.add(name, BorderLayout.WEST);
@@ -238,12 +235,11 @@ public class ContactPage {
 
         InputBox phoneNumberField = new InputBox();
         phoneNumberField.setPreferredSize(new Dimension(760, 80));
-        JTextArea phoneNumberText = new JTextArea(contact.getPhoneNumber());
+        JTextField phoneNumberText = new JTextField(contact.getPhoneNumber());
         phoneNumberText.setPreferredSize(new Dimension(720, 70));
-        phoneNumberText.setWrapStyleWord(true);
-        phoneNumberText.setLineWrap(true);
         phoneNumberText.setOpaque(false);
         phoneNumberText.setFont(new Font("Arial", Font.PLAIN, 28));
+        phoneNumberText.setBorder(BorderFactory.createEmptyBorder());
         phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
 
         phoneBox.add(phone, BorderLayout.WEST);
