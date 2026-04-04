@@ -205,4 +205,21 @@ public class Queue {
 
         return lastThree;
     }
+
+    //Returns true if the search value is within any of the chat messages
+    public boolean containsSeachValue(String searchValue){
+        Node current = top;
+
+        if (current == null && searchValue.equals("")){
+            return true;
+        }
+
+        while (current != null){
+            if (current.getData().getContent().contains(searchValue) || searchValue.equals("")){
+                return true;
+            }
+            current = current.getNext();
+        }
+        return false;
+    }
 }

@@ -75,4 +75,13 @@ public class Chat {
     public Message[] getLast3Messages(){
         return messages.getLastThree();
     }
+
+    //Returns true if the search value is within any of the chat messages
+    public boolean containsSearchValue(String searchValue){
+        if (messages.containsSeachValue(searchValue)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

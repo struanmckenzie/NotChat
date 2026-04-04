@@ -185,7 +185,7 @@ public class LandingPage {
                         chats.add(newChat);
                         saveChats();
                     }
-                    refreshChatList();
+                    refreshChatList("");
                 });
                 popup.add(item);
             }
@@ -205,6 +205,38 @@ public class LandingPage {
         leftPanel.add(create);
         leftPanel.add(Box.createVerticalGlue());
         leftPanel.add(exit);
+
+        // Right Panel
+        JPanel rightPanel = new JPanel(new BorderLayout());
+
+        // Search Bar
+        JPanel searchBar = new JPanel(new BorderLayout());
+        searchBar.setBackground(PANEL);
+
+        //The text field for the search bar
+        JTextField searchField = new JTextField();
+        searchField.setBackground(PANEL);
+        searchField.setForeground(TEXT);
+        searchField.setBorder(BorderFactory.createLineBorder(BORDER));
+        searchField.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+
+        //Add buttons to search and reset the search bar
+        JPanel searchButtons = new JPanel(new BorderLayout());
+        searchButtons.setBackground(PANEL);
+
+        //Reset button
+        JButton resestButton = createStyledButton("Reset");
+        resestButton.addActionListener(e -> {searchField.setText(""); refreshChatList("");});
+
+        //Seacrh button
+        JButton searchButton = createStyledButton("Search");
+        searchButton.addActionListener(e -> refreshChatList(searchField.getText()));
+
+        searchButtons.add(resestButton, BorderLayout.WEST);
+        searchButtons.add(searchButton, BorderLayout.EAST);
+
+        searchBar.add(searchField, BorderLayout.CENTER);
+        searchBar.add(searchButtons, BorderLayout.EAST);
 
         // ===== Chat List =====
         chatListPanel = new JPanel();
@@ -239,8 +271,11 @@ public class LandingPage {
             }
         });
 
+        rightPanel.add(searchBar, BorderLayout.NORTH);
+        rightPanel.add(scrollPane);
+
         // ===== Split Pane =====
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scrollPane);
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
         splitPane.setDividerLocation(260);
         splitPane.setEnabled(false);
         splitPane.setBorder(null);
@@ -262,7 +297,7 @@ public class LandingPage {
 
         // ===== Creates chats from the list_of_chats file =====
 
-        refreshChatList();
+        refreshChatList("");
 
         frame.add(splitPane, BorderLayout.CENTER);
 
@@ -413,18 +448,21 @@ public class LandingPage {
     }
 
     // Refreshes the list of chats on the right
-    private void refreshChatList() {
+    private void refreshChatList(String searchValue) {
         chatListPanel.removeAll();
 
         loadChats();
         for (Chat chat : chats) {
-            chatListPanel.add(createChatEntry(
-                    chat.getChatName(),
-                    chat.getContact().getName(),
-                    chat.getDate().toString(),
-                    chat.getStatusContact(),
-                    chat.getStatusUser()));
-            chatListPanel.add(Box.createVerticalStrut(10));
+            if (chat.containsSearchValue(searchValue)) {
+
+                chatListPanel.add(createChatEntry(
+                        chat.getChatName(),
+                        chat.getContact().getName(),
+                        chat.getDate().toString(),
+                        chat.getStatusContact(),
+                        chat.getStatusUser()));
+                chatListPanel.add(Box.createVerticalStrut(10));
+            }
         }
 
         chatListPanel.revalidate();
@@ -432,8 +470,8 @@ public class LandingPage {
 
     }
 
-    //deletes the chat file and delets it from the list_of_chats file
-    private void deleteChat(String id){
+    // deletes the chat file and delets it from the list_of_chats file
+    private void deleteChat(String id) {
         try {
             Path path = Paths.get("src/resources/chats/" + id);
             Files.delete(path); // throws exception if file doesn't exist
@@ -452,7 +490,7 @@ public class LandingPage {
 
                 // add to arraylist
                 Contact matched = matchContact(c[0]);
-                if (matched != null){
+                if (matched != null) {
                     chats.add(new Chat(matchContact(c[0]), c[0], LocalDate.parse(c[1]), c[2], c[3]));
                 }
             }
@@ -462,7 +500,7 @@ public class LandingPage {
 
         try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
             for (Chat chat : chats) {
-                if (chat != null && !chat.getContact().getID().toString().equals(id)){
+                if (chat != null && !chat.getContact().getID().toString().equals(id)) {
                     pw.println(chat.getChatName() + "," +
                             chat.getDate() + "," +
                             chat.getStatusContact() + "," +
@@ -473,7 +511,7 @@ public class LandingPage {
             System.out.println("Error saving contacts: " + e.getMessage());
         }
 
-        refreshChatList();
+        refreshChatList("");
 
     }
 }
