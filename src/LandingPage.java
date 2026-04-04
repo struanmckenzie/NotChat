@@ -263,6 +263,7 @@ public class LandingPage {
         searchField.setForeground(TEXT);
         searchField.setBorder(BorderFactory.createLineBorder(BORDER));
         searchField.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+        searchField.addActionListener(e -> refreshChatList(searchField.getText()));
 
         // Add buttons to search and reset the search bar
         JPanel searchButtons = new JPanel(new BorderLayout());

@@ -101,4 +101,5 @@ public class Chat {
         DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return lastMessageTime.format(FORMATTER);
     }
+
 }

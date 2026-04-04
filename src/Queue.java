@@ -3,6 +3,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Represents a queeue of chat Messages.
@@ -50,7 +53,7 @@ public class Queue {
      * 
      * @return A reference to the bottom node (null if the list is empty).
      */
-    public Node getBottom(){
+    public Node getBottom() {
         return bottom;
     }
 
@@ -163,6 +166,33 @@ public class Queue {
         }
     }
 
+    public void deleteMessageByTimestamp(LocalDateTime timestamp) {
+        // Remove the node with matching timestamp from the linked list
+        if (isEmpty())
+            return;
+
+        // Special case: top node matches
+        if (top.getData().getTimestamp().equals(timestamp)) {
+            top = top.getNext();
+            if (top == null)
+                bottom = null;
+            return;
+        }
+
+        // Search for the node
+        Node current = top;
+        while (current.getNext() != null) {
+            if (current.getNext().getData().getTimestamp().equals(timestamp)) {
+                // Remove the next node
+                current.setNext(current.getNext().getNext());
+                if (current.getNext() == null)
+                    bottom = current;
+                return;
+            }
+            current = current.getNext();
+        }
+    }
+
     /**
      * Loads messages from a CSV file and appends them to the end of the queue.
      * Skips the header row automatically.
@@ -182,49 +212,37 @@ public class Queue {
         }
     }
 
-    //Gets the last 3 nodes/messages in the queue
+    // Gets the last 3 nodes/messages in the queue
     public Message[] getLastThree() {
-        Message[] lastThree = new Message[3];
-
+        List<Message> all = new ArrayList<>();
         Node current = top;
-        int count = 0;
-
         while (current != null) {
-            // Shift left
-            if (count >= 2) {
-                lastThree[0] = lastThree[1];
-                lastThree[1] = lastThree[2];
-                lastThree[2] = current.getData();
-            } else {
-                lastThree[count] = current.getData();
-            }
-
-            count++;
+            all.add(current.getData());
             current = current.getNext();
         }
-
-        // Handle cases where queue has < 3 elements
-        if (count < 3) {
-            Message[] result = new Message[count];
-            for (int i = 0; i < count; i++) {
-                result[i] = lastThree[i];
-            }
-            return result;
+        int size = all.size();
+        if (size == 0) {
+            return new Message[0];
         }
-
-        return lastThree;
+        int start = Math.max(0, size - 3);
+        int count = size - start;
+        Message[] result = new Message[count];
+        for (int i = 0; i < count; i++) {
+            result[i] = all.get(start + i);
+        }
+        return result;
     }
 
-    //Returns true if the search value is within any of the chat messages
-    public boolean containsSeachValue(String searchValue){
+    // Returns true if the search value is within any of the chat messages
+    public boolean containsSeachValue(String searchValue) {
         Node current = top;
 
-        if (current == null && searchValue.equals("")){
+        if (current == null && searchValue.equals("")) {
             return true;
         }
 
-        while (current != null){
-            if (current.getData().getContent().contains(searchValue) || searchValue.equals("")){
+        while (current != null) {
+            if (current.getData().getContent().contains(searchValue) || searchValue.equals("")) {
                 return true;
             }
             current = current.getNext();

@@ -2,10 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
 
 /**
  * open chat window, load chats from selected chat
+ * 
  * @author struan
  */
 public class ChatPane extends JFrame {
@@ -24,6 +27,7 @@ public class ChatPane extends JFrame {
 
     /**
      * overloaded constructor
+     * 
      * @param chatName name oof contact
      */
     public ChatPane(String chatName, Chat chatDetails) {
@@ -39,9 +43,8 @@ public class ChatPane extends JFrame {
     private void initializeUI() {
         // get screen size to set size of chat page accordingly
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = screenSize.width/3;
-        int height = screenSize.height*5/6;
-
+        int width = screenSize.width / 3;
+        int height = screenSize.height * 5 / 6;
 
         // frame
         JFrame frame = new JFrame(chatName);
@@ -65,15 +68,15 @@ public class ChatPane extends JFrame {
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowOpened(WindowEvent e) {
-                // load messages into q
                 messages.loadFromCSV(CHAT_LOCATION);
-                int len = messages.getLength();
-
-                // send messages on chat
-                for (int i = 0; i<len; i++) {
-                    Message m = messages.pop();
-                    sendMessage(m.getSender(), m.getContent(), m.getTimestamp());
+                Node current = messages.getTop();
+                while (current != null) {
+                    Message m = current.getData();
+                    chat.add(createChatBubble(m.getSender(), m.getContent(), m.getTimestamp()));
+                    current = current.getNext();
                 }
+                chat.revalidate();
+                chat.repaint();
             }
         });
 
@@ -141,7 +144,7 @@ public class ChatPane extends JFrame {
 
         // Input panel
         JPanel inputPanel = new JPanel(new BorderLayout());
-        JPanel buttonPanel = new JPanel(new GridLayout(1,2));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
 
         messageField = new JTextField();
         JButton sendButton = new JButton("Send");
@@ -174,11 +177,13 @@ public class ChatPane extends JFrame {
         LandingPage.saveChats();
 
         String text = messageField.getText().trim();
-        if (text.isEmpty()) return;
+        if (text.isEmpty())
+            return;
 
         // save to message queue
         Message msg = new Message(sender, text);
         messages.push(msg);
+        messages.saveToCSV(CHAT_LOCATION);;
 
         chat.add(createChatBubble(sender, text, LocalDateTime.now()));
 
@@ -191,59 +196,83 @@ public class ChatPane extends JFrame {
     }
 
     /**
-     * send message from queue
-     * @param sender;
-     * @param content;
-     * @param t time of messaghe sent
-     */
-    private void sendMessage(String sender, String content, LocalDateTime t) {
-
-        chat.add(createChatBubble(sender, content, t));
-
-        // save to message queue
-        Message msg = new Message(sender, content, t);
-        messages.push(msg);
-
-        // refresh page in order for the message to show up
-        chat.revalidate();
-        chat.repaint();
-    }
-
-    /**
      * creates a chat bubble
-     * @param sender person who sent the message
+     * 
+     * @param sender  person who sent the message
      * @param content what is in the message
-     * @param time time
+     * @param time    time
      * @return a chat bubble panel
      */
     private JPanel createChatBubble(String sender, String content, LocalDateTime time) {
-        // create the chat itself
-        JPanel panel = new JPanel(new GridLayout(2, 1));
+        // Main panel
+        JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(BORDER);
-
-        // format border
         panel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(5,5,5,5),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5),
                 BorderFactory.createCompoundBorder(BorderFactory.createSoftBevelBorder(0),
-                        BorderFactory.createEmptyBorder(5,5,5,5)
-                )));
+                        BorderFactory.createEmptyBorder(5, 5, 5, 5))));
 
-        // add title and content
+        // Title
         JLabel title = new JLabel(sender + ": " + time);
+        title.setForeground(TEXT);
+        title.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
+        // Message body
         JTextArea body = new JTextArea(content);
         body.setForeground(TEXT);
-        title.setForeground(TEXT);
-
-        body.setFont(new Font(null, Font.PLAIN, 15));
-
-        // set appearance of body text
+        body.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         body.setLineWrap(true);
         body.setWrapStyleWord(true);
         body.setEditable(false);
         body.setOpaque(false);
 
-        panel.add(title);
-        panel.add(body);
+        // Panel to hold title and body
+        JPanel textPanel = new JPanel(new GridLayout(2, 1));
+        textPanel.setBackground(BORDER);
+        textPanel.add(title);
+        textPanel.add(body);
+
+        // Delete button
+        JButton deleteButton = new JButton("Delete");
+        deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+        deleteButton.setPreferredSize(new Dimension(60, 24));
+        deleteButton.setMaximumSize(new Dimension(60, 24));
+        deleteButton.setFocusPainted(false);
+        deleteButton.setForeground(Color.WHITE);
+        deleteButton.setBackground(Color.GRAY);
+        deleteButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        deleteButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                deleteButton.setBackground(new Color(180, 30, 30));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                deleteButton.setBackground(Color.GRAY);
+            }
+        });
+
+        // Button action: delete from queue and file, then remove bubble from UI
+        deleteButton.addActionListener(e -> {
+            messages.deleteMessageByTimestamp(time);
+            messages.saveToCSV(CHAT_LOCATION);
+            Container parent = panel.getParent();
+            if (parent != null) {
+                parent.remove(panel);
+                parent.revalidate();
+                parent.repaint();
+            }
+        });
+
+        // Panel to hold button
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.setBackground(BORDER);
+        buttonPanel.add(deleteButton);
+
+        // Assemble the bubble
+        panel.add(textPanel, BorderLayout.CENTER);
+        panel.add(buttonPanel, BorderLayout.SOUTH);
 
         return panel;
     }
