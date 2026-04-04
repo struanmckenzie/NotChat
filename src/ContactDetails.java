@@ -67,7 +67,6 @@ public class ContactDetails {
         try {
             Path path = Paths.get("src/resources/chats/" + contact.getID().toString());
             Files.delete(path); // throws exception if file doesn't exist
-            System.out.println("File deleted successfully");
         } catch (Exception e) {
             System.out.println("Error deleting file: " + e.getMessage());
         }
@@ -94,7 +93,6 @@ public class ContactDetails {
         try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
             for (Chat chat : chats) {
                 if (chat != null && !chat.getContact().getID().equals(contact.getID())){
-                    System.out.println("Working");
                     pw.println(chat.getChatName() + "," +
                             chat.getDate() + "," +
                             chat.getStatusContact() + "," +

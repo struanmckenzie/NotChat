@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.nio.file.*;
 import java.time.LocalDate;
 
 import javax.swing.border.Border;
@@ -385,8 +386,16 @@ public class LandingPage {
         JButton open = createStyledButton("Open");
         open.addActionListener(e -> new ChatPane(chatName));
 
+        JButton delete = createStyledButton("Delete");
+        delete.addActionListener(e -> deleteChat(chatName));
+
+        JPanel buttons = new JPanel();
+        buttons.setBackground(PANEL);
+        buttons.add(open);
+        buttons.add(delete);
+
         panel.add(textPanel, BorderLayout.CENTER);
-        panel.add(open, BorderLayout.EAST);
+        panel.add(buttons, BorderLayout.EAST);
         panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));
 
         return panel;
@@ -420,6 +429,51 @@ public class LandingPage {
 
         chatListPanel.revalidate();
         chatListPanel.repaint();
+
+    }
+
+    //deletes the chat file and delets it from the list_of_chats file
+    private void deleteChat(String id){
+        try {
+            Path path = Paths.get("src/resources/chats/" + id);
+            Files.delete(path); // throws exception if file doesn't exist
+        } catch (Exception e) {
+            System.out.println("Error deleting file: " + e.getMessage());
+        }
+
+        List<Chat> chats = new ArrayList<>();
+
+        // this is gonna load chats from FILES
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // read line and split into parts
+                String[] c = line.split(",");
+
+                // add to arraylist
+                Contact matched = matchContact(c[0]);
+                if (matched != null){
+                    chats.add(new Chat(matchContact(c[0]), c[0], LocalDate.parse(c[1]), c[2], c[3]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading chats: " + e.getMessage());
+        }
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
+            for (Chat chat : chats) {
+                if (chat != null && !chat.getContact().getID().toString().equals(id)){
+                    pw.println(chat.getChatName() + "," +
+                            chat.getDate() + "," +
+                            chat.getStatusContact() + "," +
+                            chat.getStatusUser());
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error saving contacts: " + e.getMessage());
+        }
+
+        refreshChatList();
 
     }
 }
