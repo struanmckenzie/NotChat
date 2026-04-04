@@ -19,7 +19,9 @@ public class Chat {
     }
 
     public void displayChat(){
-        new ChatPane(chatName);
+        statusUser = "Read";
+        LandingPage.saveChats();
+        new ChatPane(chatName, this);
     }
 
     // contact

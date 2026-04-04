@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.io.*;
 import java.time.LocalDateTime;
@@ -16,6 +18,7 @@ public class ContactPage {
     private final Color BORDER = new Color(48, 54, 61);
     private final Color TEXT = new Color(201, 209, 217);
     private final Color HOVER = new Color(33, 38, 45);
+    private final Color ACCENT = new Color(88, 166, 255);
 
     private JFrame frame;
     private JPanel contactsPage;
@@ -46,7 +49,9 @@ public class ContactPage {
 
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(BG);
-        header.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        header.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 0, 1, 0, BORDER),
+                BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
         JLabel userName = new JLabel(USERNAME, SwingConstants.CENTER);
         userName.setFont(new Font("Segoe UI", Font.BOLD, 32));
@@ -57,10 +62,12 @@ public class ContactPage {
         mainContent.setBackground(BG);
 
         // Sidebar
-        JPanel sideBar = new JPanel(new GridLayout(5, 1, 10, 10));
+        JPanel sideBar = new JPanel();
+        sideBar.setLayout(new BoxLayout(sideBar, BoxLayout.Y_AXIS));
         sideBar.setBackground(BG);
-        sideBar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
+        sideBar.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createMatteBorder(0, 0, 0, 1, BORDER),
+                BorderFactory.createEmptyBorder(20, 20, 20, 20)));
         JButton createNewContact = createStyledButton("Create new contact");
         createNewContact.addActionListener(e -> addContactPage());
 
@@ -71,7 +78,9 @@ public class ContactPage {
         returnMainMenu.addActionListener(e -> new LandingPage(frame));
 
         sideBar.add(createNewContact);
+        sideBar.add(Box.createVerticalStrut(20));
         sideBar.add(sortContacts);
+        sideBar.add(Box.createVerticalStrut(20));
         sideBar.add(returnMainMenu);
 
         mainContent.add(sideBar, BorderLayout.WEST);
@@ -263,7 +272,8 @@ public class ContactPage {
         phoneBox.add(phoneNumberField, BorderLayout.EAST);
 
         JButton submitButton = createStyledButton("Edit contact");
-        submitButton.addActionListener(e -> editContact(contact.getID(), nameText.getText(), phoneNumberText.getText()));
+        submitButton
+                .addActionListener(e -> editContact(contact.getID(), nameText.getText(), phoneNumberText.getText()));
 
         JButton returnButton = createStyledButton("Return to contacts");
         returnButton.addActionListener(e -> reloadContacts());
@@ -296,19 +306,19 @@ public class ContactPage {
         constraints.insets = new Insets(10, 500, 10, 500);
 
         JLabel nameLabel = new JLabel("Name: " + contact.getName());
-        nameLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        nameLabel.setFont(new Font("Segoe UI", Font.PLAIN, 28));
         nameLabel.setForeground(TEXT);
 
         JLabel phoneNumber = new JLabel("Phone Number: " + contact.getPhoneNumber());
-        phoneNumber.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        phoneNumber.setFont(new Font("Segoe UI", Font.PLAIN, 26));
         phoneNumber.setForeground(TEXT);
 
         JLabel date = new JLabel("Contact created: " + contact.getReadableTime());
-        date.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        date.setFont(new Font("Segoe UI", Font.PLAIN, 22));
         date.setForeground(TEXT);
 
         JLabel mostRecentMessages = new JLabel("Most recent messages");
-        mostRecentMessages.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        mostRecentMessages.setFont(new Font("Segoe UI", Font.PLAIN, 22));
         mostRecentMessages.setForeground(TEXT);
 
         constraints.gridy = 0;
@@ -321,7 +331,7 @@ public class ContactPage {
         Chat chat = matchContactToChat(contact);
         if (chat == null) {
             JLabel noMessagesText = new JLabel("There are no currently messages between you and this contact");
-            noMessagesText.setFont(new Font("Segoe UI", Font.BOLD, 24));
+            noMessagesText.setFont(new Font("Segoe UI", Font.PLAIN, 24));
             noMessagesText.setForeground(TEXT);
             constraints.gridy = 3;
             viewContactPage.add(noMessagesText, constraints);
@@ -329,7 +339,7 @@ public class ContactPage {
             Message[] last3Messages = chat.getLast3Messages();
             if (last3Messages.length == 0) {
                 JLabel noMessagesText = new JLabel("There are currently no messages between you and this contact");
-                noMessagesText.setFont(new Font("Segoe UI", Font.BOLD, 24));
+                noMessagesText.setFont(new Font("Segoe UI", Font.PLAIN, 24));
                 noMessagesText.setForeground(TEXT);
                 constraints.gridy = 3;
                 viewContactPage.add(noMessagesText, constraints);
@@ -338,7 +348,7 @@ public class ContactPage {
                 viewContactPage.add(mostRecentMessages, constraints);
                 for (Message message : last3Messages) {
                     ChatMessage chatMessage = new ChatMessage(message.getContent(), message.getSender(),
-                            message.getReadableTime(), contact.getID().toString());
+                            message.getReadableTime(), contact.getID().toString(), chat);
                     JPanel chatMessageBox = chatMessage.getDisplayMessage();
 
                     constraints.gridy++;
@@ -362,7 +372,7 @@ public class ContactPage {
         contactsPage.repaint();
     }
 
-    //Makes buttons that have a consistent custom style
+    // Makes buttons that have a consistent custom style
     private JButton createStyledButton(String text) {
         JButton button = new JButton(text);
         button.setFocusPainted(false);
@@ -377,6 +387,7 @@ public class ContactPage {
             public void mouseEntered(java.awt.event.MouseEvent e) {
                 button.setBackground(HOVER);
             }
+
             public void mouseExited(java.awt.event.MouseEvent e) {
                 button.setBackground(PANEL);
             }

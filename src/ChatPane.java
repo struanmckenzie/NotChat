@@ -15,6 +15,7 @@ public class ChatPane extends JFrame {
     private final String chatName;
     private final String CHAT_LOCATION;
     private final Queue messages = new Queue();
+    private Chat chatDetails;
 
     // theme
     private final Color BG = new Color(13, 17, 23);
@@ -25,9 +26,10 @@ public class ChatPane extends JFrame {
      * overloaded constructor
      * @param chatName name oof contact
      */
-    public ChatPane(String chatName) {
+    public ChatPane(String chatName, Chat chatDetails) {
         this.chatName = chatName;
         this.CHAT_LOCATION = "src/resources/chats/" + chatName;
+        this.chatDetails = chatDetails;
         initializeUI();
     }
 
@@ -168,6 +170,9 @@ public class ChatPane extends JFrame {
      * this is for chats sent by the user
      */
     private void sendMessage(String sender) {
+        chatDetails.setStatusContact("Unopened");
+        LandingPage.saveChats();
+
         String text = messageField.getText().trim();
         if (text.isEmpty()) return;
 
@@ -192,6 +197,7 @@ public class ChatPane extends JFrame {
      * @param t time of messaghe sent
      */
     private void sendMessage(String sender, String content, LocalDateTime t) {
+
         chat.add(createChatBubble(sender, content, t));
 
         // save to message queue

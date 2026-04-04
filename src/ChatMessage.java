@@ -12,12 +12,14 @@ public class ChatMessage {
     String user;
     String time;
     String chatName;
+    Chat chat;
 
-    public ChatMessage(String message, String user, String time, String chatName) {
+    public ChatMessage(String message, String user, String time, String chatName, Chat chat) {
         this.message = message;
         this.user = user;
         this.time = time;
         this.chatName = chatName;
+        this.chat = chat;
     }
 
     public JPanel getDisplayMessage() {
@@ -29,7 +31,7 @@ public class ChatMessage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e)) {
-                    new ChatPane(chatName);
+                    chat.displayChat();;
                 }
             }
         });
@@ -50,7 +52,7 @@ public class ChatMessage {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e)) {
-                    new ChatPane(chatName);
+                    chat.displayChat();;
                 }
             }
         });

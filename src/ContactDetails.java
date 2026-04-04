@@ -45,7 +45,7 @@ public class ContactDetails {
         userDetails.add(userName, BorderLayout.NORTH);
         userDetails.add(phoneNumber, BorderLayout.SOUTH);
 
-        JPanel buttons = new JPanel(new GridLayout(1, 0));
+        JPanel buttons = new JPanel(new GridLayout(1, 0, 10, 0));
         buttons.setBackground(PANEL);
 
         JButton viewButton = createStyledButton("View details");

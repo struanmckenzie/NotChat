@@ -5,6 +5,8 @@ import java.awt.event.MouseEvent;
 import java.io.*;
 import java.nio.file.*;
 import java.time.LocalDate;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 
 import javax.swing.border.Border;
 import java.util.List;
@@ -63,6 +65,17 @@ public class LandingPage {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
 
+        frame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+                refreshChatList(""); // reloads chats from file
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+            }
+        });
+
         String username = loadUsername();
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(BG);
@@ -70,6 +83,9 @@ public class LandingPage {
 
         // Load contacts
         contacts = ContactPage.loadContacts();
+
+        //Load chats
+        loadChats();
 
         // Welcome title
         title = new JLabel("Welcome, " + username, SwingConstants.CENTER);
@@ -171,6 +187,9 @@ public class LandingPage {
         viewCon.addActionListener(e -> ContactPage.launch(username, frame));
 
         JButton create = createStyledButton("Create Chat");
+
+        // Creates a dropdown menu of all the contacts that when clicked will open the
+        // existing chat or create a new one
         create.addActionListener(e -> {
             JPopupMenu popup = new JPopupMenu();
 
@@ -178,7 +197,11 @@ public class LandingPage {
                 JMenuItem item = new JMenuItem(contact.getName());
                 item.addActionListener(ev -> {
                     if (checkIfChatExists(contact)) {
-                        new ChatPane(contact.getID().toString());
+                        for (Chat chat : chats) {
+                            if (contact == chat.getContact()) {
+                                chat.displayChat();
+                            }
+                        }
                     } else {
                         Chat newChat = new Chat(contact, contact.getID().toString(), LocalDate.now(),
                                 "Unopened", "Unopened");
@@ -213,22 +236,25 @@ public class LandingPage {
         JPanel searchBar = new JPanel(new BorderLayout());
         searchBar.setBackground(PANEL);
 
-        //The text field for the search bar
+        // The text field for the search bar
         JTextField searchField = new JTextField();
         searchField.setBackground(PANEL);
         searchField.setForeground(TEXT);
         searchField.setBorder(BorderFactory.createLineBorder(BORDER));
         searchField.setFont(new Font("Segoe UI", Font.PLAIN, 20));
 
-        //Add buttons to search and reset the search bar
+        // Add buttons to search and reset the search bar
         JPanel searchButtons = new JPanel(new BorderLayout());
         searchButtons.setBackground(PANEL);
 
-        //Reset button
+        // Reset button
         JButton resestButton = createStyledButton("Reset");
-        resestButton.addActionListener(e -> {searchField.setText(""); refreshChatList("");});
+        resestButton.addActionListener(e -> {
+            searchField.setText("");
+            refreshChatList("");
+        });
 
-        //Seacrh button
+        // Seacrh button
         JButton searchButton = createStyledButton("Search");
         searchButton.addActionListener(e -> refreshChatList(searchField.getText()));
 
@@ -242,6 +268,7 @@ public class LandingPage {
         chatListPanel = new JPanel();
         chatListPanel.setLayout(new BoxLayout(chatListPanel, BoxLayout.Y_AXIS));
         chatListPanel.setBackground(BG);
+        chatListPanel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
 
         JScrollPane scrollPane = new JScrollPane(chatListPanel);
         scrollPane.setBorder(null);
@@ -300,6 +327,8 @@ public class LandingPage {
         refreshChatList("");
 
         frame.add(splitPane, BorderLayout.CENTER);
+
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         frame.revalidate();
         frame.repaint();
@@ -398,7 +427,7 @@ public class LandingPage {
     }
 
     private JPanel createChatEntry(String chatName, String contact, String date, String statusContact,
-            String statusUser) {
+            String statusUser, Chat chat) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(PANEL);
         panel.setBorder(BorderFactory.createCompoundBorder(
@@ -419,7 +448,7 @@ public class LandingPage {
         textPanel.add(details);
 
         JButton open = createStyledButton("Open");
-        open.addActionListener(e -> new ChatPane(chatName));
+        open.addActionListener(e -> chat.displayChat());
 
         JButton delete = createStyledButton("Delete");
         delete.addActionListener(e -> deleteChat(chatName));
@@ -451,7 +480,7 @@ public class LandingPage {
     private void refreshChatList(String searchValue) {
         chatListPanel.removeAll();
 
-        loadChats();
+        //loadChats();
         for (Chat chat : chats) {
             if (chat.containsSearchValue(searchValue)) {
 
@@ -460,7 +489,8 @@ public class LandingPage {
                         chat.getContact().getName(),
                         chat.getDate().toString(),
                         chat.getStatusContact(),
-                        chat.getStatusUser()));
+                        chat.getStatusUser(),
+                        chat));
                 chatListPanel.add(Box.createVerticalStrut(10));
             }
         }
