@@ -4,8 +4,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
 import java.time.LocalDate;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.border.Border;
 import java.util.List;
@@ -17,7 +15,7 @@ public class LandingPage {
     private JLabel title;
     private JPanel chatListPanel;
 
-    private List<Chat> chats;
+    private static List<Chat> chats;
     private List<Contact> contacts;
 
     // Dark theme colors
@@ -63,14 +61,6 @@ public class LandingPage {
         frame.setSize(1280, 800);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
-
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                saveChats();
-                frame.dispose();
-            }
-        });
 
         String username = loadUsername();
         JPanel topBar = new JPanel(new BorderLayout());
@@ -352,7 +342,7 @@ public class LandingPage {
     }
 
     // Saves chats to a file list_of_chats
-    private void saveChats() {
+    public static void saveChats() {
         try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/list_of_chats"))) {
             for (Chat chat : chats) {
                 pw.println(chat.getChatName() + "," +
