@@ -1,7 +1,8 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Chat {
-    
+
     Contact contact;
     String chatName;
     LocalDate date;
@@ -9,7 +10,7 @@ public class Chat {
     String statusUser;
     Queue messages = new Queue();
 
-    public Chat(Contact contact, String chatName, LocalDate date, String statusContact, String statusUser){
+    public Chat(Contact contact, String chatName, LocalDate date, String statusContact, String statusUser) {
         this.contact = contact;
         this.chatName = chatName;
         this.date = date;
@@ -18,7 +19,7 @@ public class Chat {
         messages.loadFromCSV("src/resources/chats/" + chatName);
     }
 
-    public void displayChat(){
+    public void displayChat() {
         statusUser = "Read";
         LandingPage.saveChats();
         new ChatPane(chatName, this);
@@ -70,20 +71,27 @@ public class Chat {
     }
 
     // messages
-    public Queue getMessages(){
+    public Queue getMessages() {
         return messages;
     }
 
-    public Message[] getLast3Messages(){
+    public Message[] getLast3Messages() {
         return messages.getLastThree();
     }
 
-    //Returns true if the search value is within any of the chat messages
-    public boolean containsSearchValue(String searchValue){
-        if (messages.containsSeachValue(searchValue)){
+    // Returns true if the search value is within any of the chat messages
+    public boolean containsSearchValue(String searchValue) {
+        if (messages.containsSeachValue(searchValue)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public LocalDateTime getLastMessageTime() {
+        if (messages.isEmpty()) {
+            return date.atStartOfDay();
+        }
+        return messages.getBottom().getData().getTimestamp();
     }
 }

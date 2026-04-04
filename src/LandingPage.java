@@ -7,6 +7,7 @@ import java.nio.file.*;
 import java.time.LocalDate;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
+import java.util.Comparator;
 
 import javax.swing.border.Border;
 import java.util.List;
@@ -68,11 +69,14 @@ public class LandingPage {
         frame.addWindowFocusListener(new WindowFocusListener() {
             @Override
             public void windowGainedFocus(WindowEvent e) {
-                refreshChatList(""); // reloads chats from file
+                loadChats();
+                refreshChatList("");
             }
 
             @Override
             public void windowLostFocus(WindowEvent e) {
+                loadChats();
+                refreshChatList("");
             }
         });
 
@@ -84,7 +88,7 @@ public class LandingPage {
         // Load contacts
         contacts = ContactPage.loadContacts();
 
-        //Load chats
+        // Load chats
         loadChats();
 
         // Welcome title
@@ -192,9 +196,26 @@ public class LandingPage {
         // existing chat or create a new one
         create.addActionListener(e -> {
             JPopupMenu popup = new JPopupMenu();
+            popup.setBackground(PANEL);
+            popup.setBorder(BorderFactory.createLineBorder(BORDER));
 
             for (Contact contact : contacts) {
                 JMenuItem item = new JMenuItem(contact.getName());
+                item.setBackground(PANEL);
+                item.setForeground(TEXT);
+                item.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                item.setBorder(BorderFactory.createEmptyBorder(8, 15, 8, 15));
+                item.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseEntered(MouseEvent me) {
+                        item.setBackground(HOVER);
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent me) {
+                        item.setBackground(PANEL);
+                    }
+                });
                 item.addActionListener(ev -> {
                     if (checkIfChatExists(contact)) {
                         for (Chat chat : chats) {
@@ -480,7 +501,10 @@ public class LandingPage {
     private void refreshChatList(String searchValue) {
         chatListPanel.removeAll();
 
-        //loadChats();
+        // Sort chats by date (newest first)
+        chats.sort(Comparator.comparing(Chat::getLastMessageTime).reversed());
+
+        // loadChats();
         for (Chat chat : chats) {
             if (chat.containsSearchValue(searchValue)) {
 

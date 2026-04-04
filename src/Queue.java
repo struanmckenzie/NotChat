@@ -46,6 +46,15 @@ public class Queue {
     }
 
     /**
+     * Get the list node at the bottom of the list
+     * 
+     * @return A reference to the bottom node (null if the list is empty).
+     */
+    public Node getBottom(){
+        return bottom;
+    }
+
+    /**
      * Add a new Message to the back of the queue.
      *
      * @param message The Message to enqueue.
