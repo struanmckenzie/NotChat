@@ -1,43 +1,58 @@
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.UUID;
+import java.time.format.DateTimeFormatter;
 
 public class Contact {
 
-    //Contact details depending on time could implement profile pictures
+    // Contact details depending on time could implement profile pictures
     private String name;
     private String phoneNumber;
-    private Instant creationTime;
+    private LocalDateTime creationTime;
     private UUID id;
 
-    public Contact(String name, String phoneNumber){
+    public Contact(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.creationTime = Instant.now();
+        this.creationTime = LocalDateTime.now();
         this.id = UUID.randomUUID();
     }
 
-    //Getters and setters 
+    // this is for loading already created contacts
+    public Contact(String name, String phoneNumber, LocalDateTime cTime, UUID id) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.creationTime = cTime;
+        this.id = id;
+    }
+
+    // Getters and setters
     public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getPhoneNumber(){
+    public String getPhoneNumber() {
         return phoneNumber;
-    }    
+    }
 
-    public void setPhoneNumber(String phoneNumber){
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public Instant getTime(){
+    public LocalDateTime getTime() {
         return creationTime;
     }
 
-    public UUID getID(){
+    public String getReadableTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return creationTime.format(formatter);
+
+    }
+
+    public UUID getID() {
         return id;
     }
 }

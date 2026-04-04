@@ -49,6 +49,10 @@ public class Message {
         return timestamp;
     }
 
+    public String getReadableTime(){
+        return timestamp.format(FORMATTER);
+    }
+
     /**
      * Saves this message as a single line in our data file.
      * The three fields (sender, content, timestamp) are separated by a vomma
