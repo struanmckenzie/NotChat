@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Chat {
 
@@ -93,5 +94,11 @@ public class Chat {
             return date.atStartOfDay();
         }
         return messages.getBottom().getData().getTimestamp();
+    }
+
+    public String getReadableLastMessageTime(){
+        LocalDateTime lastMessageTime =  getLastMessageTime();
+        DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return lastMessageTime.format(FORMATTER);
     }
 }

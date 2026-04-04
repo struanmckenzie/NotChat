@@ -275,7 +275,7 @@ public class LandingPage {
             refreshChatList("");
         });
 
-        // Seacrh button
+        // Search button
         JButton searchButton = createStyledButton("Search");
         searchButton.addActionListener(e -> refreshChatList(searchField.getText()));
 
@@ -459,7 +459,7 @@ public class LandingPage {
         chatTitle.setForeground(TEXT);
         chatTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
 
-        JLabel details = new JLabel("Date: " + date + " | Contact: " + statusContact + " | You: " + statusUser);
+        JLabel details = new JLabel("Date: " + chat.getReadableLastMessageTime() + " | Contact: " + statusContact + " | You: " + statusUser);
         details.setForeground(new Color(139, 148, 158));
         details.setFont(new Font("Segoe UI", Font.PLAIN, 13));
 
