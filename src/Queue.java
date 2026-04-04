@@ -38,12 +38,20 @@ public class Queue {
         top = newTop;
     }
 
-
     /**
      * Create new bottom node
      */
     public void setBottom(Node newBottom) {
         bottom = newBottom;
+    }
+
+    /**
+     * Get the list node at the bottom of the list
+     * 
+     * @return A reference to the bottom node (null if the list is empty).
+     */
+    public Node getBottom(){
+        return bottom;
     }
 
     /**
@@ -86,7 +94,6 @@ public class Queue {
         return count;
     }
 
-
     /**
      * Check if the list is empty.
      * 
@@ -96,48 +103,49 @@ public class Queue {
         return top == null;
     }
 
-     /**
-      * Remove and return the Message at the front of the queue.
-      *
-      * @return The oldest Message, or null if the queue is empty.
-      */
-     public Message pop() {
-         if (isEmpty()) {
-             System.out.println("Queue is empty. Nothing to remove.");
-             return null;
-         }
-         Message data = top.getData();
-         top = top.getNext();
-         if (top == null) {
-             bottom = null;
-         }
-         return data;
-     }
+    /**
+     * Remove and return the Message at the front of the queue.
+     *
+     * @return The oldest Message, or null if the queue is empty.
+     */
+    public Message pop() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty. Nothing to remove.");
+            return null;
+        }
+        Message data = top.getData();
+        top = top.getNext();
+        if (top == null) {
+            bottom = null;
+        }
+        return data;
+    }
 
-     /**
-      * Peek at a message at a specific index without removing it from the queue.
-      *
-      * @param index The position of the message (0-based).
-      * @return The Message at the specified index, or null if index is out of bounds.
-      */
-     public Message peek(int index) {
-         if (index < 0) {
-             return null;
-         }
-         Node current = top;
-         int count = 0;
-         while (current != null) {
-             if (count == index) {
-                 return current.getData();
-             }
-             count++;
-             current = current.getNext();
-         }
-         return null;
-     }
+    /**
+     * Peek at a message at a specific index without removing it from the queue.
+     *
+     * @param index The position of the message (0-based).
+     * @return The Message at the specified index, or null if index is out of
+     *         bounds.
+     */
+    public Message peek(int index) {
+        if (index < 0) {
+            return null;
+        }
+        Node current = top;
+        int count = 0;
+        while (current != null) {
+            if (count == index) {
+                return current.getData();
+            }
+            count++;
+            current = current.getNext();
+        }
+        return null;
+    }
 
-     /**
-      * Saves all messages in the queue to a CSV file.
+    /**
+     * Saves all messages in the queue to a CSV file.
      * The file will contain one message per line.
      * Existing file contents are overwritten.
      *
@@ -172,5 +180,55 @@ public class Queue {
         } catch (IOException e) {
             System.out.println("Error loading from CSV: " + e.getMessage());
         }
+    }
+
+    //Gets the last 3 nodes/messages in the queue
+    public Message[] getLastThree() {
+        Message[] lastThree = new Message[3];
+
+        Node current = top;
+        int count = 0;
+
+        while (current != null) {
+            // Shift left
+            if (count >= 2) {
+                lastThree[0] = lastThree[1];
+                lastThree[1] = lastThree[2];
+                lastThree[2] = current.getData();
+            } else {
+                lastThree[count] = current.getData();
+            }
+
+            count++;
+            current = current.getNext();
+        }
+
+        // Handle cases where queue has < 3 elements
+        if (count < 3) {
+            Message[] result = new Message[count];
+            for (int i = 0; i < count; i++) {
+                result[i] = lastThree[i];
+            }
+            return result;
+        }
+
+        return lastThree;
+    }
+
+    //Returns true if the search value is within any of the chat messages
+    public boolean containsSeachValue(String searchValue){
+        Node current = top;
+
+        if (current == null && searchValue.equals("")){
+            return true;
+        }
+
+        while (current != null){
+            if (current.getData().getContent().contains(searchValue) || searchValue.equals("")){
+                return true;
+            }
+            current = current.getNext();
+        }
+        return false;
     }
 }
