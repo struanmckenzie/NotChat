@@ -7,6 +7,7 @@ public class Chat {
     LocalDate date;
     String statusContact;
     String statusUser;
+    Queue messages = new Queue();
 
     public Chat(Contact contact, String chatName, LocalDate date, String statusContact, String statusUser){
         this.contact = contact;
@@ -14,6 +15,7 @@ public class Chat {
         this.date = date;
         this.statusContact = statusContact;
         this.statusUser = statusUser;
+        messages.loadFromCSV("src/resources/chats/" + chatName);
     }
 
     public void displayChat(){
@@ -63,5 +65,14 @@ public class Chat {
 
     public void setStatusUser(String statusUser) {
         this.statusUser = statusUser;
+    }
+
+    // messages
+    public Queue getMessages(){
+        return messages;
+    }
+
+    public Message[] getLast3Messages(){
+        return messages.getLastThree();
     }
 }

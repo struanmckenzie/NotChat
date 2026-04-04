@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.time.LocalDate;
 
 public class ContactPage {
 
     private JFrame frame;
     private JPanel contactsPage;
-    private List<Contact> contacts;
+    private static List<Contact> contacts;
+    private List<Chat> chats;
     private final String USERNAME;
     public static ContactPage contactPage;
     private Boolean alphabeltical = false;
@@ -71,7 +73,6 @@ public class ContactPage {
 
         reloadContacts();
 
-
         JScrollPane contactsPageScrollable = new JScrollPane(contactsPage);
         contactsPageScrollable.getVerticalScrollBar().setUnitIncrement(20);
 
@@ -88,6 +89,7 @@ public class ContactPage {
 
     public void reloadContacts() {
         contactsPage.removeAll(); // clear previous contacts
+        loadChats();
 
         JLabel sortTitle = new JLabel(sorted);
         sortTitle.setFont(new Font("Arial", Font.BOLD, 26));
@@ -142,10 +144,14 @@ public class ContactPage {
         JButton submitButton = new JButton("Add Contact");
         submitButton.addActionListener(e -> addContact(nameText.getText(), phoneNumberText.getText()));
 
+        JButton returnButton = new JButton("Return to contacts");
+        returnButton.addActionListener(e -> reloadContacts());
+
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         nameField.setAlignmentX(Component.CENTER_ALIGNMENT);
         phoneNumberField.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         constraints.gridy = 0;
         addNewContactPage.add(title, constraints);
@@ -158,6 +164,9 @@ public class ContactPage {
 
         constraints.gridy = 3;
         addNewContactPage.add(submitButton, constraints);
+
+        constraints.gridy = 4;
+        addNewContactPage.add(returnButton, constraints);
 
         contactsPage.add(addNewContactPage);
 
@@ -182,7 +191,7 @@ public class ContactPage {
 
         InputBox nameField = new InputBox();
         nameField.setPreferredSize(new Dimension(760, 80));
-        JTextArea nameText = new JTextArea();
+        JTextArea nameText = new JTextArea(contact.getName());
         nameText.setPreferredSize(new Dimension(720, 70));
         nameText.setWrapStyleWord(true);
         nameText.setLineWrap(true);
@@ -192,7 +201,7 @@ public class ContactPage {
 
         InputBox phoneNumberField = new InputBox();
         phoneNumberField.setPreferredSize(new Dimension(760, 80));
-        JTextArea phoneNumberText = new JTextArea();
+        JTextArea phoneNumberText = new JTextArea(contact.getPhoneNumber());
         phoneNumberText.setPreferredSize(new Dimension(720, 70));
         phoneNumberText.setWrapStyleWord(true);
         phoneNumberText.setLineWrap(true);
@@ -201,12 +210,17 @@ public class ContactPage {
         phoneNumberField.add(phoneNumberText, BorderLayout.CENTER);
 
         JButton submitButton = new JButton("Edit contact");
-        submitButton.addActionListener(e -> editContact(contact.getID() ,nameText.getText(), phoneNumberText.getText()));
+        submitButton
+                .addActionListener(e -> editContact(contact.getID(), nameText.getText(), phoneNumberText.getText()));
+
+        JButton returnButton = new JButton("Return to contacts");
+        returnButton.addActionListener(e -> reloadContacts());
 
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         nameField.setAlignmentX(Component.CENTER_ALIGNMENT);
         phoneNumberField.setAlignmentX(Component.CENTER_ALIGNMENT);
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         constraints.gridy = 0;
         editContactPage.add(title, constraints);
@@ -220,13 +234,16 @@ public class ContactPage {
         constraints.gridy = 3;
         editContactPage.add(submitButton, constraints);
 
+        constraints.gridy = 4;
+        editContactPage.add(returnButton, constraints);
+
         contactsPage.add(editContactPage);
 
         contactsPage.revalidate(); // refresh layout
         contactsPage.repaint(); // redraw panel
     }
 
-    public void viewContactPage(Contact contact){
+    public void viewContactPage(Contact contact) {
         contactsPage.removeAll();
 
         JPanel viewContactPage = new JPanel();
@@ -236,27 +253,56 @@ public class ContactPage {
         constraints.gridx = 0;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets = new Insets(10, 0, 10, 0);
+        constraints.insets = new Insets(10, 500, 10, 500);
 
         JLabel name = new JLabel("Name: " + contact.getName());
         name.setFont(new Font("Arial", Font.BOLD, 28));
 
-
         JLabel phoneNumber = new JLabel("Phone Number: " + contact.getPhoneNumber());
         phoneNumber.setFont(new Font("Arial", Font.BOLD, 26));
-
 
         JLabel date = new JLabel("Contact created: " + contact.getReadableTime());
         date.setFont(new Font("Arial", Font.BOLD, 22));
 
+        JLabel mostRecentMessages = new JLabel("Most recent messages");
+        mostRecentMessages.setFont(new Font("Arial", Font.BOLD, 22));
+
         constraints.gridy = 0;
         viewContactPage.add(name, constraints);
-        
+
         constraints.gridy = 1;
         viewContactPage.add(phoneNumber, constraints);
 
         constraints.gridy = 2;
         viewContactPage.add(date, constraints);
+
+        constraints.gridy = 3;
+        viewContactPage.add(mostRecentMessages, constraints);
+
+        Chat chat = matchContactToChat(contact);
+        Message[] last3Messages = chat.getLast3Messages();
+        if (last3Messages.length == 0) {
+            JLabel noMessagesText = new JLabel("There are no messages between you and this contact");
+            noMessagesText.setFont(new Font("Arial", Font.BOLD, 20));
+        }
+        for (Message message : last3Messages) {
+            ChatMessage chatMessage = new ChatMessage(message.getContent(), message.getSender(),
+                    message.getReadableTime(), contact.getID().toString());
+            JPanel chatMessageBox = chatMessage.getDisplayMessage();
+
+            constraints.gridy++;
+            constraints.fill = GridBagConstraints.HORIZONTAL;
+            constraints.weightx = 0.8;
+            viewContactPage.add(chatMessageBox, constraints);
+        }
+
+        JButton returnButton = new JButton("Return to contacts");
+        returnButton.addActionListener(e -> reloadContacts());
+
+        constraints.gridy ++;
+        constraints.weightx = 0;
+        constraints.fill = GridBagConstraints.NONE;
+        viewContactPage.add(returnButton, constraints);
 
         contactsPage.add(viewContactPage);
 
@@ -270,9 +316,9 @@ public class ContactPage {
         reloadContacts();
     }
 
-    private void editContact(UUID id, String contactName, String phoneNumber){
-        for (Contact c : contacts){
-            if (c.getID().equals(id)){
+    private void editContact(UUID id, String contactName, String phoneNumber) {
+        for (Contact c : contacts) {
+            if (c.getID().equals(id)) {
                 c.setName(contactName);
                 c.setPhoneNumber(phoneNumber);
             }
@@ -280,8 +326,8 @@ public class ContactPage {
         reloadContacts();
     }
 
-    private void sortContacts(){
-        if (alphabeltical){
+    private void sortContacts() {
+        if (alphabeltical) {
             contacts.sort(Comparator.comparing(Contact::getTime).reversed());
             sorted = "Recently added";
             alphabeltical = false;
@@ -293,7 +339,7 @@ public class ContactPage {
         reloadContacts();
     }
 
-    public static List<Contact> loadContacts(){
+    public static List<Contact> loadContacts() {
         List<Contact> contacts = new ArrayList<>();
 
         // this is gonna load contacts from FILES
@@ -315,6 +361,7 @@ public class ContactPage {
 
     /**
      * loads list of contacts into a list
+     * 
      * @param username name of current user
      */
     static void launch(String username) {
@@ -328,7 +375,7 @@ public class ContactPage {
      * save list of contacts to ONE FILE
      * each line stores 1 contacts details
      */
-    private void saveContacts() {
+    public static void saveContacts() {
         try (PrintWriter pw = new PrintWriter(new FileWriter("src/resources/contacts"))) {
             for (Contact contact : contacts) {
                 pw.println(contact.getName() + "," +
@@ -339,5 +386,41 @@ public class ContactPage {
         } catch (IOException e) {
             System.out.println("Error saving contacts: " + e.getMessage());
         }
+    }
+
+    private void loadChats() {
+        chats = new ArrayList<>();
+
+        // this is gonna load contacts from FILES
+        try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // read line and split into parts
+                String[] c = line.split(",");
+
+                // add to arraylist
+                chats.add(new Chat(matchContact(c[0]), c[0], LocalDate.parse(c[1]), c[2], c[3]));
+            }
+        } catch (IOException e) {
+            System.out.println("Error loading chats: " + e.getMessage());
+        }
+    }
+
+    private Contact matchContact(String id) {
+        for (Contact contact : contacts) {
+            if (contact.getID().toString().equals(id)) {
+                return contact;
+            }
+        }
+        return null;
+    }
+
+    private Chat matchContactToChat(Contact contact) {
+        for (Chat chat : chats) {
+            if (chat.getContact() == contact) {
+                return chat;
+            }
+        }
+        return null;
     }
 }

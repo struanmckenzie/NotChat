@@ -60,6 +60,7 @@ public class ContactDetails {
 
     public void deleteContact() {
         allContacts.remove(contact);
+        ContactPage.saveContacts();
         ContactPage.contactPage.reloadContacts();
     }
 
