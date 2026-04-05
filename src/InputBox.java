@@ -9,7 +9,6 @@ public class InputBox extends JPanel {
         setOpaque(false);
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 20));
-        // background will be set by the caller (e.g., PANEL color)
     }
 
     @Override
