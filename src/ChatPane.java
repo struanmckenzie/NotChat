@@ -47,7 +47,7 @@ public class ChatPane extends JFrame {
         int height = screenSize.height * 5 / 6;
 
         // frame
-        JFrame frame = new JFrame(chatName);
+        JFrame frame = new JFrame(chatDetails.getContact().getName());
         frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         frame.setSize(width, height);
         frame.setLocationRelativeTo(null);

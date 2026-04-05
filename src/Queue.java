@@ -203,7 +203,7 @@ public class Queue {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (!line.isBlank()) {
+                if (line.length() != 0) {
                     push(Message.fromCSVRow(line));
                 }
             }

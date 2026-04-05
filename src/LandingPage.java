@@ -66,20 +66,6 @@ public class LandingPage {
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(BG);
 
-        frame.addWindowFocusListener(new WindowFocusListener() {
-            @Override
-            public void windowGainedFocus(WindowEvent e) {
-                loadChats();
-                refreshChatList("");
-            }
-
-            @Override
-            public void windowLostFocus(WindowEvent e) {
-                loadChats();
-                refreshChatList("");
-            }
-        });
-
         String username = loadUsername();
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(BG);
@@ -344,6 +330,21 @@ public class LandingPage {
             }
         });
 
+        //Makes it so the window refreshs when coming back from a chat window/ any other window
+        frame.addWindowFocusListener(new WindowFocusListener() {
+            @Override
+            public void windowGainedFocus(WindowEvent e) {
+                loadChats();
+                refreshChatList(searchField.getText());
+            }
+
+            @Override
+            public void windowLostFocus(WindowEvent e) {
+                loadChats();
+                refreshChatList(searchField.getText());
+            }
+        });
+
         // ===== Creates chats from the list_of_chats file =====
 
         refreshChatList("");
@@ -490,8 +491,9 @@ public class LandingPage {
     // Checks to see if there is already a chat that has been created with the given
     // contact
     private Boolean checkIfChatExists(Contact contact) {
+        loadChats();
         for (Chat chat : chats) {
-            if (chat.getContact() == contact) {
+            if (chat.getContact().getID().toString().equals(contact.getID().toString())) {
                 return true;
             }
         }
@@ -525,7 +527,7 @@ public class LandingPage {
 
     }
 
-    // deletes the chat file and delets it from the list_of_chats file
+    // deletes the chat file and deletes it from the list_of_chats file
     private void deleteChat(String id) {
         try {
             Path path = Paths.get("src/resources/chats/" + id);
@@ -536,7 +538,7 @@ public class LandingPage {
 
         List<Chat> chats = new ArrayList<>();
 
-        // this is gonna load chats from FILES
+        // this is gonna load chats from FILES and removes the chat if teh contact doesn't exist
         try (BufferedReader br = new BufferedReader(new FileReader("src/resources/list_of_chats"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -566,6 +568,7 @@ public class LandingPage {
             System.out.println("Error saving contacts: " + e.getMessage());
         }
 
+        loadChats();
         refreshChatList("");
 
     }
